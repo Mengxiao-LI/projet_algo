@@ -7,4 +7,5 @@ add_executable(projet_Mengxiao_Zhengdao main.c
         echauffement/echauffement.h
         echauffement/echauffement.c
         echauffement/test/testEchauffement.c
-        echauffement/test/testEchauffement.h)
+        echauffement/test/testEchauffement.h
+        tas/tas.h)
