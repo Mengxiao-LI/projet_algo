@@ -3,77 +3,108 @@
 
 
 
-#include <stdlib.h>
-#include <stdio.h>
+#include<stdio.h>
+#include<stdlib.h>
+#include<assert.h>
+#include<stdbool.h>
 #include "tas.h"
-minHp HeapInit(int capacity) {
-    minHp newHeap = (minHp)malloc(sizeof(heap));
+#include "list.h"
 
-    newHeap->data = (HeapDataType*)malloc(capacity * sizeof(HeapDataType));
-
-    newHeap->size = 0;
-    newHeap->capacity = capacity;
-
-    return newHeap;
+//初始化堆ok
+void HeapInit(HP* minHp)
+{
+    assert(minHp);
+    minHp->a = NULL;
+    minHp->size = minHp->capacity = 0;
 }
-void freeMinHeap(minHp minHp) {
-    if (minHp != NULL) {
-        free(minHp->data);
-        free(minHp);
-    }
+//销毁堆ok
+void HeapDestroy(HP* minHp)
+{
+    assert(minHp);
+    free(minHp->a);
+    minHp->a = NULL;
+    minHp->size = minHp->capacity = 0;
 }
-minHp SupprMin(minHp minHp){
+//删除ok
+HP * SupprMin(HP * minHp){
     if(minHp->size==0){
         return minHp;
     }
+    minHp->a[0]=minHp->a[minHp->size-1];
+    minHp->size--;
+    int parent=0;
+    int fG=2*parent+1;
+    int fD=2*parent+2;
 
-    int parent;
-    parent = 1;
-    while (2 * parent <= minHp->size) {
-        int leftChild = 2 * parent;
-        int rightChild = 2 * parent + 1;
-        int smallerChild = leftChild;
+    while (fG < minHp->size) {
+        int smallerChild = fG;
 
-        if (rightChild <= minHp->size && minHp->data[rightChild] < minHp->data[leftChild]) {
-            smallerChild = rightChild;
+        if (fD < minHp->size && minHp->a[fD] < minHp->a[fG]) {
+            smallerChild = fD;
         }
 
-        if (minHp->data[parent] <= minHp->data[smallerChild]) {
+        if (minHp->a[parent] > minHp->a[smallerChild]) {
+            HPDataType temp = minHp->a[parent];
+            minHp->a[parent] = minHp->a[smallerChild];
+            minHp->a[smallerChild] = temp;
+
+            parent = smallerChild;
+            fG = 2 * parent + 1;
+            fD = 2 * parent + 2;
+        } else {
             break;
         }
-
-        HeapDataType temp = minHp->data[parent];
-        minHp->data[parent] = minHp->data[smallerChild];
-        minHp->data[smallerChild] = temp;
-
-        parent = smallerChild;
     }
 
     return minHp;
 }
-
-minHp Ajout(minHp minHp,int cle){
-    if(minHp->size==minHp->capacity){
-        minHp->capacity++;
+//charu ok
+HP * Ajout(HP* minHp, int x)
+{
+    assert(minHp);
+    if (minHp->size == minHp->capacity)//扩容
+    {
+        int newcapacity = minHp->capacity == 0 ? 4 : minHp->capacity * 2;
+        //realloc扩容
+        HPDataType* tmp = (HPDataType*)realloc(minHp->a, sizeof(HPDataType) * newcapacity);
+        if (tmp == NULL)
+        {
+            printf("realloc fail\n");
+            exit(-1);
+        }
+        minHp->a = tmp;
+        minHp->capacity = newcapacity;
     }
     minHp->size++;
-    int i = minHp->size;
-    while (i > 1 && cle < minHp->data[i / 2]) {
-        minHp->data[i] = minHp->data[i / 2];
-        i /= 2;
+    int fils = minHp->size - 1;
+    int parent = (fils - 1) / 2;
+    minHp->a[fils] = x;
+    while (fils > 0 && minHp->a[fils] < minHp->a[parent]) {
+        // 交换 fils 和 parent 的值
+        int temp = minHp->a[fils];
+        minHp->a[fils] = minHp->a[parent];
+        minHp->a[parent] = temp;
+
+        // 更新 fils 和 parent 的索引
+        fils = parent;
+        parent = (fils - 1) / 2;
     }
-    minHp->data[i]=cle;
     return minHp;
 }
 
-minHp AjoutsIteratifs(minHp minHp,int cles[]){
-    int length = sizeof(cles) / sizeof(cles[0]);
-    //上面不安全，需要改
-    int i=0;
-    while (i<length){
-        Ajout(&minHp,cles[i]);
-        i++;
+HP *AjoutsIteratifs(HP *minHp,Liste l){
+    while (l !=NULL){
+        Ajout(minHp,l->nombre);
+        l = l->suivant;
     }
     return minHp;
 
+}
+void AfficheTasArray(HP *hp){
+    printf("tasArray:");
+    for (int i = 0; i < hp->size; i++)
+    {
+        printf("%d ", hp->a[i]);
+    }
+    printf("\n");
 }

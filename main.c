@@ -2,6 +2,8 @@
 #include <intrin.h>
 #include "echauffement/echauffement.h"
 #include "echauffement/test/testEchauffement.h"
+#include "tas/list.h"
+#include "tas/tas.h"
 
 int main() {
     printf("Question1\n");
@@ -63,9 +65,41 @@ int main() {
         free(hexStr1);
         free(hexStr2);
     }
+//Q2
+    printf("Question2\n");
 
 
 
+    // 初始化堆
+    HP hp;
+
+    HeapInit (&hp);
+    AfficheTasArray(&hp);
+    Ajout(&hp,10);
+    Ajout(&hp,3);
+    Ajout(&hp,5);
+    Ajout(&hp,1);
+    Ajout(&hp,2);
+    Ajout(&hp,4);
+    AfficheTasArray(&hp);
+    SupprMin(&hp);
+    AfficheTasArray(&hp);
+    HeapDestroy(&hp);
+    // 清理资源
+    Liste l1;
+    initVide (&l1);
+    empile(5, &l1);
+    empile(4, &l1);
+    empile(3, &l1);
+    empile(10, &l1);
+    affiche_rec(l1);
+    HP hp1;
+    HeapInit (&hp1);
+
+    AfficheTasArray(&hp1);
+    AjoutsIteratifs(&hp1,l1);
+    AfficheTasArray(&hp1);
+    HeapDestroy(&hp1);
 
     return 0;
 }
