@@ -97,6 +97,10 @@ int main() {
     empile(4, &l1);
     empile(3, &l1);
     empile(10, &l1);
+    empile(2, &l1);
+    empile(19, &l1);
+    empile(13, &l1);
+    empile(41, &l1);
     printf("list is: ");
     affiche_rec(l1);
     HP hp1;
@@ -105,6 +109,10 @@ int main() {
     AfficheTasArray(&hp1);
     AfficheTasArbre(&hp1);
     HeapDestroy(&hp1);
-
+    printf("-----Q2.2 Construction:-----\n");
+    HP* hp2 = Construction(l1);
+    AfficheTasArray(hp2);
+    AfficheTasArbre(hp2);
+    HeapDestroy(&hp2);
     return 0;
 }

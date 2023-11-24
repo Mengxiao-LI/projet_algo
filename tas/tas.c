@@ -134,3 +134,44 @@ void AfficheTasArbre(HP *hp) {
         printf("\n");
     }
 }
+
+HP* Construction(Liste l) {
+    HP* minHp = (HP*)malloc(sizeof(HP));
+    if (minHp == NULL) {
+        exit(-1);
+    }
+    HeapInit(minHp);
+    while (l != NULL) {
+        if (minHp->size == minHp->capacity) {
+            minHp->capacity = (minHp->capacity == 0) ? 4 : minHp->capacity * 2;
+            minHp->a = (int*)realloc(minHp->a, sizeof(int) * minHp->capacity);
+            if (minHp->a == NULL) {
+                exit(-1); // 内存分配失败
+            }
+        }
+
+        minHp->a[minHp->size] = l->nombre;
+        minHp->size++;
+        l = l->suivant;
+    }
+
+    int parent = (minHp->size - 2) / 2;
+    while (parent>=0){
+        int fG=2*parent+1;
+        int fD=2*parent+2;
+        int smallerChild = fG;
+
+        if (fD < minHp->size && minHp->a[fD] < minHp->a[fG]) {
+            smallerChild = fD;
+        }
+        if (minHp->a[parent] > minHp->a[smallerChild]) {
+            HPDataType temp = minHp->a[parent];
+            minHp->a[parent] = minHp->a[smallerChild];
+            minHp->a[smallerChild] = temp;
+        }
+        parent--;
+
+    }
+
+    return minHp;
+}

@@ -12,11 +12,11 @@ typedef struct Bloc
 } Bloc;
 
 typedef Bloc *Liste ;
-/* initialise une Liste   vide */
+
+
 void initVide(Liste *L);
 Liste ajoute(int x, Liste l);
 void empile(int x, Liste *L);
-
 void affiche_rec(Liste l);
 
 #endif //PROJET_MENGXIAO_ZHENGDAO_LIST_H

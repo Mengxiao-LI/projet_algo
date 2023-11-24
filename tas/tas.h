@@ -23,6 +23,7 @@ void AfficheTasArbre(HP *  minHp);
 HP * Ajout(HP * minHp,int cle);
 HP *  SupprMin(HP * minHp);
 HP *  AjoutsIteratifs(HP *  minHp,Liste l);
+HP * Construction(Liste l);
 
 
 
