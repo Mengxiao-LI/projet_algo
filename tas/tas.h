@@ -19,9 +19,9 @@ typedef struct Heap
 void HeapInit(HP* minHp);
 void HeapDestroy(HP* minHp);
 void AfficheTasArray(HP *  minHp);
+void AfficheTasArbre(HP *  minHp);
 HP * Ajout(HP * minHp,int cle);
 HP *  SupprMin(HP * minHp);
-
 HP *  AjoutsIteratifs(HP *  minHp,Liste l);
 
 

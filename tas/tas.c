@@ -108,3 +108,29 @@ void AfficheTasArray(HP *hp){
     }
     printf("\n");
 }
+void AfficheTasArbre(HP *hp) {
+    if (hp == NULL || hp->size == 0) {
+        printf("The heap is empty.\n");
+        return;
+    }
+    printf("tasArbre\n");
+    int level = 0;
+    int count = 0;
+    int maxLevelNodes = 1;
+
+    for (int i = 0; i < hp->size; i++) {
+        printf("%d ", hp->a[i]);
+        count++;
+
+        if (count == maxLevelNodes) { // 当前层级打印完毕
+            printf("\n");
+            level++;
+            count = 0;
+            maxLevelNodes *= 2; // 下一层的节点数是当前层的两倍
+        }
+    }
+
+    if (count > 0) { // 打印最后一层的剩余部分
+        printf("\n");
+    }
+}

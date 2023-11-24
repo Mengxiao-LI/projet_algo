@@ -74,6 +74,7 @@ int main() {
     HP hp;
 
     HeapInit (&hp);
+    printf("-----Q2.1 Ajout:-----\n");
     AfficheTasArray(&hp);
     Ajout(&hp,10);
     Ajout(&hp,3);
@@ -82,23 +83,27 @@ int main() {
     Ajout(&hp,2);
     Ajout(&hp,4);
     AfficheTasArray(&hp);
+    AfficheTasArbre(&hp);
+    printf("-----Q2.1 supprMin:------\n");
     SupprMin(&hp);
     AfficheTasArray(&hp);
+    AfficheTasArbre(&hp);
     HeapDestroy(&hp);
     // 清理资源
+    printf("-----Q2.1 AjoutsIteratifs:-----\n");
     Liste l1;
     initVide (&l1);
     empile(5, &l1);
     empile(4, &l1);
     empile(3, &l1);
     empile(10, &l1);
+    printf("list is: ");
     affiche_rec(l1);
     HP hp1;
     HeapInit (&hp1);
-
-    AfficheTasArray(&hp1);
     AjoutsIteratifs(&hp1,l1);
     AfficheTasArray(&hp1);
+    AfficheTasArbre(&hp1);
     HeapDestroy(&hp1);
 
     return 0;

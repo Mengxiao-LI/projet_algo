@@ -25,6 +25,7 @@ void empile(int x, Liste *L)
 
 void affiche_rec(Liste l)
 {
+
     if(l==NULL)
         printf("\n");
     else
