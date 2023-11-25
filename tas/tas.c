@@ -157,20 +157,30 @@ HP* Construction(Liste l) {
 
     int parent = (minHp->size - 2) / 2;
     while (parent>=0){
-        int fG=2*parent+1;
-        int fD=2*parent+2;
-        int smallerChild = fG;
+        while(true){
+            int fG=2*parent+1;
+            int fD=2*parent+2;
+            int smaller = parent;
 
-        if (fD < minHp->size && minHp->a[fD] < minHp->a[fG]) {
-            smallerChild = fD;
+            if (fG < minHp->size && minHp->a[fG] < minHp->a[smaller]) {
+                smaller = fG;
+            }
+            if (fD < minHp->size && minHp->a[fD] < minHp->a[smaller]) {
+                smaller = fD;
+            }
+
+            if (smaller!=parent) {
+                HPDataType temp = minHp->a[parent];
+                minHp->a[parent] = minHp->a[smaller];
+                minHp->a[smaller] = temp;
+                parent = smaller;
+            }else{
+                break;
+            }
+
         }
-        if (minHp->a[parent] > minHp->a[smallerChild]) {
-            HPDataType temp = minHp->a[parent];
-            minHp->a[parent] = minHp->a[smallerChild];
-            minHp->a[smallerChild] = temp;
-        }
+
         parent--;
-
     }
 
     return minHp;
