@@ -88,8 +88,8 @@ int main() {
     SupprMin(&hp);
     AfficheTasArray(&hp);
     AfficheTasArbre(&hp);
-    HeapDestroy(&hp);
-    // 清理资源
+
+
     printf("-----Q2.1 AjoutsIteratifs:-----\n");
     Liste l1;
     initVide (&l1);
@@ -108,11 +108,18 @@ int main() {
     AjoutsIteratifs(&hp1,l1);
     AfficheTasArray(&hp1);
     AfficheTasArbre(&hp1);
-    HeapDestroy(&hp1);
+
     printf("-----Q2.2 Construction:-----\n");
     HP* hp2 = Construction(l1);
     AfficheTasArray(hp2);
     AfficheTasArbre(hp2);
+    printf("-----Q2.2 Union:-----\n");
+    HP* hp3 = Union(hp2,&hp1);
+    AfficheTasArray(hp3);
+    AfficheTasArbre(hp3);
+    // 清理资源
+    HeapDestroy(&hp);
+    HeapDestroy(&hp1);
     HeapDestroy(&hp2);
     return 0;
 }

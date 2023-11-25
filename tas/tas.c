@@ -185,3 +185,66 @@ HP* Construction(Liste l) {
 
     return minHp;
 }
+/*删
+ * 复杂度计算
+https://blog.csdn.net/weixin_44611096/article/details/123608836*/
+HP *Union(HP *minHp1, HP *minHp2) {
+
+    if (minHp1 == NULL || minHp2 == NULL) {
+        return NULL;
+    }
+
+    HP* minHp = (HP*)malloc(sizeof(HP));
+    if (minHp == NULL) {
+        exit(-1);
+    }
+    HeapInit(minHp);
+
+    minHp->capacity = minHp1->size + minHp2->size;
+    minHp->size = minHp->capacity;
+    minHp->a = (int*)malloc(sizeof(int) * minHp->capacity);
+
+    if (minHp->a == NULL) {
+        free(minHp);
+        return NULL; // 内存分配失败
+    }
+
+    // 合并两个堆的数据
+    for (int i = 0; i < minHp1->size; i++) {
+        minHp->a[i] = minHp1->a[i];
+    }
+    for (int i = 0; i < minHp2->size; i++) {
+        minHp->a[i + minHp1->size] = minHp2->a[i];
+    }
+
+    int parent = (minHp->size - 2) / 2;
+    while (parent>=0){
+        while(true){
+            int fG=2*parent+1;
+            int fD=2*parent+2;
+            int smaller = parent;
+
+            if (fG < minHp->size && minHp->a[fG] < minHp->a[smaller]) {
+                smaller = fG;
+            }
+            if (fD < minHp->size && minHp->a[fD] < minHp->a[smaller]) {
+                smaller = fD;
+            }
+
+            if (smaller!=parent) {
+                HPDataType temp = minHp->a[parent];
+                minHp->a[parent] = minHp->a[smaller];
+                minHp->a[smaller] = temp;
+                parent = smaller;
+            }else{
+                break;
+            }
+
+        }
+
+        parent--;
+    }
+
+
+    return minHp;
+}
