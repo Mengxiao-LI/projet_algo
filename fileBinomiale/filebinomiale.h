@@ -29,6 +29,6 @@ typedef struct FileBinomiale{
 //primitive
 bool EstVide(Tournoi t);
 int Degre(Tournoi t);
-
+Tournoi Union2Tid(Tournoi t1,Tournoi t2);
 
 #endif

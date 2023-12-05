@@ -11,7 +11,6 @@ int Degre(Tournoi t) {
         degre++;
         current = current->frere;
     }
-
     return degre;
 }
 
