@@ -2,10 +2,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "projet_Mengxiao_Zhengdao.exe"
-		},
-		{
-			"path" : "projet_Mengxiao_Zhengdao.pdb"
+			"path" : "projet_Mengxiao_Zhengdao"
 		}
 	],
 	"backtrace" : 1,
@@ -38,7 +35,7 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "-g -std=gnu11 -fdiagnostics-color=always"
+					"fragment" : "-g -std=gnu11 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fcolor-diagnostics"
 				}
 			],
 			"language" : "C",
@@ -72,16 +69,12 @@
 			{
 				"fragment" : "",
 				"role" : "flags"
-			},
-			{
-				"fragment" : "-lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32",
-				"role" : "libraries"
 			}
 		],
 		"language" : "C"
 	},
 	"name" : "projet_Mengxiao_Zhengdao",
-	"nameOnDisk" : "projet_Mengxiao_Zhengdao.exe",
+	"nameOnDisk" : "projet_Mengxiao_Zhengdao",
 	"paths" : 
 	{
 		"build" : ".",

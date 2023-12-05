@@ -1,9 +1,11 @@
 #include <stdio.h>
-#include <intrin.h>
+#include <string.h>
+//#include <intrin.h>
 #include "echauffement/echauffement.h"
 #include "echauffement/test/testEchauffement.h"
 #include "tas/list.h"
 #include "tas/tas.h"
+
 
 int main() {
     printf("Question1\n");

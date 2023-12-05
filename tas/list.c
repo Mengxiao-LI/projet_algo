@@ -1,5 +1,11 @@
 #include <stdio.h>
+//#include <malloc.h>
+#ifdef _MSC_VER
+// MSVC Compiler
 #include <malloc.h>
+#else
+#include <stdlib.h>
+#endif
 #include "list.h"
 
 //
