@@ -1,0 +1,69 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.26"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "projet_Mengxiao_Zhengdao",
+					"targetIndexes" : 
+					[
+						0,
+						1
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "filebinomiale::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-filebinomiale-Debug-19509b0421a7ab0858a0.json",
+					"name" : "filebinomiale",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "projet_Mengxiao_Zhengdao::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-projet_Mengxiao_Zhengdao-Debug-b4d910aa35047fb3e8f4.json",
+					"name" : "projet_Mengxiao_Zhengdao",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/Projet/projet_algo/cmake-build-debug",
+		"source" : "C:/Projet/projet_algo"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 5
+	}
+}

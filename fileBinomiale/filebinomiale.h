@@ -22,13 +22,20 @@ typedef struct Tournoi {
 
 //struct file binomiale
 typedef struct FileBinomiale{
-    Tournoi ** tree; //pointe vers un pointeur
+    Tournoi ** file; //pointe vers un pointeur
     int size;
 }FileBinomiale;
 
-//primitive
-bool EstVide(Tournoi t);
+//primitive tournois
+bool EstVide_T(Tournoi t);
 int Degre(Tournoi t);
+Tournoi Union2Tid(Tournoi t1,Tournoi t2);
+
+//primitive file binomiale
+bool EstVide_FB(FileBinomiale fb);
+Tournoi* MinDeg(FileBinomiale fb);
+FileBinomiale Reste(FileBinomiale fb);
+FileBinomiale AjoutMin(Tournoi t,FileBinomiale fb);
 
 
 #endif
