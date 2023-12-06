@@ -8,147 +8,147 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/Users/zyu/Desktop/Projet/projet_algo/cmake-build-debug"/>
+				<Option working_dir="C:/Projet/projet_algo/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/Users/zyu/Desktop/Projet/projet_algo/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/zyu/Desktop/Projet/projet_algo/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/Users/zyu/Desktop/Projet/projet_algo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/zyu/Desktop/Projet/projet_algo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Projet/projet_algo/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Projet/projet_algo/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Projet/projet_algo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Projet/projet_algo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="projet_Mengxiao_Zhengdao">
-				<Option output="/Users/zyu/Desktop/Projet/projet_algo/cmake-build-debug/projet_Mengxiao_Zhengdao" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/Users/zyu/Desktop/Projet/projet_algo/cmake-build-debug"/>
+				<Option output="C:/Projet/projet_algo/cmake-build-debug/projet_Mengxiao_Zhengdao.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Projet/projet_algo/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/14.0.3/include"/>
-					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
-					<Add directory="/System/Library/Frameworks"/>
-					<Add directory="/Library/Frameworks"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../include"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/Users/zyu/Desktop/Projet/projet_algo/cmake-build-debug/Makefile&quot;  VERBOSE=1 projet_Mengxiao_Zhengdao"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/zyu/Desktop/Projet/projet_algo/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/Users/zyu/Desktop/Projet/projet_algo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/zyu/Desktop/Projet/projet_algo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Projet/projet_algo/cmake-build-debug/Makefile&quot;  VERBOSE=1 projet_Mengxiao_Zhengdao"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Projet/projet_algo/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Projet/projet_algo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Projet/projet_algo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="projet_Mengxiao_Zhengdao/fast">
-				<Option output="/Users/zyu/Desktop/Projet/projet_algo/cmake-build-debug/projet_Mengxiao_Zhengdao" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/Users/zyu/Desktop/Projet/projet_algo/cmake-build-debug"/>
+				<Option output="C:/Projet/projet_algo/cmake-build-debug/projet_Mengxiao_Zhengdao.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Projet/projet_algo/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/14.0.3/include"/>
-					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
-					<Add directory="/System/Library/Frameworks"/>
-					<Add directory="/Library/Frameworks"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../include"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/Users/zyu/Desktop/Projet/projet_algo/cmake-build-debug/Makefile&quot;  VERBOSE=1 projet_Mengxiao_Zhengdao/fast"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/zyu/Desktop/Projet/projet_algo/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/Users/zyu/Desktop/Projet/projet_algo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/zyu/Desktop/Projet/projet_algo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Projet/projet_algo/cmake-build-debug/Makefile&quot;  VERBOSE=1 projet_Mengxiao_Zhengdao/fast"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Projet/projet_algo/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Projet/projet_algo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Projet/projet_algo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="filebinomiale">
-				<Option output="/Users/zyu/Desktop/Projet/projet_algo/cmake-build-debug/filebinomiale" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/Users/zyu/Desktop/Projet/projet_algo/cmake-build-debug"/>
+				<Option output="C:/Projet/projet_algo/cmake-build-debug/filebinomiale.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Projet/projet_algo/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/14.0.3/include"/>
-					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
-					<Add directory="/System/Library/Frameworks"/>
-					<Add directory="/Library/Frameworks"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../include"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/Users/zyu/Desktop/Projet/projet_algo/cmake-build-debug/Makefile&quot;  VERBOSE=1 filebinomiale"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/zyu/Desktop/Projet/projet_algo/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/Users/zyu/Desktop/Projet/projet_algo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/zyu/Desktop/Projet/projet_algo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Projet/projet_algo/cmake-build-debug/Makefile&quot;  VERBOSE=1 filebinomiale"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Projet/projet_algo/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Projet/projet_algo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Projet/projet_algo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="filebinomiale/fast">
-				<Option output="/Users/zyu/Desktop/Projet/projet_algo/cmake-build-debug/filebinomiale" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/Users/zyu/Desktop/Projet/projet_algo/cmake-build-debug"/>
+				<Option output="C:/Projet/projet_algo/cmake-build-debug/filebinomiale.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Projet/projet_algo/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/14.0.3/include"/>
-					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
-					<Add directory="/System/Library/Frameworks"/>
-					<Add directory="/Library/Frameworks"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../include"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/Users/zyu/Desktop/Projet/projet_algo/cmake-build-debug/Makefile&quot;  VERBOSE=1 filebinomiale/fast"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/zyu/Desktop/Projet/projet_algo/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/Users/zyu/Desktop/Projet/projet_algo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/zyu/Desktop/Projet/projet_algo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Projet/projet_algo/cmake-build-debug/Makefile&quot;  VERBOSE=1 filebinomiale/fast"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Projet/projet_algo/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Projet/projet_algo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Projet/projet_algo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/Users/zyu/Desktop/Projet/projet_algo/cmake-build-debug"/>
+				<Option working_dir="C:/Projet/projet_algo/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/Users/zyu/Desktop/Projet/projet_algo/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/zyu/Desktop/Projet/projet_algo/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/Users/zyu/Desktop/Projet/projet_algo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/zyu/Desktop/Projet/projet_algo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Projet/projet_algo/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Projet/projet_algo/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Projet/projet_algo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Projet/projet_algo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/Users/zyu/Desktop/Projet/projet_algo/cmake-build-debug"/>
+				<Option working_dir="C:/Projet/projet_algo/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/Users/zyu/Desktop/Projet/projet_algo/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/zyu/Desktop/Projet/projet_algo/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/Users/zyu/Desktop/Projet/projet_algo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/zyu/Desktop/Projet/projet_algo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Projet/projet_algo/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Projet/projet_algo/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Projet/projet_algo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Projet/projet_algo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/Users/zyu/Desktop/Projet/projet_algo/echauffement/echauffement.c">
+		<Unit filename="C:/Projet/projet_algo/echauffement/echauffement.c">
 			<Option target="projet_Mengxiao_Zhengdao"/>
 		</Unit>
-		<Unit filename="/Users/zyu/Desktop/Projet/projet_algo/echauffement/echauffement.h">
+		<Unit filename="C:/Projet/projet_algo/echauffement/echauffement.h">
 			<Option target="projet_Mengxiao_Zhengdao"/>
 		</Unit>
-		<Unit filename="/Users/zyu/Desktop/Projet/projet_algo/echauffement/test/testEchauffement.c">
+		<Unit filename="C:/Projet/projet_algo/echauffement/test/testEchauffement.c">
 			<Option target="projet_Mengxiao_Zhengdao"/>
 		</Unit>
-		<Unit filename="/Users/zyu/Desktop/Projet/projet_algo/echauffement/test/testEchauffement.h">
+		<Unit filename="C:/Projet/projet_algo/echauffement/test/testEchauffement.h">
 			<Option target="projet_Mengxiao_Zhengdao"/>
 		</Unit>
-		<Unit filename="/Users/zyu/Desktop/Projet/projet_algo/fileBinomiale/filebinomiale.c">
+		<Unit filename="C:/Projet/projet_algo/fileBinomiale/filebinomiale.c">
 			<Option target="filebinomiale"/>
 		</Unit>
-		<Unit filename="/Users/zyu/Desktop/Projet/projet_algo/fileBinomiale/filebinomiale.h">
+		<Unit filename="C:/Projet/projet_algo/fileBinomiale/filebinomiale.h">
 			<Option target="filebinomiale"/>
 		</Unit>
-		<Unit filename="/Users/zyu/Desktop/Projet/projet_algo/main.c">
+		<Unit filename="C:/Projet/projet_algo/main.c">
 			<Option target="projet_Mengxiao_Zhengdao"/>
 			<Option target="filebinomiale"/>
 		</Unit>
-		<Unit filename="/Users/zyu/Desktop/Projet/projet_algo/tas/list.c">
+		<Unit filename="C:/Projet/projet_algo/tas/list.c">
 			<Option target="projet_Mengxiao_Zhengdao"/>
 		</Unit>
-		<Unit filename="/Users/zyu/Desktop/Projet/projet_algo/tas/list.h">
+		<Unit filename="C:/Projet/projet_algo/tas/list.h">
 			<Option target="projet_Mengxiao_Zhengdao"/>
 		</Unit>
-		<Unit filename="/Users/zyu/Desktop/Projet/projet_algo/tas/tas.c">
+		<Unit filename="C:/Projet/projet_algo/tas/tas.c">
 			<Option target="projet_Mengxiao_Zhengdao"/>
 		</Unit>
-		<Unit filename="/Users/zyu/Desktop/Projet/projet_algo/tas/tas.h">
+		<Unit filename="C:/Projet/projet_algo/tas/tas.h">
 			<Option target="projet_Mengxiao_Zhengdao"/>
 		</Unit>
-		<Unit filename="/Users/zyu/Desktop/Projet/projet_algo/CMakeLists.txt">
+		<Unit filename="C:/Projet/projet_algo/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>
