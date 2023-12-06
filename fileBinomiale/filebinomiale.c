@@ -55,6 +55,17 @@ Tournoi Union2Tid(Tournoi t1, Tournoi t2) {
     return newTournoi;
 }
 
+FileBinomiale File(Tournoi T) {
+    // creer un nouveau file binomiale vide
+    FileBinomiale newFb;
+    newFb.size = 1; // cette file n'a que un seul tournois
+    newFb.file = malloc(sizeof(Tournoi*) * newFb.size);
+
+    newFb.file[0] = &T;
+
+    return newFb;
+}
+
 
 //primitive file binomiale
 bool EstVide_FB(FileBinomiale F) {
@@ -113,5 +124,53 @@ FileBinomiale AjoutMin(Tournoi T, FileBinomiale F) {
     return newFb;
 }
 
+FileBinomiale UnionFile(FileBinomiale F1, FileBinomiale F2) {
+    Tournoi T = {NULL}; // Null
+    return UFret(F1, F2, T);
+}
+
+FileBinomiale UFret(FileBinomiale F1, FileBinomiale F2, Tournoi T) {
+    if (EstVide_T(T)) {//T Null
+        if (EstVide_FB(F1)) return F2;
+        if (EstVide_FB(F2)) return F1;
+        Tournoi* T1 = MinDeg(F1);
+        Tournoi* T2 = MinDeg(F2);
+        if (Degre(*T1) < Degre(*T2)) {
+            return AjoutMin(*T1, UnionFile(Reste(F1), F2));
+        } else if (Degre(*T2) < Degre(*T1)) {
+            return AjoutMin(*T2, UnionFile(Reste(F2), F1));
+        } else {
+            return UFret(Reste(F1), Reste(F2), Union2Tid(*T1, *T2));
+        }
+    } else { //T non null
+        if (EstVide_FB(F1)) return UnionFile(File(T), F2);
+        if (EstVide_FB(F2)) return UnionFile(File(T), F1);
+        Tournoi *T1 = MinDeg(F1);
+        Tournoi *T2 = MinDeg(F2);
+        if (Degre(T) < Degre(*T1) && Degre(T) < Degre(*T2)) {
+            return AjoutMin(T, UnionFile(F1, F2));
+        } else if (Degre(T) == Degre(*T1) && Degre(T) == Degre(*T2)) {
+            return AjoutMin(T, UFret(Reste(F1), Reste(F2), Union2Tid(*T1, *T2)));
+        } else if (Degre(T) == Degre(*T1)) {
+            return UFret(Reste(F1), F2, Union2Tid(*T1, T));
+        } else { // Degre(T) == Degre(T2)
+            return UFret(Reste(F2), F1, Union2Tid(*T2, T));
+        }
+    }
+}
+
+
+FileBinomiale ajout_FB(Tournoi T, FileBinomiale FBn) {
+    // Créer une file binomiale FB1 contenant uniquement T
+    FileBinomiale FB1 = File(T);
+    // faire l’union de FB1 et FBn
+    return UnionFile(FB1, FBn);
+}
+
+//FileBinomiale Construction_FB
+
+FileBinomiale SupprMin_FB(FileBinomiale fb) {
+    return Reste(fb);
+}
 
 

@@ -16,4 +16,12 @@ add_executable(projet_Mengxiao_Zhengdao main.c
 add_executable(filebinomiale
         main.c
         fileBinomiale/filebinomiale.c
-        fileBinomiale/filebinomiale.h)
+        fileBinomiale/filebinomiale.h
+        echauffement/echauffement.h
+        echauffement/echauffement.c
+        echauffement/test/testEchauffement.c
+        echauffement/test/testEchauffement.h
+        tas/tas.h
+        tas/tas.c
+        tas/list.h
+        tas/list.c)

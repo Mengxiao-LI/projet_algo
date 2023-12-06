@@ -147,6 +147,7 @@ echauffement/echauffement.obj: echauffement/echauffement.c.obj
 # target to build an object file
 echauffement/echauffement.c.obj:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\projet_Mengxiao_Zhengdao.dir\build.make CMakeFiles/projet_Mengxiao_Zhengdao.dir/echauffement/echauffement.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\filebinomiale.dir\build.make CMakeFiles/filebinomiale.dir/echauffement/echauffement.c.obj
 .PHONY : echauffement/echauffement.c.obj
 
 echauffement/echauffement.i: echauffement/echauffement.c.i
@@ -155,6 +156,7 @@ echauffement/echauffement.i: echauffement/echauffement.c.i
 # target to preprocess a source file
 echauffement/echauffement.c.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\projet_Mengxiao_Zhengdao.dir\build.make CMakeFiles/projet_Mengxiao_Zhengdao.dir/echauffement/echauffement.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\filebinomiale.dir\build.make CMakeFiles/filebinomiale.dir/echauffement/echauffement.c.i
 .PHONY : echauffement/echauffement.c.i
 
 echauffement/echauffement.s: echauffement/echauffement.c.s
@@ -163,6 +165,7 @@ echauffement/echauffement.s: echauffement/echauffement.c.s
 # target to generate assembly for a file
 echauffement/echauffement.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\projet_Mengxiao_Zhengdao.dir\build.make CMakeFiles/projet_Mengxiao_Zhengdao.dir/echauffement/echauffement.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\filebinomiale.dir\build.make CMakeFiles/filebinomiale.dir/echauffement/echauffement.c.s
 .PHONY : echauffement/echauffement.c.s
 
 echauffement/test/testEchauffement.obj: echauffement/test/testEchauffement.c.obj
@@ -171,6 +174,7 @@ echauffement/test/testEchauffement.obj: echauffement/test/testEchauffement.c.obj
 # target to build an object file
 echauffement/test/testEchauffement.c.obj:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\projet_Mengxiao_Zhengdao.dir\build.make CMakeFiles/projet_Mengxiao_Zhengdao.dir/echauffement/test/testEchauffement.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\filebinomiale.dir\build.make CMakeFiles/filebinomiale.dir/echauffement/test/testEchauffement.c.obj
 .PHONY : echauffement/test/testEchauffement.c.obj
 
 echauffement/test/testEchauffement.i: echauffement/test/testEchauffement.c.i
@@ -179,6 +183,7 @@ echauffement/test/testEchauffement.i: echauffement/test/testEchauffement.c.i
 # target to preprocess a source file
 echauffement/test/testEchauffement.c.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\projet_Mengxiao_Zhengdao.dir\build.make CMakeFiles/projet_Mengxiao_Zhengdao.dir/echauffement/test/testEchauffement.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\filebinomiale.dir\build.make CMakeFiles/filebinomiale.dir/echauffement/test/testEchauffement.c.i
 .PHONY : echauffement/test/testEchauffement.c.i
 
 echauffement/test/testEchauffement.s: echauffement/test/testEchauffement.c.s
@@ -187,6 +192,7 @@ echauffement/test/testEchauffement.s: echauffement/test/testEchauffement.c.s
 # target to generate assembly for a file
 echauffement/test/testEchauffement.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\projet_Mengxiao_Zhengdao.dir\build.make CMakeFiles/projet_Mengxiao_Zhengdao.dir/echauffement/test/testEchauffement.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\filebinomiale.dir\build.make CMakeFiles/filebinomiale.dir/echauffement/test/testEchauffement.c.s
 .PHONY : echauffement/test/testEchauffement.c.s
 
 fileBinomiale/filebinomiale.obj: fileBinomiale/filebinomiale.c.obj
@@ -246,6 +252,7 @@ tas/list.obj: tas/list.c.obj
 # target to build an object file
 tas/list.c.obj:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\projet_Mengxiao_Zhengdao.dir\build.make CMakeFiles/projet_Mengxiao_Zhengdao.dir/tas/list.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\filebinomiale.dir\build.make CMakeFiles/filebinomiale.dir/tas/list.c.obj
 .PHONY : tas/list.c.obj
 
 tas/list.i: tas/list.c.i
@@ -254,6 +261,7 @@ tas/list.i: tas/list.c.i
 # target to preprocess a source file
 tas/list.c.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\projet_Mengxiao_Zhengdao.dir\build.make CMakeFiles/projet_Mengxiao_Zhengdao.dir/tas/list.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\filebinomiale.dir\build.make CMakeFiles/filebinomiale.dir/tas/list.c.i
 .PHONY : tas/list.c.i
 
 tas/list.s: tas/list.c.s
@@ -262,6 +270,7 @@ tas/list.s: tas/list.c.s
 # target to generate assembly for a file
 tas/list.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\projet_Mengxiao_Zhengdao.dir\build.make CMakeFiles/projet_Mengxiao_Zhengdao.dir/tas/list.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\filebinomiale.dir\build.make CMakeFiles/filebinomiale.dir/tas/list.c.s
 .PHONY : tas/list.c.s
 
 tas/tas.obj: tas/tas.c.obj
@@ -270,6 +279,7 @@ tas/tas.obj: tas/tas.c.obj
 # target to build an object file
 tas/tas.c.obj:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\projet_Mengxiao_Zhengdao.dir\build.make CMakeFiles/projet_Mengxiao_Zhengdao.dir/tas/tas.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\filebinomiale.dir\build.make CMakeFiles/filebinomiale.dir/tas/tas.c.obj
 .PHONY : tas/tas.c.obj
 
 tas/tas.i: tas/tas.c.i
@@ -278,6 +288,7 @@ tas/tas.i: tas/tas.c.i
 # target to preprocess a source file
 tas/tas.c.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\projet_Mengxiao_Zhengdao.dir\build.make CMakeFiles/projet_Mengxiao_Zhengdao.dir/tas/tas.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\filebinomiale.dir\build.make CMakeFiles/filebinomiale.dir/tas/tas.c.i
 .PHONY : tas/tas.c.i
 
 tas/tas.s: tas/tas.c.s
@@ -286,6 +297,7 @@ tas/tas.s: tas/tas.c.s
 # target to generate assembly for a file
 tas/tas.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\projet_Mengxiao_Zhengdao.dir\build.make CMakeFiles/projet_Mengxiao_Zhengdao.dir/tas/tas.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\filebinomiale.dir\build.make CMakeFiles/filebinomiale.dir/tas/tas.c.s
 .PHONY : tas/tas.c.s
 
 # Help Target
