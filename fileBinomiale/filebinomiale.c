@@ -100,13 +100,13 @@ FileBinomiale Reste(FileBinomiale fb) {
 }
 
 FileBinomiale AjoutMin(Tournoi T, FileBinomiale F) {
-    // 创建一个新的二项队列
+    // creer un nouveau fb vide
     FileBinomiale newFb;
     newFb.size = F.size + 1;
     newFb.file = malloc(sizeof(Tournoi*) * newFb.size);
-    // 将新的二项树作为最小阶二项树添加到队列
+    // considerer le tournois parametre est le plus petit
     newFb.file[0] = &T;
-    // 复制原始队列中的所有二项树
+    // then copy tous les autres trournois
     for (int i = 0; i < F.size; i++) {
         newFb.file[i + 1] = F.file[i];
     }
