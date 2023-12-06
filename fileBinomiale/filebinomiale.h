@@ -24,6 +24,7 @@ typedef struct Tournoi {
 typedef struct FileBinomiale{
     Tournoi ** file; //pointe vers un pointeur
     int size;
+//    int index;??
 }FileBinomiale;
 
 //primitive tournois
@@ -41,7 +42,7 @@ FileBinomiale Ajout_FB(Tournoi t,FileBinomiale fb);
 FileBinomiale UnionFile(FileBinomiale fb1,FileBinomiale fb2);
 FileBinomiale UFret(FileBinomiale fb1,FileBinomiale fb2,Tournoi t);
 FileBinomiale SupprMin_FB(FileBinomiale fb);
-FileBinomiale Construction_FB(Tournoi* list_tournois);
+FileBinomiale Construction_FB(Tournoi* list_tournois,int size);
 
 
 #endif

@@ -116,19 +116,15 @@
 		</Build>
 		<Unit filename="C:/Projet/projet_algo/echauffement/echauffement.c">
 			<Option target="projet_Mengxiao_Zhengdao"/>
-			<Option target="filebinomiale"/>
 		</Unit>
 		<Unit filename="C:/Projet/projet_algo/echauffement/echauffement.h">
 			<Option target="projet_Mengxiao_Zhengdao"/>
-			<Option target="filebinomiale"/>
 		</Unit>
 		<Unit filename="C:/Projet/projet_algo/echauffement/test/testEchauffement.c">
 			<Option target="projet_Mengxiao_Zhengdao"/>
-			<Option target="filebinomiale"/>
 		</Unit>
 		<Unit filename="C:/Projet/projet_algo/echauffement/test/testEchauffement.h">
 			<Option target="projet_Mengxiao_Zhengdao"/>
-			<Option target="filebinomiale"/>
 		</Unit>
 		<Unit filename="C:/Projet/projet_algo/fileBinomiale/filebinomiale.c">
 			<Option target="filebinomiale"/>
@@ -138,23 +134,21 @@
 		</Unit>
 		<Unit filename="C:/Projet/projet_algo/main.c">
 			<Option target="projet_Mengxiao_Zhengdao"/>
+		</Unit>
+		<Unit filename="C:/Projet/projet_algo/main_File_Binomiale.c">
 			<Option target="filebinomiale"/>
 		</Unit>
 		<Unit filename="C:/Projet/projet_algo/tas/list.c">
 			<Option target="projet_Mengxiao_Zhengdao"/>
-			<Option target="filebinomiale"/>
 		</Unit>
 		<Unit filename="C:/Projet/projet_algo/tas/list.h">
 			<Option target="projet_Mengxiao_Zhengdao"/>
-			<Option target="filebinomiale"/>
 		</Unit>
 		<Unit filename="C:/Projet/projet_algo/tas/tas.c">
 			<Option target="projet_Mengxiao_Zhengdao"/>
-			<Option target="filebinomiale"/>
 		</Unit>
 		<Unit filename="C:/Projet/projet_algo/tas/tas.h">
 			<Option target="projet_Mengxiao_Zhengdao"/>
-			<Option target="filebinomiale"/>
 		</Unit>
 		<Unit filename="C:/Projet/projet_algo/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>

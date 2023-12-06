@@ -68,19 +68,19 @@ include CMakeFiles/filebinomiale.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/filebinomiale.dir/flags.make
 
-CMakeFiles/filebinomiale.dir/main.c.obj: CMakeFiles/filebinomiale.dir/flags.make
-CMakeFiles/filebinomiale.dir/main.c.obj: C:/Projet/projet_algo/main.c
-CMakeFiles/filebinomiale.dir/main.c.obj: CMakeFiles/filebinomiale.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Projet\projet_algo\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/filebinomiale.dir/main.c.obj"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/filebinomiale.dir/main.c.obj -MF CMakeFiles\filebinomiale.dir\main.c.obj.d -o CMakeFiles\filebinomiale.dir\main.c.obj -c C:\Projet\projet_algo\main.c
+CMakeFiles/filebinomiale.dir/main_File_Binomiale.c.obj: CMakeFiles/filebinomiale.dir/flags.make
+CMakeFiles/filebinomiale.dir/main_File_Binomiale.c.obj: C:/Projet/projet_algo/main_File_Binomiale.c
+CMakeFiles/filebinomiale.dir/main_File_Binomiale.c.obj: CMakeFiles/filebinomiale.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Projet\projet_algo\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/filebinomiale.dir/main_File_Binomiale.c.obj"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/filebinomiale.dir/main_File_Binomiale.c.obj -MF CMakeFiles\filebinomiale.dir\main_File_Binomiale.c.obj.d -o CMakeFiles\filebinomiale.dir\main_File_Binomiale.c.obj -c C:\Projet\projet_algo\main_File_Binomiale.c
 
-CMakeFiles/filebinomiale.dir/main.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/filebinomiale.dir/main.c.i"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Projet\projet_algo\main.c > CMakeFiles\filebinomiale.dir\main.c.i
+CMakeFiles/filebinomiale.dir/main_File_Binomiale.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/filebinomiale.dir/main_File_Binomiale.c.i"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Projet\projet_algo\main_File_Binomiale.c > CMakeFiles\filebinomiale.dir\main_File_Binomiale.c.i
 
-CMakeFiles/filebinomiale.dir/main.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/filebinomiale.dir/main.c.s"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Projet\projet_algo\main.c -o CMakeFiles\filebinomiale.dir\main.c.s
+CMakeFiles/filebinomiale.dir/main_File_Binomiale.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/filebinomiale.dir/main_File_Binomiale.c.s"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Projet\projet_algo\main_File_Binomiale.c -o CMakeFiles\filebinomiale.dir\main_File_Binomiale.c.s
 
 CMakeFiles/filebinomiale.dir/fileBinomiale/filebinomiale.c.obj: CMakeFiles/filebinomiale.dir/flags.make
 CMakeFiles/filebinomiale.dir/fileBinomiale/filebinomiale.c.obj: C:/Projet/projet_algo/fileBinomiale/filebinomiale.c
@@ -96,85 +96,21 @@ CMakeFiles/filebinomiale.dir/fileBinomiale/filebinomiale.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/filebinomiale.dir/fileBinomiale/filebinomiale.c.s"
 	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Projet\projet_algo\fileBinomiale\filebinomiale.c -o CMakeFiles\filebinomiale.dir\fileBinomiale\filebinomiale.c.s
 
-CMakeFiles/filebinomiale.dir/echauffement/echauffement.c.obj: CMakeFiles/filebinomiale.dir/flags.make
-CMakeFiles/filebinomiale.dir/echauffement/echauffement.c.obj: C:/Projet/projet_algo/echauffement/echauffement.c
-CMakeFiles/filebinomiale.dir/echauffement/echauffement.c.obj: CMakeFiles/filebinomiale.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Projet\projet_algo\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/filebinomiale.dir/echauffement/echauffement.c.obj"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/filebinomiale.dir/echauffement/echauffement.c.obj -MF CMakeFiles\filebinomiale.dir\echauffement\echauffement.c.obj.d -o CMakeFiles\filebinomiale.dir\echauffement\echauffement.c.obj -c C:\Projet\projet_algo\echauffement\echauffement.c
-
-CMakeFiles/filebinomiale.dir/echauffement/echauffement.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/filebinomiale.dir/echauffement/echauffement.c.i"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Projet\projet_algo\echauffement\echauffement.c > CMakeFiles\filebinomiale.dir\echauffement\echauffement.c.i
-
-CMakeFiles/filebinomiale.dir/echauffement/echauffement.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/filebinomiale.dir/echauffement/echauffement.c.s"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Projet\projet_algo\echauffement\echauffement.c -o CMakeFiles\filebinomiale.dir\echauffement\echauffement.c.s
-
-CMakeFiles/filebinomiale.dir/echauffement/test/testEchauffement.c.obj: CMakeFiles/filebinomiale.dir/flags.make
-CMakeFiles/filebinomiale.dir/echauffement/test/testEchauffement.c.obj: C:/Projet/projet_algo/echauffement/test/testEchauffement.c
-CMakeFiles/filebinomiale.dir/echauffement/test/testEchauffement.c.obj: CMakeFiles/filebinomiale.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Projet\projet_algo\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/filebinomiale.dir/echauffement/test/testEchauffement.c.obj"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/filebinomiale.dir/echauffement/test/testEchauffement.c.obj -MF CMakeFiles\filebinomiale.dir\echauffement\test\testEchauffement.c.obj.d -o CMakeFiles\filebinomiale.dir\echauffement\test\testEchauffement.c.obj -c C:\Projet\projet_algo\echauffement\test\testEchauffement.c
-
-CMakeFiles/filebinomiale.dir/echauffement/test/testEchauffement.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/filebinomiale.dir/echauffement/test/testEchauffement.c.i"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Projet\projet_algo\echauffement\test\testEchauffement.c > CMakeFiles\filebinomiale.dir\echauffement\test\testEchauffement.c.i
-
-CMakeFiles/filebinomiale.dir/echauffement/test/testEchauffement.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/filebinomiale.dir/echauffement/test/testEchauffement.c.s"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Projet\projet_algo\echauffement\test\testEchauffement.c -o CMakeFiles\filebinomiale.dir\echauffement\test\testEchauffement.c.s
-
-CMakeFiles/filebinomiale.dir/tas/tas.c.obj: CMakeFiles/filebinomiale.dir/flags.make
-CMakeFiles/filebinomiale.dir/tas/tas.c.obj: C:/Projet/projet_algo/tas/tas.c
-CMakeFiles/filebinomiale.dir/tas/tas.c.obj: CMakeFiles/filebinomiale.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Projet\projet_algo\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/filebinomiale.dir/tas/tas.c.obj"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/filebinomiale.dir/tas/tas.c.obj -MF CMakeFiles\filebinomiale.dir\tas\tas.c.obj.d -o CMakeFiles\filebinomiale.dir\tas\tas.c.obj -c C:\Projet\projet_algo\tas\tas.c
-
-CMakeFiles/filebinomiale.dir/tas/tas.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/filebinomiale.dir/tas/tas.c.i"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Projet\projet_algo\tas\tas.c > CMakeFiles\filebinomiale.dir\tas\tas.c.i
-
-CMakeFiles/filebinomiale.dir/tas/tas.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/filebinomiale.dir/tas/tas.c.s"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Projet\projet_algo\tas\tas.c -o CMakeFiles\filebinomiale.dir\tas\tas.c.s
-
-CMakeFiles/filebinomiale.dir/tas/list.c.obj: CMakeFiles/filebinomiale.dir/flags.make
-CMakeFiles/filebinomiale.dir/tas/list.c.obj: C:/Projet/projet_algo/tas/list.c
-CMakeFiles/filebinomiale.dir/tas/list.c.obj: CMakeFiles/filebinomiale.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Projet\projet_algo\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/filebinomiale.dir/tas/list.c.obj"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/filebinomiale.dir/tas/list.c.obj -MF CMakeFiles\filebinomiale.dir\tas\list.c.obj.d -o CMakeFiles\filebinomiale.dir\tas\list.c.obj -c C:\Projet\projet_algo\tas\list.c
-
-CMakeFiles/filebinomiale.dir/tas/list.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/filebinomiale.dir/tas/list.c.i"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Projet\projet_algo\tas\list.c > CMakeFiles\filebinomiale.dir\tas\list.c.i
-
-CMakeFiles/filebinomiale.dir/tas/list.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/filebinomiale.dir/tas/list.c.s"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Projet\projet_algo\tas\list.c -o CMakeFiles\filebinomiale.dir\tas\list.c.s
-
 # Object files for target filebinomiale
 filebinomiale_OBJECTS = \
-"CMakeFiles/filebinomiale.dir/main.c.obj" \
-"CMakeFiles/filebinomiale.dir/fileBinomiale/filebinomiale.c.obj" \
-"CMakeFiles/filebinomiale.dir/echauffement/echauffement.c.obj" \
-"CMakeFiles/filebinomiale.dir/echauffement/test/testEchauffement.c.obj" \
-"CMakeFiles/filebinomiale.dir/tas/tas.c.obj" \
-"CMakeFiles/filebinomiale.dir/tas/list.c.obj"
+"CMakeFiles/filebinomiale.dir/main_File_Binomiale.c.obj" \
+"CMakeFiles/filebinomiale.dir/fileBinomiale/filebinomiale.c.obj"
 
 # External object files for target filebinomiale
 filebinomiale_EXTERNAL_OBJECTS =
 
-filebinomiale.exe: CMakeFiles/filebinomiale.dir/main.c.obj
+filebinomiale.exe: CMakeFiles/filebinomiale.dir/main_File_Binomiale.c.obj
 filebinomiale.exe: CMakeFiles/filebinomiale.dir/fileBinomiale/filebinomiale.c.obj
-filebinomiale.exe: CMakeFiles/filebinomiale.dir/echauffement/echauffement.c.obj
-filebinomiale.exe: CMakeFiles/filebinomiale.dir/echauffement/test/testEchauffement.c.obj
-filebinomiale.exe: CMakeFiles/filebinomiale.dir/tas/tas.c.obj
-filebinomiale.exe: CMakeFiles/filebinomiale.dir/tas/list.c.obj
 filebinomiale.exe: CMakeFiles/filebinomiale.dir/build.make
 filebinomiale.exe: CMakeFiles/filebinomiale.dir/linkLibs.rsp
 filebinomiale.exe: CMakeFiles/filebinomiale.dir/objects1.rsp
 filebinomiale.exe: CMakeFiles/filebinomiale.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Projet\projet_algo\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking C executable filebinomiale.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Projet\projet_algo\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C executable filebinomiale.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\filebinomiale.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

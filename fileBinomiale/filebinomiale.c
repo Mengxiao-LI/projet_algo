@@ -167,10 +167,48 @@ FileBinomiale ajout_FB(Tournoi T, FileBinomiale FBn) {
     return UnionFile(FB1, FBn);
 }
 
-//FileBinomiale Construction_FB
-
-FileBinomiale SupprMin_FB(FileBinomiale fb) {
-    return Reste(fb);
+FileBinomiale Construction_FB(Tournoi *tournois, int size) {
+    FileBinomiale FBn;
+    FBn.size = 0;
+    for (int i = 0; i < size; i++) {
+        FBn = ajout_FB(tournois[i], FBn); // ajout successivement Tournoi
+    }
+    return FBn;
 }
+
+FileBinomiale SupprMin_FB(FileBinomiale FBn) {
+    if (FBn.size == 0) {
+        return FBn;
+    }
+
+    Tournoi * minTournoi = MinDeg(FBn); // 找到最小根节点的二项树
+    FileBinomiale resteFBn = Reste(FBn); // 移除最小根节点的二项树
+
+    // retirer la racine de minTournoi
+    int count = 0;
+    ArbreBinomialeNode* current = minTournoi->racine->child;
+    while (current != NULL) {
+        count++;
+        current = current->frere;
+    }
+
+    Tournoi **subTournois = malloc(sizeof(Tournoi*) * count);
+    current = minTournoi->racine->child;
+    for (int i = 0; i < count; i++) {
+        subTournois[i] = malloc(sizeof(Tournoi));
+        subTournois[i]->racine = current;
+        current = current->frere;
+    }
+    //creer la file avec les subtournois de minTournoi
+    FileBinomiale subfile_minTournoi = Construction_FB(*subTournois, count);
+    //free
+    for (int i = 0; i < count; i++) {
+        free(subTournois[i]);
+    }
+    free(subTournois);
+
+    return UnionFile(resteFBn, subfile_minTournoi); // faire l'union
+}
+
 
 
