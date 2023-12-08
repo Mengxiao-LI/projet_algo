@@ -11,12 +11,10 @@ add_executable(projet_Mengxiao_Zhengdao main.c
         tas/tas.h
         tas/tas.c
         tas/list.h
-        tas/list.c
-        tas/tasArbre.c
-        tas/tasArbre.h)
+        tas/list.c)
 
 add_executable(filebinomiale
-        main.c
+        main_File_Binomiale.c
         fileBinomiale/filebinomiale.c
         fileBinomiale/filebinomiale.h
-        )
+       )
