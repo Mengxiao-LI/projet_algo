@@ -7,6 +7,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <dirent.h>
 
 //Q1.1
 /*************************************************/
@@ -28,11 +29,13 @@ typedef struct {
 /*************************************************/
 Key128 createKey(unsigned int p1, unsigned int p2, unsigned int p3, unsigned int p4);
 //Q1.2
-bool isLessThan(Key128 key1, Key128 key2);
+bool inf(Key128 key1, Key128 key2);
 
 //Q1.3
-bool isEqual(Key128 key1, Key128 key2);
+bool eg(Key128 key1, Key128 key2);
 
 //Pour verifier
 Key128 hexTokey128(const char* hex);
+void convertHexToKey128(const char *inputFile, const char *outputFile);
+void convertAllFilesInFolder(const char *inputFolder, const char *outputFolder);
 #endif //PROJET_MENGXIAO_ZHENGDAO_ECHAUFFEMENT_H

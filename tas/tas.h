@@ -6,21 +6,23 @@
 #define PROJET_MENGXIAO_ZHENGDAO_TAS_H
 
 #include "list.h"
+#include "../echauffement/echauffement.h"
 
-typedef int HPDataType;
-
-typedef struct Heap
+typedef Key128 HPDataType;
+//tas tableau
+typedef struct HP
 {
     HPDataType* a;
     int size;
     int capacity;
 }HP;
 
+
+//tas tableau
 void HeapInit(HP* minHp);
 void HeapDestroy(HP* minHp);
 void AfficheTasArray(HP *  minHp);
-void AfficheTasArbre(HP *  minHp);
-HP * Ajout(HP * minHp,int cle);
+HP * Ajout(HP * minHp,Key128 cle);
 HP *  SupprMin(HP * minHp);
 HP *  AjoutsIteratifs(HP *  minHp,Liste l);
 HP * Construction(Liste l);

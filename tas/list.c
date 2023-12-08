@@ -16,7 +16,7 @@ void initVide( Liste *L)
 {
     *L = NULL ;
 }
-Liste ajoute(int x, Liste l)
+Liste ajoute(Key128 x, Liste l)
 {
     Liste tmp = (Liste) malloc(sizeof(Bloc)) ;
 
@@ -24,20 +24,46 @@ Liste ajoute(int x, Liste l)
     tmp->suivant = l ;
     return tmp ;
 }
-void empile(int x, Liste *L)
+void empile(Key128 x, Liste *L)
 {
     *L = ajoute(x,*L) ;
 }
 
-void affiche_rec(Liste l)
-{
-
-    if(l==NULL)
+void affiche_rec(Liste l) {
+    if (l == NULL)
         printf("\n");
-    else
-    {
-        printf("%d ", l->nombre);
+    else {
+        printf("%08x %08x %08x %08x\n", l->nombre.part1, l->nombre.part2, l->nombre.part3, l->nombre.part4);
         affiche_rec(l->suivant);
     }
 }
 
+Liste buildListFromFile(const char* filename) {
+    FILE *fp = fopen(filename, "r");
+    char line[100];
+    Liste maListe;
+    initVide(&maListe);
+
+    if (fp == NULL) {
+        perror("Error opening file");
+        return NULL;
+    }
+
+    while (fgets(line, sizeof(line), fp)) {
+        Key128 key;
+        sscanf(line, "%x %x %x %x", &key.part1, &key.part2, &key.part3, &key.part4);
+        empile(key, &maListe);
+    }
+
+    fclose(fp);
+    return maListe;
+}
+void freeList(Liste l) {
+    Bloc *current, *next;
+    current = l;
+    while (current != NULL) {
+        next = current->suivant;
+        free(current);
+        current = next;
+    }
+}

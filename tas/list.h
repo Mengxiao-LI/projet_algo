@@ -4,9 +4,10 @@
 
 #ifndef PROJET_MENGXIAO_ZHENGDAO_LIST_H
 #define PROJET_MENGXIAO_ZHENGDAO_LIST_H
+#include "../echauffement/echauffement.h"
 typedef struct Bloc
 {
-    int nombre;
+    Key128 nombre;
     struct Bloc *suivant;
 
 } Bloc;
@@ -15,8 +16,10 @@ typedef Bloc *Liste ;
 
 
 void initVide(Liste *L);
-Liste ajoute(int x, Liste l);
-void empile(int x, Liste *L);
+Liste ajoute(Key128 x, Liste l);
+void empile(Key128 x, Liste *L);
 void affiche_rec(Liste l);
+Liste buildListFromFile(const char* filename);
+void freeList(Liste l);
 
 #endif //PROJET_MENGXIAO_ZHENGDAO_LIST_H

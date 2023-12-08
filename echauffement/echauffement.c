@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <string.h>
 #include "echauffement.h"
+#include <dirent.h>
 
 
 Key128 createKey(unsigned int p1, unsigned int p2, unsigned int p3, unsigned int p4) {
@@ -11,7 +12,7 @@ Key128 createKey(unsigned int p1, unsigned int p2, unsigned int p3, unsigned int
     return newKey;
 }
 //Q1.2
-bool isLessThan(Key128 key1, Key128 key2) {
+bool inf(Key128 key1, Key128 key2) {
     if (key1.part1 < key2.part1) return true;
     if (key1.part1 > key2.part1) return false;
 
@@ -24,7 +25,7 @@ bool isLessThan(Key128 key1, Key128 key2) {
     return key1.part4 < key2.part4;
 }
 //Q1.3
-bool isEqual(Key128 key1, Key128 key2) {
+bool eg(Key128 key1, Key128 key2) {
     return key1.part1 == key2.part1 && key1.part2 == key2.part2 &&
            key1.part3 == key2.part3 && key1.part4 == key2.part4;
 }
@@ -55,4 +56,56 @@ Key128 hexTokey128(const char* hex){
 
     }
     return key;
+}
+
+void convertHexToKey128(const char *inputFile, const char *outputFile) {
+    FILE *fp = fopen(inputFile, "r");
+    FILE *fp_out = fopen(outputFile, "w");
+    char line[100];
+
+    if (fp == NULL || fp_out == NULL) {
+        perror("Error opening file");
+        exit(-1);
+    }
+
+    while (fgets(line, sizeof(line), fp)) {
+        line[strcspn(line, "\n")] = 0;
+        Key128 key = hexTokey128(line);
+        fprintf(fp_out, "%08x %08x %08x %08x\n", key.part1, key.part2, key.part3, key.part4);
+    }
+
+    fclose(fp);
+    fclose(fp_out);
+}
+void convertAllFilesInFolder(const char *inputFolder, const char *outputFolder) {
+    DIR *dir;
+    struct dirent *entry;
+    char inputPath[1024];
+    char outputPath[1024];
+    FILE *file;
+
+    dir = opendir(inputFolder);
+    if (dir == NULL) {
+        perror("Error opening directory");
+        exit(-1);
+    }
+
+    while ((entry = readdir(dir)) != NULL) {
+        // 构建完整的文件路径
+        sprintf(inputPath, "%s/%s", inputFolder, entry->d_name);
+
+        // 尝试打开文件以检测是否为普通文件
+        file = fopen(inputPath, "r");
+        if (file) {
+            fclose(file); // 关闭文件，因为它将在 convertHexToKey128 中重新打开
+
+            // 构建输出文件的路径
+            sprintf(outputPath, "%s/%s", outputFolder, entry->d_name);
+
+            // 转换文件
+            convertHexToKey128(inputPath, outputPath);
+        }
+    }
+
+    closedir(dir);
 }
