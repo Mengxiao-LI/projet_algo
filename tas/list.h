@@ -21,5 +21,6 @@ void empile(Key128 x, Liste *L);
 void affiche_rec(Liste l);
 Liste buildListFromFile(const char* filename);
 void freeList(Liste l);
+Liste uninonLists(Liste l1, Liste l2);
 
 #endif //PROJET_MENGXIAO_ZHENGDAO_LIST_H

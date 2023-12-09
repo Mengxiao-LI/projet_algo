@@ -244,6 +244,112 @@ void afficheAb(const HPArb* arbre, int niveau) {
     // 打印左子树，递归调用
     afficheAb(arbre->fG, niveau + 1);
 }
+#define MAX_NODES 200000
+
+void createCAB(HPArb** tas, Liste l, int* lastId, HPArb* nodeRefs[]) {
+    if (l == NULL) return;
+
+    int index = 0;
+    *tas = nouveauNoeud(l->nombre);
+    nodeRefs[index++] = *tas;
+
+    HPArb* queue[MAX_NODES];
+    int first = 0, last = 0;
+    queue[last++] = *tas;
+
+    Liste current = l->suivant;
+    while (current != NULL && index < MAX_NODES) {
+        HPArb* parent = queue[first++];
+
+        if (parent->fG == NULL) {
+            parent->fG = nouveauNoeud(current->nombre);
+            queue[last++] = parent->fG;
+            nodeRefs[index++] = parent->fG;
+            current = current->suivant;
+        }
+
+        if (current != NULL && parent->fD == NULL) {
+            parent->fD = nouveauNoeud(current->nombre);
+            queue[last++] = parent->fD;
+            nodeRefs[index++] = parent->fD;
+            current = current->suivant;
+        }
+    }
+    *lastId = index - 1;
+}
+
+
+
+void remonte(HPArb **tas, int totalNodes, HPArb* nodeRefs[]) {
+    int size = totalNodes - 1;
+    for (int parent = (totalNodes - 1) / 2; parent >= 0; parent--) {
+        while(true){
+            int smallest = parent;
+            int fG=2*parent+1;
+            int fD=2*parent+2;
+            HPArb* parentNode = nodeRefs[parent];
+            HPArb* filsG = nodeRefs[fG];
+            HPArb* filsD = (fD <= size) ? nodeRefs[fD] : NULL;
+            if (filsG != NULL && inf(filsG->data,parentNode->data)  ) {
+                smallest = fG;
+            }
+
+            if (filsD != NULL && inf(filsD->data,parentNode->data)) {
+                smallest = fD;
+            }
+            if (smallest != parent) {
+                change(nodeRefs[smallest], parentNode);
+                parent = smallest;
+            } else {
+                break;
+            }
+        }
+    }
+}
+void construction(HPArb **tas, Liste l) {
+    HPArb** nodeRefs = (HPArb**)malloc(MAX_NODES * sizeof(HPArb*));
+    if (nodeRefs == NULL) {
+        // 处理内存分配失败的情况
+        return;
+    }
+
+    int lastId = 0;
+    createCAB(tas, l, &lastId, nodeRefs);
+    remonte(tas, lastId + 1, nodeRefs);
+
+    free(nodeRefs); // 用完后释放内存
+}
+
+void treeToList(HPArb* root, Liste* l) {
+    if (root == NULL) return;
+
+    HPArb* queue[MAX_NODES];
+    int first = 0, last = 0;
+    queue[last++] = root;
+
+    while (first < last) {
+        HPArb* node = queue[first++];
+        empile(node->data, l);
+
+        if (node->fG != NULL) queue[last++] = node->fG;
+        if (node->fD != NULL) queue[last++] = node->fD;
+    }
+}
+
+
+HPArb* UnionA(HPArb *tas1, HPArb *tas2){
+    Liste list1 = NULL;
+    Liste list2 = NULL;
+    treeToList(tas1, &list1);
+    treeToList(tas2, &list2);
+
+    Liste l = uninonLists(list1, list2);
+    HPArb* tas;
+    initTasAB(&tas);
+    construction(&tas, l);
+    return tas;
+
+}
 void afficheGauche(HPArb* arbre) {
     if (arbre == NULL) {
         return; // 如果节点为空，返回

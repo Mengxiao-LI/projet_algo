@@ -67,3 +67,14 @@ void freeList(Liste l) {
         current = next;
     }
 }
+Liste uninonLists(Liste l1, Liste l2) {
+    if (l1 == NULL) return l2;
+    if (l2 == NULL) return l1;
+
+    Liste current = l1;
+    while (current->suivant != NULL) {
+        current = current->suivant;
+    }
+    current->suivant = l2;
+    return l1;
+}
