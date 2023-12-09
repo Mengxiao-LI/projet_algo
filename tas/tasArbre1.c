@@ -16,7 +16,7 @@
 /**********************************************/
 /************       tas arbre     *************/
 /**********************************************/
-void initTasAB(HPArb**tas){
+/*void initTasAB(HPArb**tas){
     *tas = NULL ;
 }
 HPArb* nouveauNoeud(HPType data) {
@@ -119,7 +119,7 @@ void remonter(HPArb **tas, int idlast) {
             return ; // 确保找到有效的节点
         }
 
-        if ( inf(currentNode->data,parentNode->data)) {
+        if (currentNode->data < parentNode->data) {
             change(currentNode, parentNode);
             i = parentIndex;
         } else {
@@ -135,6 +135,23 @@ void ajout(HPArb **tas, HPType data) {
        idlast=insertLast(tas, data);
         remonter(tas,idlast);
     }
+}
+void afficheAb(const HPArb* arbre, int niveau) {
+    if (arbre == NULL) {
+        return;
+    }
+
+    // 打印右子树，递归调用
+    afficheAb(arbre->fD, niveau + 1);
+
+    // 打印当前节点
+    for (int i = 0; i < niveau; i++) {
+        printf("  ");  // 缩进用于表示层级关系
+    }
+    printf("%d\n", arbre->data);
+
+    // 打印左子树，递归调用
+    afficheAb(arbre->fG, niveau + 1);
 }
 
 
@@ -191,11 +208,11 @@ void desentre(HPArb *tas){
     }
     while (tas->fG != NULL){
         HPArb* smallerChild = tas->fG;
-        if (tas->fD != NULL && inf(tas->fD->data,tas->fG->data)  ) {
+        if (tas->fD != NULL && tas->fD->data < tas->fG->data) {
             smallerChild = tas->fD; // 右子节点更小
         }
 
-        if ( inf(smallerChild->data,tas->data) ) {
+        if (tas->data > smallerChild->data) {
             change(tas, smallerChild); // 与较小的子节点交换
             tas = smallerChild; // 继续下沉
         } else {
@@ -218,12 +235,13 @@ void supprMin(HPArb **tas) {
     deleteLastNode(tas, totalNodes - 1);
 
     desentre(*tas);
-}
-void ajoutsIteratifs(HPArb **tas,Liste l){
+}*/
+HPArb *ajoutsIteratifs(HPArb **tas,Liste l){
     while (l !=NULL){
         ajout(tas,l->nombre);
         l = l->suivant;
     }
+    return *tas;
 
 }
 void afficheAb(const HPArb* arbre, int niveau) {
@@ -236,23 +254,12 @@ void afficheAb(const HPArb* arbre, int niveau) {
 
     // 打印当前节点
     for (int i = 0; i < niveau; i++) {
-        printf("           -         ");  // 缩进用于表示层级关系
+        printf("  ");  // 缩进用于表示层级关系
     }
 
-    printf("%08x%08x%08x%08x\n ",arbre->data.part1, arbre->data.part2, arbre->data.part3, arbre->data.part4);
+    printf("size:%08x%08x%08x%08x ",arbre->data.part1, arbre->data.part2, arbre->data.part3, arbre->data.part4);
 
     // 打印左子树，递归调用
     afficheAb(arbre->fG, niveau + 1);
-}
-void afficheGauche(HPArb* arbre) {
-    if (arbre == NULL) {
-        return; // 如果节点为空，返回
-    }
-
-    // 打印当前节点的值
-    printf("%08x%08x%08x%08x\n", arbre->data.part1, arbre->data.part2, arbre->data.part3, arbre->data.part4);
-
-    // 递归地打印左子节点
-    afficheGauche(arbre->fG);
 }
 /*------------fin tas arbre-----------------*/

@@ -17,4 +17,15 @@ add_executable(filebinomiale
         main_File_Binomiale.c
         fileBinomiale/filebinomiale.c
         fileBinomiale/filebinomiale.h
-       )
+
+)
+add_executable(main_Tas_Min main_TasMin.c
+        echauffement/echauffement.h
+        echauffement/echauffement.c
+        tas/tas.h
+        tas/tas.c
+        tas/list.h
+        tas/list.c
+        tas/tasArbre.c
+        tas/tasArbre.h
+)
