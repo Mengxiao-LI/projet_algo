@@ -111,55 +111,52 @@ HP *AjoutsIteratifs(HP *minHp,Liste l){
     return minHp;
 
 }
-//afficher pour vérifier
-//afficher un tas tableau par tableau
-void AfficheTasArray(HP *hp) {
-    printf("tasArray:");
-    for (int i = 0; i < hp->size; i++) {
-        printf("size:%d %08x%08x%08x%08x ", i,hp->a[i].part1, hp->a[i].part2, hp->a[i].part3, hp->a[i].part4);
-    }
-    printf("\n");
-}
+
 
 //Construire un tas par un liste
-HP* Construction(Liste l) {
-    HP* minHp = (HP*)malloc(sizeof(HP));
+void Construction(HP **minHp, Liste l) {
     if (minHp == NULL) {
-        exit(-1);
+        return;
     }
-    HeapInit(minHp);
+
+    *minHp = (HP*)malloc(sizeof(HP));
+    if (*minHp == NULL) {
+        exit(-1); // 内存分配失败
+    }
+
+    HeapInit(*minHp);
     while (l != NULL) {
-        if (minHp->size == minHp->capacity) {
-            minHp->capacity = (minHp->capacity == 0) ? 4 : minHp->capacity * 2;
-            minHp->a = (HPDataType*)realloc(minHp->a, sizeof(HPDataType) * minHp->capacity);
-            if (minHp->a == NULL) {
+        if ((*minHp)->size == (*minHp)->capacity) {
+            (*minHp)->capacity = ((*minHp)->capacity == 0) ? 4 : (*minHp)->capacity * 2;
+            (*minHp)->a = (HPDataType*)realloc((*minHp)->a, sizeof(HPDataType) * (*minHp)->capacity);
+            if ((*minHp)->a == NULL) {
                 exit(-1); // 内存分配失败
             }
         }
 
-        minHp->a[minHp->size] = l->nombre;
-        minHp->size++;
+        (*minHp)->a[(*minHp)->size] = l->nombre;
+        (*minHp)->size++;
         l = l->suivant;
     }
 
-    int parent = (minHp->size - 2) / 2;
-    while (parent>=0){
+    int parent = ((*minHp)->size - 2) / 2;
+    while (parent >= 0) {
         while(true){
             int fG=2*parent+1;
             int fD=2*parent+2;
             int smaller = parent;
             //if (fG < minHp->size && minHp->a[fG] < minHp->a[smaller]) {
-            if (fG < minHp->size && inf(minHp->a[fG],minHp->a[smaller])) {
+            if (fG < (*minHp)->size && inf((*minHp)->a[fG],(*minHp)->a[smaller])) {
                 smaller = fG;
             }
-            if (fD < minHp->size && inf(minHp->a[fD],minHp->a[smaller])) {
+            if (fD < (*minHp)->size && inf((*minHp)->a[fD],(*minHp)->a[smaller])) {
                 smaller = fD;
             }
 
             if (smaller!=parent) {
-                HPDataType temp = minHp->a[parent];
-                minHp->a[parent] = minHp->a[smaller];
-                minHp->a[smaller] = temp;
+                HPDataType temp = (*minHp)->a[parent];
+                (*minHp)->a[parent] = (*minHp)->a[smaller];
+                (*minHp)->a[smaller] = temp;
                 parent = smaller;
             }else{
                 break;
@@ -170,7 +167,6 @@ HP* Construction(Liste l) {
         parent--;
     }
 
-    return minHp;
 }
 /*删
  * 复杂度计算
@@ -241,7 +237,15 @@ HP *Union(HP *minHp1, HP *minHp2) {
 
 
 
-
+//afficher pour vérifier
+//afficher un tas tableau par tableau
+void AfficheTasArray(HP *hp) {
+    printf("tasArray:");
+    for (int i = 0; i < hp->size; i++) {
+        printf("size:%d %08x%08x%08x%08x ", i,hp->a[i].part1, hp->a[i].part2, hp->a[i].part3, hp->a[i].part4);
+    }
+    printf("\n");
+}
 
 
 

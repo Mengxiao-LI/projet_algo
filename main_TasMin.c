@@ -12,7 +12,7 @@ int main() {
 
 //Q2
     printf("Question2\n");
-/*    printf("++++++++++++++++++Tas tableau+++++++++++++++++++++++\n");
+    printf("++++++++++++++++++Tas tableau+++++++++++++++++++++++\n");
     HP hp;
 
     HeapInit (&hp);
@@ -50,7 +50,9 @@ int main() {
     AfficheTasArray(&hp1);
     printf("-----Q2.2 Construction:-----\n");
     printf("test: Construire par jeu_1_nb_cles_1000\n");
-    HP* hp2 = Construction(maListe);
+    HP* hp2;
+    HeapInit (&hp2);
+     Construction(&hp2,maListe);
     AfficheTasArray(hp2);
     freeList(maListe);
     printf("-----Q2.2 Union:-----\n");
@@ -86,23 +88,12 @@ int main() {
     HeapDestroy(&hp1);
     HeapDestroy(&hp2);
     HeapDestroy(&hp3);
-    HeapDestroy(&hp4);*/
+    HeapDestroy(&hp4);
 
     printf("++++++++++++++++++Tas Arbre+++++++++++++++++++++++\n");
     printf("-----Q2.1 Ajout:-----\n");
     HPArb* tr;
     initTasAB(&tr);
-    Key128 key,key1,key2,key3,key4;
-    const char *hex = "0d09ef03 382fa280 d11bcf44 1bc2e4be";
-    const char *hex1 = "0d09ef03 382fa280 d11bcf44 1bc2e4b8";
-    const char *hex2 = "0d09ef03 382fa280 d11bcf44 1bc2e4b9";
-    const char *hex3 = "0d09ef03 382fa280 d11bcf44 1bc2e4ba";
-    const char *hex4 = "0d09ef03 382fa280 d11bcf44 1bc2e4bb";
-    sscanf(hex, "%x %x %x %x", &key.part1, &key.part2, &key.part3, &key.part4);
-    sscanf(hex1, "%x %x %x %x", &key1.part1, &key1.part2, &key1.part3, &key1.part4);
-    sscanf(hex2, "%x %x %x %x", &key2.part1, &key2.part2, &key2.part3, &key2.part4);
-    sscanf(hex3, "%x %x %x %x", &key3.part1, &key3.part2, &key3.part3, &key3.part4);
-    sscanf(hex4, "%x %x %x %x", &key4.part1, &key4.part2, &key4.part3, &key4.part4);
 
     ajout(&tr,key);
     ajout(&tr,key3);
@@ -117,10 +108,10 @@ int main() {
     afficheAb(tr,0);
     printf("-----Q2.1 AjoutsIteratifs:-----\n");
     printf("test: ajouter jeu_1_nb_cles_1000\n");
-    Liste maListe = buildListFromFile("../decode/jeu_1_nb_cles_1000.txt");
+    Liste maListe1 = buildListFromFile("../decode/jeu_1_nb_cles_1000.txt");
     HPArb* tr1;
     initTasAB (&tr1);
-    ajoutsIteratifs(&tr1,maListe);
+    ajoutsIteratifs(&tr1,maListe1);
 
     //afficheAb(tr1,0);
     printf("test afficher fils Gauche\n");
@@ -139,22 +130,12 @@ int main() {
     printf("test: Construire par jeu_1_nb_cles_1000\n");
     printf("test afficher fils Gauche\n");
     afficheGauche(tr3);
-    freeList(maListe);
+    freeList(maListe1);
     freeList(list1);
     printf("-----Q2.2 Union:-----\n");
     HPArb* tr4;
     initTasAB(&tr4);
-    Key128 key5,key6,key7,key8,key9;
-    const char *hex5 = "0d09ef03 382fa280 d11bcf44 1bc2e4a7";
-    const char *hex6 = "0d09ef03 382fa280 d11bcf44 1bc2e4bd";
-    const char *hex7 = "0d09ef03 382fa280 d11bcf44 1bc2e4c9";
-    const char *hex8 = "0d09ef03 382fa280 d11bcf44 1bc2e4b0";
-    const char *hex9 = "0d09ef03 382fa280 d11bcf44 1bc2e4db";
-    sscanf(hex5, "%x %x %x %x", &key5.part1, &key5.part2, &key5.part3, &key5.part4);
-    sscanf(hex6, "%x %x %x %x", &key6.part1, &key6.part2, &key6.part3, &key6.part4);
-    sscanf(hex7, "%x %x %x %x", &key7.part1, &key7.part2, &key7.part3, &key7.part4);
-    sscanf(hex8, "%x %x %x %x", &key8.part1, &key8.part2, &key8.part3, &key8.part4);
-    sscanf(hex9, "%x %x %x %x", &key9.part1, &key9.part2, &key9.part3, &key9.part4);
+
 
     ajout(&tr4,key5);
     ajout(&tr4,key9);

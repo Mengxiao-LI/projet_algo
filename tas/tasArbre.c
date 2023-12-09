@@ -12,7 +12,7 @@
 
 
 
-
+#define MAX_NODES 200000
 /**********************************************/
 /************       tas arbre     *************/
 /**********************************************/
@@ -244,7 +244,7 @@ void afficheAb(const HPArb* arbre, int niveau) {
     // 打印左子树，递归调用
     afficheAb(arbre->fG, niveau + 1);
 }
-#define MAX_NODES 200000
+
 
 void createCAB(HPArb** tas, Liste l, int* lastId, HPArb* nodeRefs[]) {
     if (l == NULL) return;
@@ -309,7 +309,6 @@ void remonte(HPArb **tas, int totalNodes, HPArb* nodeRefs[]) {
 void construction(HPArb **tas, Liste l) {
     HPArb** nodeRefs = (HPArb**)malloc(MAX_NODES * sizeof(HPArb*));
     if (nodeRefs == NULL) {
-        // 处理内存分配失败的情况
         return;
     }
 

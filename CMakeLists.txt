@@ -29,3 +29,13 @@ add_executable(main_Tas_Min main_TasMin.c
         tas/tasArbre.c
         tas/tasArbre.h
 )
+add_executable(Tas_Q8Q9 main_Tas_Q89.c
+        echauffement/echauffement.h
+        echauffement/echauffement.c
+        tas/tas.h
+        tas/tas.c
+        tas/list.h
+        tas/list.c
+        tas/tasArbre.c
+        tas/tasArbre.h
+)

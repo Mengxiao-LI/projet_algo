@@ -1,5 +1,6 @@
 D:/my_document/info/m1/algo/projet_Mengxiao_Zhengdao/cmake-build-debug/CMakeFiles/projet_Mengxiao_Zhengdao.dir
 D:/my_document/info/m1/algo/projet_Mengxiao_Zhengdao/cmake-build-debug/CMakeFiles/filebinomiale.dir
 D:/my_document/info/m1/algo/projet_Mengxiao_Zhengdao/cmake-build-debug/CMakeFiles/main_Tas_Min.dir
+D:/my_document/info/m1/algo/projet_Mengxiao_Zhengdao/cmake-build-debug/CMakeFiles/Tas_Q8Q9.dir
 D:/my_document/info/m1/algo/projet_Mengxiao_Zhengdao/cmake-build-debug/CMakeFiles/edit_cache.dir
 D:/my_document/info/m1/algo/projet_Mengxiao_Zhengdao/cmake-build-debug/CMakeFiles/rebuild_cache.dir

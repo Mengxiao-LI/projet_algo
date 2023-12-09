@@ -25,7 +25,7 @@ void AfficheTasArray(HP *  minHp);
 HP * Ajout(HP * minHp,Key128 cle);
 HP *  SupprMin(HP * minHp);
 HP *  AjoutsIteratifs(HP *  minHp,Liste l);
-HP * Construction(Liste l);
+void Construction(HP **minHp, Liste l);
 HP * Union( HP * m1 , HP * m2);
 
 
