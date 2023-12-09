@@ -39,3 +39,9 @@ add_executable(Tas_Q8Q9 main_Tas_Q89.c
         tas/tasArbre.c
         tas/tasArbre.h
 )
+
+add_executable(test main_test.c
+        tas/test.h
+        tas/test.c
+        echauffement/echauffement.h
+        echauffement/echauffement.c)

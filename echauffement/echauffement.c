@@ -109,3 +109,46 @@ void convertAllFilesInFolder(const char *inputFolder, const char *outputFolder) 
 
     closedir(dir);
 }
+
+
+
+
+
+// 动态增加数组大小
+Key128* resizeArray(Key128* array, int newSize) {
+    return (Key128*)realloc(array, newSize * sizeof(Key128));
+}
+
+// 从文件中构建数组
+Key128* buildArrayFromFile(const char* filename, int* size) {
+    FILE *fp = fopen(filename, "r");
+    char line[100];
+    Key128* array = NULL;
+    int count = 0;
+
+    if (fp == NULL) {
+        perror("Error opening file");
+        return NULL;
+    }
+
+    while (fgets(line, sizeof(line), fp)) {
+        array = resizeArray(array, count + 1);
+        if (array == NULL) {
+            perror("Error reallocating memory");
+            fclose(fp);
+            return NULL;
+        }
+
+        sscanf(line, "%x %x %x %x", &array[count].part1, &array[count].part2, &array[count].part3, &array[count].part4);
+        count++;
+    }
+
+    *size = count;
+    fclose(fp);
+    return array;
+}
+
+// 处理文件并返回数组
+Key128* processFile(const char* filename, int* size) {
+    return buildArrayFromFile(filename, size);
+}

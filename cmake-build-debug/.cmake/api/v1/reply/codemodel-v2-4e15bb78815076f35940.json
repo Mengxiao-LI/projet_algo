@@ -18,7 +18,8 @@
 						0,
 						1,
 						2,
-						3
+						3,
+						4
 					]
 				}
 			],
@@ -36,7 +37,8 @@
 						0,
 						1,
 						2,
-						3
+						3,
+						4
 					]
 				}
 			],
@@ -68,6 +70,13 @@
 					"id" : "projet_Mengxiao_Zhengdao::@6890427a1f51a3e7e1df",
 					"jsonFile" : "target-projet_Mengxiao_Zhengdao-Debug-b4d910aa35047fb3e8f4.json",
 					"name" : "projet_Mengxiao_Zhengdao",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "test::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-test-Debug-4a72f4e83cd853e9612d.json",
+					"name" : "test",
 					"projectIndex" : 0
 				}
 			]

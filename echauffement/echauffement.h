@@ -38,4 +38,7 @@ bool eg(Key128 key1, Key128 key2);
 Key128 hexTokey128(const char* hex);
 void convertHexToKey128(const char *inputFile, const char *outputFile);
 void convertAllFilesInFolder(const char *inputFolder, const char *outputFolder);
+Key128* buildArrayFromFile(const char* filename, int* size);
+Key128* resizeArray(Key128* array, int newSize);
+Key128* processFile(const char* filename, int* size);
 #endif //PROJET_MENGXIAO_ZHENGDAO_ECHAUFFEMENT_H

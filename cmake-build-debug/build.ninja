@@ -250,6 +250,51 @@ build Tas_Q8Q9.exe: C_EXECUTABLE_LINKER__Tas_Q8Q9_Debug CMakeFiles/Tas_Q8Q9.dir/
   TARGET_IMPLIB = libTas_Q8Q9.dll.a
   TARGET_PDB = Tas_Q8Q9.exe.dbg
 
+# =============================================================================
+# Object build statements for EXECUTABLE target test
+
+
+#############################################
+# Order-only phony target for test
+
+build cmake_object_order_depends_target_test: phony || CMakeFiles/test.dir
+
+build CMakeFiles/test.dir/main_test.c.obj: C_COMPILER__test_unscanned_Debug D$:/my_document/info/m1/algo/projet_Mengxiao_Zhengdao/main_test.c || cmake_object_order_depends_target_test
+  DEP_FILE = CMakeFiles\test.dir\main_test.c.obj.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\test.dir
+  OBJECT_FILE_DIR = CMakeFiles\test.dir
+
+build CMakeFiles/test.dir/tas/test.c.obj: C_COMPILER__test_unscanned_Debug D$:/my_document/info/m1/algo/projet_Mengxiao_Zhengdao/tas/test.c || cmake_object_order_depends_target_test
+  DEP_FILE = CMakeFiles\test.dir\tas\test.c.obj.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\test.dir
+  OBJECT_FILE_DIR = CMakeFiles\test.dir\tas
+
+build CMakeFiles/test.dir/echauffement/echauffement.c.obj: C_COMPILER__test_unscanned_Debug D$:/my_document/info/m1/algo/projet_Mengxiao_Zhengdao/echauffement/echauffement.c || cmake_object_order_depends_target_test
+  DEP_FILE = CMakeFiles\test.dir\echauffement\echauffement.c.obj.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\test.dir
+  OBJECT_FILE_DIR = CMakeFiles\test.dir\echauffement
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target test
+
+
+#############################################
+# Link the executable test.exe
+
+build test.exe: C_EXECUTABLE_LINKER__test_Debug CMakeFiles/test.dir/main_test.c.obj CMakeFiles/test.dir/tas/test.c.obj CMakeFiles/test.dir/echauffement/echauffement.c.obj
+  FLAGS = -g
+  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = CMakeFiles\test.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = test.exe
+  TARGET_IMPLIB = libtest.dll.a
+  TARGET_PDB = test.exe.dbg
+
 
 #############################################
 # Utility command for edit_cache
@@ -284,6 +329,8 @@ build main_Tas_Min: phony main_Tas_Min.exe
 
 build projet_Mengxiao_Zhengdao: phony projet_Mengxiao_Zhengdao.exe
 
+build test: phony test.exe
+
 # =============================================================================
 # Folder targets.
 
@@ -292,7 +339,7 @@ build projet_Mengxiao_Zhengdao: phony projet_Mengxiao_Zhengdao.exe
 #############################################
 # Folder: D:/my_document/info/m1/algo/projet_Mengxiao_Zhengdao/cmake-build-debug
 
-build all: phony projet_Mengxiao_Zhengdao.exe filebinomiale.exe main_Tas_Min.exe Tas_Q8Q9.exe
+build all: phony projet_Mengxiao_Zhengdao.exe filebinomiale.exe main_Tas_Min.exe Tas_Q8Q9.exe test.exe
 
 # =============================================================================
 # Built-in targets
