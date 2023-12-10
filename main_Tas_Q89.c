@@ -4,10 +4,11 @@
 #include <sys/time.h>
 //#include <intrin.h>
 #include "echauffement/echauffement.h"
-/*#include "tas/list.h"
+
 #include "tas/tas.h"
-#include "tas/tasArbre.h"*/
-#include "tas/test.h"
+#include "tas/tasArbre.h"
+//#include "tas/tasArbre.h"
+//#include "tas/test.h"
 
 
 int main() {
@@ -18,8 +19,55 @@ int main() {
     const int num_sizes = 8;
     char file_path[1024];
 
+/*    printf("Question2.8\n");
+    printf("AjoutsIteratifs tableau\n");
+
+
+
+    for (int j = 0; j < num_sizes; j++) {
+        long totalMicros = 0;
+
+        for (int i = 0; i < num_tests; i++) {
+            sprintf(file_path, file_pattern, i + 1, sizes[j]);
+            printf("Processing file: %s\n", file_path);
+
+
+
+
+            int size;
+            Key128* myArray = processFile(file_path, &size);
+
+            HP hp1;
+            HeapInit (&hp1);
+
+
+
+
+
+            //HeapPrint(&hp);
+
+            struct timeval start, end;
+            gettimeofday(&start, NULL);
+            //
+            AjoutsIteratifs(&hp1,myArray,size);
+
+
+            gettimeofday(&end, NULL);
+            //
+            long seconds = (end.tv_sec - start.tv_sec);
+            long micros = ((seconds * 1000000) + end.tv_usec) - (start.tv_usec);
+            totalMicros += micros;
+            free(myArray);
+            HeapDestroy(&hp1);
+
+
+        }
+
+        long averageMicros = totalMicros / num_tests;
+        printf("Average execution time for %d keys: %ld microseconds\n", sizes[j], averageMicros);
+    }
     printf("Question2.8\n");
-    printf("AjoutsIteratifs arbre\n");
+    printf("Con tableau\n");
 
 
 
@@ -33,16 +81,13 @@ int main() {
             int size;
             Key128* myArray = processFile(file_path, &size);
 
-            HP hp;
-
-
-
-            //HeapPrint(&hp);
+            HP hp1;
+            HeapInit (&hp1);
 
             struct timeval start, end;
             gettimeofday(&start, NULL);
             //
-            HeapInit(&hp, myArray, size);
+            Construction(&hp1,myArray,size);
 
 
             gettimeofday(&end, NULL);
@@ -51,13 +96,91 @@ int main() {
             long micros = ((seconds * 1000000) + end.tv_usec) - (start.tv_usec);
             totalMicros += micros;
 
-
+            free(myArray);
+            HeapDestroy(&hp1);
         }
 
         long averageMicros = totalMicros / num_tests;
         printf("Average execution time for %d keys: %ld microseconds\n", sizes[j], averageMicros);
     }
 
+    printf("Question2.8\n");
+    printf("ajout arbre\n");
+
+
+
+    for (int j = 0; j < num_sizes; j++) {
+        long totalMicros = 0;
+
+        for (int i = 0; i < num_tests; i++) {
+            sprintf(file_path, file_pattern, i + 1, sizes[j]);
+            printf("Processing file: %s\n", file_path);
+
+
+            int size;
+            Key128* myArray = processFile(file_path, &size);
+
+            HPArb* tr1;
+            initTasAB (&tr1);
+
+
+            struct timeval start, end;
+            gettimeofday(&start, NULL);
+            //
+
+            ajoutsIteratifs(&tr1,myArray,size);
+
+            gettimeofday(&end, NULL);
+            //
+            long seconds = (end.tv_sec - start.tv_sec);
+            long micros = ((seconds * 1000000) + end.tv_usec) - (start.tv_usec);
+            totalMicros += micros;
+
+            free(myArray);
+
+        }
+
+        long averageMicros = totalMicros / num_tests;
+        printf("Average execution time for %d keys: %ld microseconds\n", sizes[j], averageMicros);
+    }*/
+    printf("Question2.8\n");
+    printf("con arbre\n");
+
+
+
+    for (int j = 0; j < num_sizes; j++) {
+        long totalMicros = 0;
+
+        for (int i = 0; i < num_tests; i++) {
+            sprintf(file_path, file_pattern, i + 1, sizes[j]);
+            printf("Processing file: %s\n", file_path);
+
+
+            HPArb* tr3;
+            initTasAB (&tr3);
+            Liste maListe1 = buildListFromFile(file_path);
+
+
+
+            struct timeval start, end;
+            gettimeofday(&start, NULL);
+            //
+
+            construction(&tr3,maListe1);
+
+            gettimeofday(&end, NULL);
+            //
+            long seconds = (end.tv_sec - start.tv_sec);
+            long micros = ((seconds * 1000000) + end.tv_usec) - (start.tv_usec);
+            totalMicros += micros;
+
+            //free(myArray);
+
+        }
+
+        long averageMicros = totalMicros / num_tests;
+        printf("Average execution time for %d keys: %ld microseconds\n", sizes[j], averageMicros);
+    }
 //Q2
 /*    printf("Question2.8\n");
     printf("AjoutsIteratifs tableau\n");

@@ -295,6 +295,51 @@ build test.exe: C_EXECUTABLE_LINKER__test_Debug CMakeFiles/test.dir/main_test.c.
   TARGET_IMPLIB = libtest.dll.a
   TARGET_PDB = test.exe.dbg
 
+# =============================================================================
+# Object build statements for EXECUTABLE target arbreBR
+
+
+#############################################
+# Order-only phony target for arbreBR
+
+build cmake_object_order_depends_target_arbreBR: phony || CMakeFiles/arbreBR.dir
+
+build CMakeFiles/arbreBR.dir/main_ABR.c.obj: C_COMPILER__arbreBR_unscanned_Debug D$:/my_document/info/m1/algo/projet_Mengxiao_Zhengdao/main_ABR.c || cmake_object_order_depends_target_arbreBR
+  DEP_FILE = CMakeFiles\arbreBR.dir\main_ABR.c.obj.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\arbreBR.dir
+  OBJECT_FILE_DIR = CMakeFiles\arbreBR.dir
+
+build CMakeFiles/arbreBR.dir/echauffement/echauffement.c.obj: C_COMPILER__arbreBR_unscanned_Debug D$:/my_document/info/m1/algo/projet_Mengxiao_Zhengdao/echauffement/echauffement.c || cmake_object_order_depends_target_arbreBR
+  DEP_FILE = CMakeFiles\arbreBR.dir\echauffement\echauffement.c.obj.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\arbreBR.dir
+  OBJECT_FILE_DIR = CMakeFiles\arbreBR.dir\echauffement
+
+build CMakeFiles/arbreBR.dir/arbreBR/arbreBR.c.obj: C_COMPILER__arbreBR_unscanned_Debug D$:/my_document/info/m1/algo/projet_Mengxiao_Zhengdao/arbreBR/arbreBR.c || cmake_object_order_depends_target_arbreBR
+  DEP_FILE = CMakeFiles\arbreBR.dir\arbreBR\arbreBR.c.obj.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\arbreBR.dir
+  OBJECT_FILE_DIR = CMakeFiles\arbreBR.dir\arbreBR
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target arbreBR
+
+
+#############################################
+# Link the executable arbreBR.exe
+
+build arbreBR.exe: C_EXECUTABLE_LINKER__arbreBR_Debug CMakeFiles/arbreBR.dir/main_ABR.c.obj CMakeFiles/arbreBR.dir/echauffement/echauffement.c.obj CMakeFiles/arbreBR.dir/arbreBR/arbreBR.c.obj
+  FLAGS = -g
+  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = CMakeFiles\arbreBR.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = arbreBR.exe
+  TARGET_IMPLIB = libarbreBR.dll.a
+  TARGET_PDB = arbreBR.exe.dbg
+
 
 #############################################
 # Utility command for edit_cache
@@ -323,6 +368,8 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 
 build Tas_Q8Q9: phony Tas_Q8Q9.exe
 
+build arbreBR: phony arbreBR.exe
+
 build filebinomiale: phony filebinomiale.exe
 
 build main_Tas_Min: phony main_Tas_Min.exe
@@ -339,7 +386,7 @@ build test: phony test.exe
 #############################################
 # Folder: D:/my_document/info/m1/algo/projet_Mengxiao_Zhengdao/cmake-build-debug
 
-build all: phony projet_Mengxiao_Zhengdao.exe filebinomiale.exe main_Tas_Min.exe Tas_Q8Q9.exe test.exe
+build all: phony projet_Mengxiao_Zhengdao.exe filebinomiale.exe main_Tas_Min.exe Tas_Q8Q9.exe test.exe arbreBR.exe
 
 # =============================================================================
 # Built-in targets

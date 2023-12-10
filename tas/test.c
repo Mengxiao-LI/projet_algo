@@ -102,10 +102,7 @@ void HeapPush(HP* php, HPDataTpye x)
 
     AdjustUp(php->a, php->size - 1);
 
-    /*for (int i = (php->size - 2) / 2; i >= 0; --i)
-    {
-        AdjustDown(php->a, php->size, i);
-    }*/
+
 }
 
 void HeapPop(HP* php)
@@ -151,4 +148,9 @@ void PrintTopK(HPDataTpye* a, int n, int k)
 
     HeapPrint(&hp);
     HeapDestroy(&hp);
+}
+void hhaa(HP* php, HPDataTpye* a, int n) {
+    for (int i = 0; i < n; i++) {
+        HeapPush(php, a[i]); // 直接传递 php 而不是 &php
+    }
 }

@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <sys/time.h>
 //#include <intrin.h>
 #include "echauffement/echauffement.h"
 #include "tas/list.h"
@@ -9,8 +10,8 @@
 
 
 int main() {
-
-//Q2
+    Key128 key,key1,key2,key3,key4;
+/*//Q2
     printf("Question2\n");
     printf("++++++++++++++++++Tas tableau+++++++++++++++++++++++\n");
     HP hp;
@@ -18,7 +19,7 @@ int main() {
     HeapInit (&hp);
     printf("-----Q2.1 Ajout:-----\n");
 
-    Key128 key,key1,key2,key3,key4;
+
     const char *hexStr = "0d09ef03 382fa280 d11bcf44 1bc2e4b7";
     const char *hexStra = "0d09ef03 382fa280 d11bcf44 1bc2e4b8";
     const char *hexStrb = "0d09ef03 382fa280 d11bcf44 1bc2e4b9";
@@ -39,25 +40,53 @@ int main() {
     printf("-----Q2.1 supprMin:------\n");
     SupprMin(&hp);
     AfficheTasArray(&hp);
-    printf("-----Q2.1 AjoutsIteratifs:-----\n");
-    printf("test: ajouter jeu_1_nb_cles_1000\n");
-    Liste maListe = buildListFromFile("../decode/jeu_1_nb_cles_1000.txt");
+      printf("-----Q2.1 AjoutsIteratifs:-----\n");
+       printf("test: ajouter jeu_1_nb_cles_1000\n");
+       const char* filename = "../decode/jeu_1_nb_cles_1000.txt";
+       int size;
+       Key128* myArray = processFile(filename, &size);
 
-    HP hp1;
-    HeapInit (&hp1);
-    AjoutsIteratifs(&hp1,maListe);
+       HP hp1;
+       HeapInit (&hp1);
+       AjoutsIteratifs(&hp1,myArray,size);
 
-    AfficheTasArray(&hp1);
+       AfficheTasArray(&hp1);
     printf("-----Q2.2 Construction:-----\n");
+    Key128 keys[5];
+    const char *hexStrings[] = {
+            "0d09ef03 382fa280 d11bcf44 1bc2e4b7",
+            "0d09ef03 382fa280 d11bcf44 1bc2e4b8",
+            "0d09ef03 382fa280 d11bcf44 1bc2e4b9",
+            "0d09ef03 382fa280 d11bcf44 1bc2e4ba",
+            "0d09ef03 382fa280 d11bcf44 1bc2e4bb"
+    };
+
+    // 确保keys数组已正确填充
+    for (int i = 0; i < 5; i++) {
+        sscanf(hexStrings[i], "%x %x %x %x", &keys[i].part1, &keys[i].part2, &keys[i].part3, &keys[i].part4);
+    }
+
+// 初始化HP结构体
+    HP *hp3;
+    HeapInit(&hp3);
+
+// 使用keys数组构建堆
+    Construction(&hp3, keys, 5);
+
+// 打印堆
+    AfficheTasArray(hp3);
     printf("test: Construire par jeu_1_nb_cles_1000\n");
     HP* hp2;
     HeapInit (&hp2);
-     Construction(&hp2,maListe);
+     Construction(&hp2,myArray,size);
     AfficheTasArray(hp2);
-    freeList(maListe);
+    free(myArray);
+
+
+
     printf("-----Q2.2 Union:-----\n");
-    HP hp3;
-    HeapInit (&hp3);
+    HP hp4;
+    HeapInit (&hp4);
     Key128 key5,key6,key7,key8,key9;
     const char *hexStr5 = "0d09ef03 382fa280 d11bcf44 1bc2e4a7";
     const char *hexStr6 = "0d09ef03 382fa280 d11bcf44 1bc2e4c8";
@@ -70,18 +99,18 @@ int main() {
     sscanf(hexStr8, "%x %x %x %x", &key8.part1, &key8.part2, &key8.part3, &key8.part4);
     sscanf(hexStr9, "%x %x %x %x", &key9.part1, &key9.part2, &key9.part3, &key9.part4);
 
-    Ajout(&hp3,key6);
-    Ajout(&hp3,key5);
-    Ajout(&hp3,key7);
-    Ajout(&hp3,key9);
-    Ajout(&hp3,key8);
+    Ajout(&hp4,key6);
+    Ajout(&hp4,key5);
+    Ajout(&hp4,key7);
+    Ajout(&hp4,key9);
+    Ajout(&hp4,key8);
     printf(" tas1\n");
     AfficheTasArray(&hp);
     printf(" tas2\n");
-    AfficheTasArray(&hp3);
-    HP* hp4 = Union(&hp3,&hp);
+    AfficheTasArray(&hp4);
+    HP* hp5 = Union(&hp4,&hp);
     printf(" Union\n");
-    AfficheTasArray(hp4);
+    AfficheTasArray(hp5);
 
     // 清理资源
     HeapDestroy(&hp);
@@ -89,65 +118,72 @@ int main() {
     HeapDestroy(&hp2);
     HeapDestroy(&hp3);
     HeapDestroy(&hp4);
+    HeapDestroy(&hp5);*/
 
-    printf("++++++++++++++++++Tas Arbre+++++++++++++++++++++++\n");
-    printf("-----Q2.1 Ajout:-----\n");
-    HPArb* tr;
-    initTasAB(&tr);
+      printf("++++++++++++++++++Tas Arbre+++++++++++++++++++++++\n");
+     printf("-----Q2.1 Ajout:-----\n");
+     HPArb* tr;
+     initTasAB(&tr);
 
-    ajout(&tr,key);
-    ajout(&tr,key3);
-    ajout(&tr,key2);
-    ajout(&tr,key1);
-    ajout(&tr,key4);
-    afficheAb(tr,0);
-    printf("\n");
-    printf("-----Q2.1 supprMin:-----\n");
+     ajout(&tr,key);
+     ajout(&tr,key3);
+     ajout(&tr,key2);
+     ajout(&tr,key1);
+     ajout(&tr,key4);
+     afficheAb(tr,0);
+     printf("\n");
+     printf("-----Q2.1 supprMin:-----\n");
 
-    supprMin(&tr);
-    afficheAb(tr,0);
-    printf("-----Q2.1 AjoutsIteratifs:-----\n");
-    printf("test: ajouter jeu_1_nb_cles_1000\n");
+     supprMin(&tr);
+     afficheAb(tr,0);
+     printf("-----Q2.1 AjoutsIteratifs:-----\n");
+     printf("test: ajouter jeu_1_nb_cles_1000\n");
+    const char* filename = "../decode/jeu_1_nb_cles_1000.txt";
+    int size;
+    Key128* myArray = processFile(filename, &size);
+
+     HPArb* tr1;
+     initTasAB (&tr1);
+    ajoutsIteratifs(&tr1,myArray,size);
+
+     //afficheAb(tr1,0);
+     printf("test afficher fils Gauche\n");
+     afficheGauche(tr1);
+     printf("-----Q2.2 Construction:-----\n");
+
+     Liste list1 = NULL;
+     treeToList(tr, &list1);
+     HPArb* tr2;
+     initTasAB (&tr2);
+     construction(&tr2,list1);
+     afficheAb(tr2,0);
+     HPArb* tr3;
+     initTasAB (&tr3);
     Liste maListe1 = buildListFromFile("../decode/jeu_1_nb_cles_1000.txt");
-    HPArb* tr1;
-    initTasAB (&tr1);
-    ajoutsIteratifs(&tr1,maListe1);
-
-    //afficheAb(tr1,0);
-    printf("test afficher fils Gauche\n");
-    afficheGauche(tr1);
-    printf("-----Q2.2 Construction:-----\n");
-
-    Liste list1 = NULL;
-    treeToList(tr, &list1);
-    HPArb* tr2;
-    initTasAB (&tr2);
-    construction(&tr2,list1);
-    afficheAb(tr2,0);
-    HPArb* tr3;
-    initTasAB (&tr3);
-    construction(&tr3,maListe);
-    printf("test: Construire par jeu_1_nb_cles_1000\n");
-    printf("test afficher fils Gauche\n");
-    afficheGauche(tr3);
-    freeList(maListe1);
-    freeList(list1);
-    printf("-----Q2.2 Union:-----\n");
-    HPArb* tr4;
-    initTasAB(&tr4);
+     construction(&tr3,maListe1);
+     printf("test: Construire par jeu_1_nb_cles_1000\n");
+     printf("test afficher fils Gauche\n");
+     afficheGauche(tr3);
+     freeList(maListe1);
+     freeList(list1);
+     /*printf("-----Q2.2 Union:-----\n");
+     HPArb* tr4;
+     initTasAB(&tr4);
 
 
-    ajout(&tr4,key5);
-    ajout(&tr4,key9);
-    ajout(&tr4,key8);
-    ajout(&tr4,key6);
-    ajout(&tr4,key7);
-    printf(" +++tas1+++\n");
-    afficheAb(tr,0);
-    printf(" +++tas2+++\n");
-    afficheAb(tr4,0);
-    printf(" +++tasUnion+++\n");
-    HPArb* tr5= UnionA(tr4,tr);
-    afficheAb(tr5,0);
+     ajout(&tr4,key5);
+     ajout(&tr4,key9);
+     ajout(&tr4,key8);
+     ajout(&tr4,key6);
+     ajout(&tr4,key7);
+     printf(" +++tas1+++\n");
+     afficheAb(tr,0);
+     printf(" +++tas2+++\n");
+     afficheAb(tr4,0);
+     printf(" +++tasUnion+++\n");
+     HPArb* tr5= UnionA(tr4,tr);
+     afficheAb(tr5,0);
+*/
+
     return 0;
 }

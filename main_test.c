@@ -16,7 +16,6 @@ int main()
     //HeapInit(&hp, a, len);
     //HeapPrint(&hp);
 
-/*
     Key128 keys[5];
     const char *hexStrings[] = {
             "0d09ef03 382fa280 d11bcf44 1bc2e4b7",
@@ -29,25 +28,26 @@ int main()
     for (int i = 0; i < 5; i++) {
         sscanf(hexStrings[i], "%x %x %x %x", &keys[i].part1, &keys[i].part2, &keys[i].part3, &keys[i].part4);
     }
-
-    HP hp;
     int len = sizeof(hexStrings) / sizeof(hexStrings[0]);
+    HP hp;
+
     HeapInit(&hp, hexStrings, len);
     HeapPrint(&hp);
-*/
-
-    const char* filename = "../decode/jeu_1_nb_cles_1000.txt"; // 替换为你的测试文件名
+/*
+    const char* filename = "../decode/jeu_1_nb_cles_1000.txt";
     int size;
     Key128* myArray = processFile(filename, &size);
     HP hp;
 
     HeapInit(&hp, myArray, size);
+
+    //hhaa(&hp, myArray, size);
     HeapPrint(&hp);
 
-    /*HeapPush(&hp, key);
+    *//*HeapPush(&hp, key);
     HeapPrint(&hp);
     HeapPush(&hp, key1);
-    HeapPrint(&hp);*/
+    HeapPrint(&hp);*//*
 
     const char* file_pattern = "../decode/jeu_%d_nb_cles_%d.txt";
     const int num_tests = 5; // 1.2.3.4.5
@@ -94,6 +94,8 @@ int main()
         long averageMicros = totalMicros / num_tests;
         printf("Average execution time for %d keys: %ld microseconds\n", sizes[j], averageMicros);
     }
+
+    free(myArray);*/
     return 0;
 
 }

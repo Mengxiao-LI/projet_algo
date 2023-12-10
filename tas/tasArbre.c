@@ -7,7 +7,7 @@
 #include<stdlib.h>
 
 #include "tasArbre.h"
-#include "list.h"
+
 
 
 
@@ -219,12 +219,10 @@ void supprMin(HPArb **tas) {
 
     desentre(*tas);
 }
-void ajoutsIteratifs(HPArb **tas,Liste l){
-    while (l !=NULL){
-        ajout(tas,l->nombre);
-        l = l->suivant;
+void ajoutsIteratifs(HPArb **tas, Key128* keys, int n) {
+    for (int i = 0; i < n; i++) {
+        ajout(tas, keys[i]);
     }
-
 }
 void afficheAb(const HPArb* arbre, int niveau) {
     if (arbre == NULL) {

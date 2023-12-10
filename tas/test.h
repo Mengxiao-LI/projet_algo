@@ -29,6 +29,7 @@ void HeapPrint(HP* php);
 void HeapInit(HP* php, HPDataTpye* a, int n);
 void HeapDestroy(HP* php);
 void HeapPush(HP* php, HPDataTpye x);
+void hhaa(HP* php, HPDataTpye* a, int n);
 void HeapPop(HP* php);
 HPDataTpye HeapTop(HP* php);
 bool HeapEmpty(HP* php);

@@ -5,7 +5,7 @@
 #ifndef PROJET_MENGXIAO_ZHENGDAO_TAS_H
 #define PROJET_MENGXIAO_ZHENGDAO_TAS_H
 
-#include "list.h"
+
 #include "../echauffement/echauffement.h"
 
 typedef Key128 HPDataType;
@@ -24,8 +24,8 @@ void HeapDestroy(HP* minHp);
 void AfficheTasArray(HP *  minHp);
 HP * Ajout(HP * minHp,Key128 cle);
 HP *  SupprMin(HP * minHp);
-HP *  AjoutsIteratifs(HP *  minHp,Liste l);
-void Construction(HP **minHp, Liste l);
+HP *AjoutsIteratifs(HP *minHp, Key128* keys, int n);
+void Construction(HP **minHp, Key128* keys, int n);
 HP * Union( HP * m1 , HP * m2);
 
 

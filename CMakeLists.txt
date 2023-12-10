@@ -28,6 +28,7 @@ add_executable(main_Tas_Min main_TasMin.c
         tas/list.c
         tas/tasArbre.c
         tas/tasArbre.h
+
 )
 add_executable(Tas_Q8Q9 main_Tas_Q89.c
         echauffement/echauffement.h
@@ -45,3 +46,9 @@ add_executable(test main_test.c
         tas/test.c
         echauffement/echauffement.h
         echauffement/echauffement.c)
+add_executable(arbreBR
+        main_ABR.c
+        arbreBR/arbreBR.h
+        echauffement/echauffement.h
+        echauffement/echauffement.c
+        arbreBR/arbreBR.c)

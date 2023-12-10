@@ -10,7 +10,7 @@
 #include "list.h"
 #include "../echauffement/echauffement.h"
 
-typedef Key128 HPDataType;
+
 
 typedef Key128 HPType;
 typedef struct HPArb {
@@ -28,7 +28,7 @@ void ajout(HPArb **tas,HPType data);
 void afficheAb(const HPArb* arbre, int niveau);
 int countNodes(HPArb* root);
 void supprMin(HPArb **tas);
-void ajoutsIteratifs(HPArb **tas,Liste l);
+void ajoutsIteratifs(HPArb **tas, Key128* keys, int n);
 void afficheGauche(HPArb* arbre);
 void construction(HPArb **tas, Liste l);
 HPArb* UnionA(HPArb *tas1, HPArb *tas2);

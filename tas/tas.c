@@ -6,14 +6,9 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<assert.h>
-#include<stdbool.h>
 #include "tas.h"
-#include "list.h"
+
 #include "../echauffement/echauffement.h"
-
-
-
-
 
 
 
@@ -89,85 +84,81 @@ HP * Ajout(HP* minHp, Key128 x)
     int parent = (fils - 1) / 2;
     minHp->a[fils] = x;
     //while (fils > 0 && minHp->a[fils] < minHp->a[parent]) {
-    while (fils > 0 && inf(minHp->a[fils],minHp->a[parent])) {
-        // 交换 fils 和 parent 的值
-        Key128 temp = minHp->a[fils];
-        minHp->a[fils] = minHp->a[parent];
-        minHp->a[parent] = temp;
+    while (fils > 0 ) {
+        if( inf(minHp->a[fils],minHp->a[parent])){
+            // 交换 fils 和 parent 的值
+            Key128 temp = minHp->a[fils];
+            minHp->a[fils] = minHp->a[parent];
+            minHp->a[parent] = temp;
 
-        // 更新 fils 和 parent 的索引
-        fils = parent;
-        parent = (fils - 1) / 2;
+            // 更新 fils 和 parent 的索引
+            fils = parent;
+            parent = (fils - 1) / 2;
+        } else{
+            break;
+        }
+
     }
     return minHp;
 }
 
 //ajout un list dans un tas
-HP *AjoutsIteratifs(HP *minHp,Liste l){
-    while (l !=NULL){
-        Ajout(minHp,l->nombre);
-        l = l->suivant;
+
+HP *AjoutsIteratifs(HP *minHp, Key128* keys, int n) {
+    for (int i = 0; i < n; i++) {
+        Ajout(minHp, keys[i]);
     }
     return minHp;
-
 }
 
+// 堆的下沉调整操作
+void Heapify(HP* minHp, int index) {
+    int smallest = index;
+    int left = 2 * index + 1;
+    int right = 2 * index + 2;
 
-//Construire un tas par un liste
-void Construction(HP **minHp, Liste l) {
-    if (minHp == NULL) {
-        return;
+    if (left < minHp->size && inf(minHp->a[left], minHp->a[smallest])) {
+        smallest = left;
+    }
+    if (right < minHp->size && inf(minHp->a[right], minHp->a[smallest])) {
+        smallest = right;
     }
 
+    if (smallest != index) {
+        HPDataType temp = minHp->a[index];
+        minHp->a[index] = minHp->a[smallest];
+        minHp->a[smallest] = temp;
+        Heapify(minHp, smallest);
+    }
+}
+
+// Construire un tas à partir d'un tableau
+void Construction(HP **minHp, Key128* keys, int n) {
     *minHp = (HP*)malloc(sizeof(HP));
     if (*minHp == NULL) {
         exit(-1); // 内存分配失败
     }
 
     HeapInit(*minHp);
-    while (l != NULL) {
-        if ((*minHp)->size == (*minHp)->capacity) {
-            (*minHp)->capacity = ((*minHp)->capacity == 0) ? 4 : (*minHp)->capacity * 2;
-            (*minHp)->a = (HPDataType*)realloc((*minHp)->a, sizeof(HPDataType) * (*minHp)->capacity);
-            if ((*minHp)->a == NULL) {
-                exit(-1); // 内存分配失败
-            }
-        }
+    (*minHp)->a = (HPDataType*)malloc(sizeof(HPDataType) * n);
+    if ((*minHp)->a == NULL) {
+        exit(-1); // 内存分配失败
+    }
+    (*minHp)->capacity = n;
+    (*minHp)->size = n;
 
-        (*minHp)->a[(*minHp)->size] = l->nombre;
-        (*minHp)->size++;
-        l = l->suivant;
+    for (int i = 0; i < n; i++) {
+        (*minHp)->a[i] = keys[i];
     }
 
-    int parent = ((*minHp)->size - 2) / 2;
-    while (parent >= 0) {
-        while(true){
-            int fG=2*parent+1;
-            int fD=2*parent+2;
-            int smaller = parent;
-            //if (fG < minHp->size && minHp->a[fG] < minHp->a[smaller]) {
-            if (fG < (*minHp)->size && inf((*minHp)->a[fG],(*minHp)->a[smaller])) {
-                smaller = fG;
-            }
-            if (fD < (*minHp)->size && inf((*minHp)->a[fD],(*minHp)->a[smaller])) {
-                smaller = fD;
-            }
-
-            if (smaller!=parent) {
-                HPDataType temp = (*minHp)->a[parent];
-                (*minHp)->a[parent] = (*minHp)->a[smaller];
-                (*minHp)->a[smaller] = temp;
-                parent = smaller;
-            }else{
-                break;
-            }
-
-        }
-
-        parent--;
+    // 开始从最后一个非叶子节点进行下沉调整
+    for (int i = (n - 2) / 2; i >= 0; i--) {
+        Heapify(*minHp, i);
     }
-
 }
+
+
+
 /*删
  * 复杂度计算
 https://blog.csdn.net/weixin_44611096/article/details/123608836*/
@@ -193,7 +184,6 @@ HP *Union(HP *minHp1, HP *minHp2) {
         return NULL;
     }
 
-    // 合并两个堆的数据
     for (int i = 0; i < minHp1->size; i++) {
         minHp->a[i] = minHp1->a[i];
     }
@@ -201,36 +191,13 @@ HP *Union(HP *minHp1, HP *minHp2) {
         minHp->a[i + minHp1->size] = minHp2->a[i];
     }
 
-    int parent = (minHp->size - 2) / 2;
-    while (parent>=0){
-        while(true){
-            int fG=2*parent+1;
-            int fD=2*parent+2;
-            int smaller = parent;
-
-            if (fG < minHp->size && inf(minHp->a[fG],minHp->a[smaller])  ) {
-                smaller = fG;
-            }
-            if (fD < minHp->size && inf(minHp->a[fD],minHp->a[smaller])) {
-                smaller = fD;
-            }
-
-            if (smaller!=parent) {
-                HPDataType temp = minHp->a[parent];
-                minHp->a[parent] = minHp->a[smaller];
-                minHp->a[smaller] = temp;
-                parent = smaller;
-            }else{
-                break;
-            }
-
-        }
-
-        parent--;
+    // 从最后一个非叶子节点开始，向上进行下沉调整
+    for (int i = (minHp->size - 2) / 2; i >= 0; i--) {
+        Heapify(minHp, i);
     }
 
-
     return minHp;
+
 }
 
 
