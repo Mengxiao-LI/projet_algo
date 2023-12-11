@@ -8,7 +8,7 @@
 
 
 int main() {
-    const uint8_t message[] = "Your message here";
+    const uint8_t message[] = "message";
     uint8_t res[16];
     md5(message, strlen((char *)message), res);
 
@@ -20,5 +20,4 @@ int main() {
 
     return 0;
 
-    return 0;
 }

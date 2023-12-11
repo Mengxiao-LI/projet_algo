@@ -1,0 +1,114 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.26"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "projet_Mengxiao_Zhengdao",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "Tas_Q8Q9::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Tas_Q8Q9-Debug-f13e7abf1e1da0c5b149.json",
+					"name" : "Tas_Q8Q9",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "arbreBR::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-arbreBR-Debug-fa901d12fd30da450fde.json",
+					"name" : "arbreBR",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "filebinomiale::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-filebinomiale-Debug-0bc23b25422710b834f6.json",
+					"name" : "filebinomiale",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "main_Tas_Min::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-main_Tas_Min-Debug-d4854bcf1f9106eefa36.json",
+					"name" : "main_Tas_Min",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "md5::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-md5-Debug-d33c002a2dd43a21d632.json",
+					"name" : "md5",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "projet_Mengxiao_Zhengdao::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-projet_Mengxiao_Zhengdao-Debug-b4d910aa35047fb3e8f4.json",
+					"name" : "projet_Mengxiao_Zhengdao",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "test::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-test-Debug-8230f09c38b96f928aa7.json",
+					"name" : "test",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/Projet/projet_algo/cmake-build-debug",
+		"source" : "C:/Projet/projet_algo"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 5
+	}
+}
