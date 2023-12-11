@@ -36,5 +36,6 @@ void treeToList(HPArb* root, Liste* l);
 Liste uninonLists(Liste l1, Liste l2);
 void construction1(HPArb **tas, HPType array[], int arrayLength);
 void ajout1(HPArb **tas, HPType data);
+void freeTree(HPArb* root);
 
 #endif //PROJET_MENGXIAO_ZHENGDAO_TASARBRE_H

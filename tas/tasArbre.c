@@ -29,7 +29,13 @@ HPArb* nouveauNoeud(HPType data) {
     noeud->fD = NULL;
     return noeud;
 }
+void freeTree(HPArb* root) {
+    if (root == NULL) return;
 
+    freeTree(root->fG);
+    freeTree(root->fD);
+    free(root);
+}
 // 向完全二叉树的最后添加一个节点
 int insertLast(HPArb **tas, HPType data, int *pInt) {
     HPArb* newNode = nouveauNoeud(data);
@@ -253,16 +259,24 @@ void afficheAb(const HPArb* arbre, int niveau) {
 
 
 
-void remonte(HPArb **tas, int totalNodes, HPArb* nodeRefs[]) {
+void remonte1(int totalNodes, HPArb* nodeRefs[]) {
     int size = totalNodes - 1;
+    HPArb* parentNode;
+    HPArb* filsG;
+    HPArb* filsD;
     for (int parent = (totalNodes - 1) / 2; parent >= 0; parent--) {
         while(true){
             int smallest = parent;
             int fG=2*parent+1;
             int fD=2*parent+2;
-            HPArb* parentNode = nodeRefs[parent];
-            HPArb* filsG = nodeRefs[fG];
-            HPArb* filsD = (fD <= size) ? nodeRefs[fD] : NULL;
+            if(fG>size){
+                break;
+            }
+            parentNode = nodeRefs[parent];
+
+            filsG = nodeRefs[fG];
+            filsD = (fD <= size) ? nodeRefs[fD] : NULL;
+
             if (filsG != NULL && inf(filsG->data,parentNode->data)  ) {
                 smallest = fG;
             }
@@ -287,12 +301,12 @@ void createCAB1(HPArb** tas, HPType array[], int arrayLength, int* lastId, HPArb
     *tas = nouveauNoeud(array[0]);
     nodeRefs[index++] = *tas;
 
-    HPArb* queue[MAX_NODES];
+    HPArb* queue[arrayLength];
     int first = 0, last = 0;
     queue[last++] = *tas;
 
     int current = 1;
-    while (current < arrayLength && index < MAX_NODES) {
+    while (current < arrayLength && index < arrayLength) {
         HPArb* parent = queue[first++];
 
         if (parent->fG == NULL) {
@@ -310,23 +324,25 @@ void createCAB1(HPArb** tas, HPType array[], int arrayLength, int* lastId, HPArb
         }
     }
     *lastId = index - 1;
+
 }
 void construction1(HPArb **tas, HPType array[], int arrayLength) {
-    HPArb** nodeRefs = (HPArb**)malloc(MAX_NODES * sizeof(HPArb*));
+    HPArb** nodeRefs = (HPArb**)malloc(arrayLength * sizeof(HPArb*));
     if (nodeRefs == NULL) {
+        free(nodeRefs);
         return;
     }
 
     int lastId = 0;
     createCAB1(tas, array, arrayLength, &lastId, nodeRefs);
-    remonte(tas, lastId + 1, nodeRefs);
+    remonte1( lastId + 1, nodeRefs);
 
     free(nodeRefs); // 用完后释放内存
 }
-void treeToArray(HPArb* root, HPType* array) {
+void treeToArray(HPArb* root, HPType* array,int arrayLength) {
     if (root == NULL) return;
 
-    HPArb* queue[MAX_NODES];
+    HPArb* queue[arrayLength];
     int first = 0, last = 0;
     queue[last++] = root;
 
@@ -348,8 +364,8 @@ HPArb* UnionA(HPArb *tas1, HPArb *tas2){
     HPType *array2 = (HPType*)malloc(arrayLength2 * sizeof(HPType));
 
     // 假设 treeToArray 函数可以将树转换为数组
-    treeToArray(tas1, array1);
-    treeToArray(tas2, array2);
+    treeToArray(tas1, array1,arrayLength1);
+    treeToArray(tas2, array2,arrayLength2);
 
     // 合并两个数组
     HPType *mergedArray = (HPType*)malloc((arrayLength1 + arrayLength2) * sizeof(HPType));

@@ -112,7 +112,7 @@ HP *AjoutsIteratifs(HP *minHp, Key128* keys, int n) {
 }
 
 // 堆的下沉调整操作
-void Heapify(HP* minHp, int index) {
+void remonte(HP* minHp, int index) {
     int smallest = index;
     int left = 2 * index + 1;
     int right = 2 * index + 2;
@@ -128,7 +128,7 @@ void Heapify(HP* minHp, int index) {
         HPDataType temp = minHp->a[index];
         minHp->a[index] = minHp->a[smallest];
         minHp->a[smallest] = temp;
-        Heapify(minHp, smallest);
+        remonte(minHp, smallest);
     }
 }
 
@@ -153,7 +153,7 @@ void Construction(HP **minHp, Key128* keys, int n) {
 
     // 开始从最后一个非叶子节点进行下沉调整
     for (int i = (n - 2) / 2; i >= 0; i--) {
-        Heapify(*minHp, i);
+        remonte(*minHp, i);
     }
 }
 
@@ -193,7 +193,7 @@ HP *Union(HP *minHp1, HP *minHp2) {
 
     // 从最后一个非叶子节点开始，向上进行下沉调整
     for (int i = (minHp->size - 2) / 2; i >= 0; i--) {
-        Heapify(minHp, i);
+        remonte(minHp, i);
     }
 
     return minHp;
