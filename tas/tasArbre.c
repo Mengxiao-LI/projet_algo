@@ -12,7 +12,7 @@
 
 
 
-#define MAX_NODES 200000
+
 /**********************************************/
 /************       tas arbre     *************/
 /**********************************************/
@@ -29,8 +29,9 @@ HPArb* nouveauNoeud(HPType data) {
     noeud->fD = NULL;
     return noeud;
 }
+
 // 向完全二叉树的最后添加一个节点
-int insertLast(HPArb** tas, HPType data) {
+int insertLast(HPArb **tas, HPType data, int *pInt) {
     HPArb* newNode = nouveauNoeud(data);
     if (*tas == NULL) {
         // 如果树为空，新节点成为根节点
@@ -41,6 +42,7 @@ int insertLast(HPArb** tas, HPType data) {
         HPArb* queue[200000]; // 使用队列保存节点
         int first = 0;
         int last = 0;
+        int parentID=0;
         queue[last++] = *tas;
 
         while (first < last) {
@@ -63,6 +65,7 @@ int insertLast(HPArb** tas, HPType data) {
                 // 否则将右子节点加入队列
                 queue[last++] = current->fD;
             }
+            parentID++;
         }
         return -1; // 如果未找到空闲位置，返回-1表示错误
     }
@@ -83,6 +86,7 @@ HPArb* findNode(HPArb* tas, int index) {
         HPArb* node = queue[first++];
 
         if (count == index) {
+
             return node;
         }
 
@@ -103,6 +107,7 @@ void change(HPArb* a, HPArb* b) {
     a->data = b->data;
     b->data = temp;
 }
+
 void remonter(HPArb **tas, int idlast) {
     if (*tas == NULL || idlast < 0) {
         return; // 检查树非空且索引有效
@@ -132,7 +137,8 @@ void ajout(HPArb **tas, HPType data) {
         *tas = nouveauNoeud(data);
     } else {
         int idlast;
-       idlast=insertLast(tas, data);
+        int parentid=0;
+       idlast= insertLast(tas, data, &parentid);
         remonter(tas,idlast);
     }
 }
@@ -243,38 +249,7 @@ void afficheAb(const HPArb* arbre, int niveau) {
     afficheAb(arbre->fG, niveau + 1);
 }
 
-
-void createCAB(HPArb** tas, Liste l, int* lastId, HPArb* nodeRefs[]) {
-    if (l == NULL) return;
-
-    int index = 0;
-    *tas = nouveauNoeud(l->nombre);
-    nodeRefs[index++] = *tas;
-
-    HPArb* queue[MAX_NODES];
-    int first = 0, last = 0;
-    queue[last++] = *tas;
-
-    Liste current = l->suivant;
-    while (current != NULL && index < MAX_NODES) {
-        HPArb* parent = queue[first++];
-
-        if (parent->fG == NULL) {
-            parent->fG = nouveauNoeud(current->nombre);
-            queue[last++] = parent->fG;
-            nodeRefs[index++] = parent->fG;
-            current = current->suivant;
-        }
-
-        if (current != NULL && parent->fD == NULL) {
-            parent->fD = nouveauNoeud(current->nombre);
-            queue[last++] = parent->fD;
-            nodeRefs[index++] = parent->fD;
-            current = current->suivant;
-        }
-    }
-    *lastId = index - 1;
-}
+#define MAX_NODES 200000
 
 
 
@@ -304,29 +279,61 @@ void remonte(HPArb **tas, int totalNodes, HPArb* nodeRefs[]) {
         }
     }
 }
-void construction(HPArb **tas, Liste l) {
+
+void createCAB1(HPArb** tas, HPType array[], int arrayLength, int* lastId, HPArb* nodeRefs[]) {
+    if (arrayLength == 0) return;
+
+    int index = 0;
+    *tas = nouveauNoeud(array[0]);
+    nodeRefs[index++] = *tas;
+
+    HPArb* queue[MAX_NODES];
+    int first = 0, last = 0;
+    queue[last++] = *tas;
+
+    int current = 1;
+    while (current < arrayLength && index < MAX_NODES) {
+        HPArb* parent = queue[first++];
+
+        if (parent->fG == NULL) {
+            parent->fG = nouveauNoeud(array[current]);
+            queue[last++] = parent->fG;
+            nodeRefs[index++] = parent->fG;
+            current++;
+        }
+
+        if (current < arrayLength && parent->fD == NULL) {
+            parent->fD = nouveauNoeud(array[current]);
+            queue[last++] = parent->fD;
+            nodeRefs[index++] = parent->fD;
+            current++;
+        }
+    }
+    *lastId = index - 1;
+}
+void construction1(HPArb **tas, HPType array[], int arrayLength) {
     HPArb** nodeRefs = (HPArb**)malloc(MAX_NODES * sizeof(HPArb*));
     if (nodeRefs == NULL) {
         return;
     }
 
     int lastId = 0;
-    createCAB(tas, l, &lastId, nodeRefs);
+    createCAB1(tas, array, arrayLength, &lastId, nodeRefs);
     remonte(tas, lastId + 1, nodeRefs);
 
     free(nodeRefs); // 用完后释放内存
 }
-
-void treeToList(HPArb* root, Liste* l) {
+void treeToArray(HPArb* root, HPType* array) {
     if (root == NULL) return;
 
     HPArb* queue[MAX_NODES];
     int first = 0, last = 0;
     queue[last++] = root;
 
+    int index = 0; // 用于追踪数组中的位置
     while (first < last) {
         HPArb* node = queue[first++];
-        empile(node->data, l);
+        array[index++] = node->data; // 将节点数据存入数组
 
         if (node->fG != NULL) queue[last++] = node->fG;
         if (node->fD != NULL) queue[last++] = node->fD;
@@ -335,17 +342,30 @@ void treeToList(HPArb* root, Liste* l) {
 
 
 HPArb* UnionA(HPArb *tas1, HPArb *tas2){
-    Liste list1 = NULL;
-    Liste list2 = NULL;
-    treeToList(tas1, &list1);
-    treeToList(tas2, &list2);
+    int arrayLength1 = countNodes(tas1);  // 假设这个函数可以计算树中的节点数
+    int arrayLength2 = countNodes(tas2);  // 同上
+    HPType *array1 = (HPType*)malloc(arrayLength1 * sizeof(HPType));
+    HPType *array2 = (HPType*)malloc(arrayLength2 * sizeof(HPType));
 
-    Liste l = uninonLists(list1, list2);
+    // 假设 treeToArray 函数可以将树转换为数组
+    treeToArray(tas1, array1);
+    treeToArray(tas2, array2);
+
+    // 合并两个数组
+    HPType *mergedArray = (HPType*)malloc((arrayLength1 + arrayLength2) * sizeof(HPType));
+    memcpy(mergedArray, array1, arrayLength1 * sizeof(HPType));
+    memcpy(mergedArray + arrayLength1, array2, arrayLength2 * sizeof(HPType));
+
     HPArb* tas;
     initTasAB(&tas);
-    construction(&tas, l);
-    return tas;
+    construction1(&tas, mergedArray, arrayLength1 + arrayLength2);
 
+    // 清理
+    free(array1);
+    free(array2);
+    free(mergedArray);
+
+    return tas;
 }
 void afficheGauche(HPArb* arbre) {
     if (arbre == NULL) {
