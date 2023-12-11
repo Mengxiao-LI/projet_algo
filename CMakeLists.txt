@@ -17,8 +17,14 @@ add_executable(filebinomiale
         main_File_Binomiale.c
         fileBinomiale/filebinomiale.c
         fileBinomiale/filebinomiale.h
-
 )
+
+add_executable(md5
+        main_MD5.c
+        hachage/md5.h
+        hachage/md5.c
+)
+
 add_executable(main_Tas_Min main_TasMin.c
         echauffement/echauffement.h
         echauffement/echauffement.c
@@ -41,14 +47,17 @@ add_executable(Tas_Q8Q9 main_Tas_Q89.c
         tas/tasArbre.h
 )
 
+
 add_executable(test main_test.c
         tas/test.h
         tas/test.c
         echauffement/echauffement.h
         echauffement/echauffement.c)
+
 add_executable(arbreBR
         main_ABR.c
         arbreBR/arbreBR.h
         echauffement/echauffement.h
         echauffement/echauffement.c
-        arbreBR/arbreBR.c)
+        arbreBR/arbreBR.c
+        )
