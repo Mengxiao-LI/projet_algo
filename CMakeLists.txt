@@ -28,6 +28,8 @@ add_executable(main_Tas_Min main_TasMin.c
         tas/list.c
         tas/tasArbre.c
         tas/tasArbre.h
+        tas/tas_arbre.h
+        tas/tas_arbre.c
 
 )
 add_executable(Tas_Q8Q9 main_Tas_Q89.c
