@@ -28,6 +28,13 @@ add_executable(filebinomialeINT
         echauffement/echauffement.h
         echauffement/echauffement.c
 )
+add_executable(filebinomialeINTSimple
+        main_File_BinomialeINTSimple.c
+        fileBinomialeINT/filebinomiale.c
+        fileBinomialeINT/filebinomiale.h
+        echauffement/echauffement.h
+        echauffement/echauffement.c
+)
 
 add_executable(md5
         main_MD5.c

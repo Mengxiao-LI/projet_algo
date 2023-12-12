@@ -17,6 +17,9 @@ int Degre(Tournoi t) {
     ArbreBinomialeNode* current = t.racine->child;
     while (current != NULL) {
         degre++;
+        //修改
+        if(current->frere = NULL)
+        return degre;
         current = current->frere;
     }
     return degre;

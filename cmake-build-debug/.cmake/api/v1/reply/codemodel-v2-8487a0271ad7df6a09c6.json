@@ -22,7 +22,8 @@
 						4,
 						5,
 						6,
-						7
+						7,
+						8
 					]
 				}
 			],
@@ -44,7 +45,8 @@
 						4,
 						5,
 						6,
-						7
+						7,
+						8
 					]
 				}
 			],
@@ -53,14 +55,14 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "Tas_Q8Q9::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-Tas_Q8Q9-Debug-5379e193a96987b97d67.json",
+					"jsonFile" : "target-Tas_Q8Q9-Debug-cb2951b1b83d984f8ae0.json",
 					"name" : "Tas_Q8Q9",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "arbreBR::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-arbreBR-Debug-c24276e8b7156c6dbc56.json",
+					"jsonFile" : "target-arbreBR-Debug-640b094a8587df878da5.json",
 					"name" : "arbreBR",
 					"projectIndex" : 0
 				},
@@ -80,15 +82,22 @@
 				},
 				{
 					"directoryIndex" : 0,
+					"id" : "filebinomialeINTSimple::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-filebinomialeINTSimple-Debug-f1cbb668347edc276ddd.json",
+					"name" : "filebinomialeINTSimple",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
 					"id" : "main_Tas_Min::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-main_Tas_Min-Debug-2437fd49493911ecce54.json",
+					"jsonFile" : "target-main_Tas_Min-Debug-410938e39c11bec553e4.json",
 					"name" : "main_Tas_Min",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "md5::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-md5-Debug-54c7325f16d4633da8d9.json",
+					"jsonFile" : "target-md5-Debug-117411644b2d414aec8e.json",
 					"name" : "md5",
 					"projectIndex" : 0
 				},
@@ -102,7 +111,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "test::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-test-Debug-3da8cece3ba6287b0c52.json",
+					"jsonFile" : "target-test-Debug-eee68a4672269890a9bb.json",
 					"name" : "test",
 					"projectIndex" : 0
 				}

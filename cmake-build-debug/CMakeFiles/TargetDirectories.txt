@@ -1,6 +1,7 @@
 C:/Projet/projet_algo/cmake-build-debug/CMakeFiles/projet_Mengxiao_Zhengdao.dir
 C:/Projet/projet_algo/cmake-build-debug/CMakeFiles/filebinomiale.dir
 C:/Projet/projet_algo/cmake-build-debug/CMakeFiles/filebinomialeINT.dir
+C:/Projet/projet_algo/cmake-build-debug/CMakeFiles/filebinomialeINTSimple.dir
 C:/Projet/projet_algo/cmake-build-debug/CMakeFiles/md5.dir
 C:/Projet/projet_algo/cmake-build-debug/CMakeFiles/main_Tas_Min.dir
 C:/Projet/projet_algo/cmake-build-debug/CMakeFiles/Tas_Q8Q9.dir

@@ -2,10 +2,10 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "Tas_Q8Q9.exe"
+			"path" : "test.exe"
 		},
 		{
-			"path" : "Tas_Q8Q9.pdb"
+			"path" : "test.pdb"
 		}
 	],
 	"backtrace" : 1,
@@ -27,7 +27,7 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 51,
+				"line" : 70,
 				"parent" : 0
 			}
 		]
@@ -54,13 +54,11 @@
 			[
 				0,
 				2,
-				4,
-				6,
-				7
+				4
 			]
 		}
 	],
-	"id" : "Tas_Q8Q9::@6890427a1f51a3e7e1df",
+	"id" : "test::@6890427a1f51a3e7e1df",
 	"link" : 
 	{
 		"commandFragments" : 
@@ -80,8 +78,8 @@
 		],
 		"language" : "C"
 	},
-	"name" : "Tas_Q8Q9",
-	"nameOnDisk" : "Tas_Q8Q9.exe",
+	"name" : "test",
+	"nameOnDisk" : "test.exe",
 	"paths" : 
 	{
 		"build" : ".",
@@ -95,9 +93,7 @@
 			[
 				0,
 				2,
-				4,
-				6,
-				7
+				4
 			]
 		},
 		{
@@ -105,9 +101,7 @@
 			"sourceIndexes" : 
 			[
 				1,
-				3,
-				5,
-				8
+				3
 			]
 		}
 	],
@@ -116,7 +110,18 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "main_Tas_Q89.c",
+			"path" : "main_test.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "tas/test.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "tas/test.c",
 			"sourceGroupIndex" : 0
 		},
 		{
@@ -129,39 +134,6 @@
 			"compileGroupIndex" : 0,
 			"path" : "echauffement/echauffement.c",
 			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"path" : "tas/tas.h",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "tas/tas.c",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"path" : "tas/list.h",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "tas/list.c",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "tas/tasArbre.c",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"path" : "tas/tasArbre.h",
-			"sourceGroupIndex" : 1
 		}
 	],
 	"type" : "EXECUTABLE"
