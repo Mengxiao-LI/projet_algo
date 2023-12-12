@@ -42,4 +42,5 @@ void convertAllFilesInFolder(const char *inputFolder, const char *outputFolder);
 Key128* buildArrayFromFile(const char* filename, int* size);
 Key128* resizeArray(Key128* array, int newSize);
 Key128* processFile(const char* filename, int* size);
+Key128* processFile1(const char* filename, int* size);
 #endif //PROJET_MENGXIAO_ZHENGDAO_ECHAUFFEMENT_H
