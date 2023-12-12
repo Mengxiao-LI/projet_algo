@@ -16,4 +16,5 @@ ABR* CreateNode(Type data);
 ABR* InsertNode(ABR* root, Type data);
 void PrintTree(ABR *root);
 bool estDans(ABR * root,Type data);
+void freeABR(ABR* root);
 #endif //PROJET_MENGXIAO_ZHENGDAO_ARBREBR_H

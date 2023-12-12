@@ -1,6 +1,4 @@
-//
-// Created by lmx on 2023/12/10.
-//
+
 #include "arbreBR.h"
 
 
@@ -51,4 +49,16 @@ bool estDans(ABR *root, Type data) {
     } else {
         return estDans(root->fD, data);
     }
+}
+void freeABR(ABR* root) {
+    if (root == NULL) {
+        return; // 如果节点为空，没有什么要做的
+    }
+
+    // 递归地释放左子树和右子树
+    freeABR(root->fG);
+    freeABR(root->fD);
+
+    // 释放当前节点
+    free(root);
 }

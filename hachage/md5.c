@@ -208,7 +208,7 @@ void convertTextToHachage(const char *inputPath, const char *outputPath) {
     fclose(inputFile);
     fclose(outputFile);
 }
-void convertAllFilesInFolder(const char *inputFolder, const char *outputFolder) {
+void convertFilesInFolder(const char *inputFolder, const char *outputFolder) {
     DIR *dir;
     struct dirent *entry;
     char inputPath[1024];

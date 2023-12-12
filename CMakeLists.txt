@@ -82,4 +82,9 @@ add_executable(question6 main_Q6.c
         echauffement/echauffement.c
         arbreBR/arbreBR.h
         arbreBR/arbreBR.c
+        experimentale/experimentale.c
+        experimentale/experimentale.h
+        hachage/md5.c
+        hachage/md5.h
+
 )
