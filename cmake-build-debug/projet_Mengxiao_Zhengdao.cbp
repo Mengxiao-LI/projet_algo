@@ -359,6 +359,44 @@
 					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Projet/projet_algo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
+			<Target title="question6">
+				<Option output="C:/Projet/projet_algo/cmake-build-debug/question6.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Projet/projet_algo/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../include"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Projet/projet_algo/cmake-build-debug/Makefile&quot;  VERBOSE=1 question6"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Projet/projet_algo/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Projet/projet_algo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Projet/projet_algo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="question6/fast">
+				<Option output="C:/Projet/projet_algo/cmake-build-debug/question6.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Projet/projet_algo/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../include"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Projet/projet_algo/cmake-build-debug/Makefile&quot;  VERBOSE=1 question6/fast"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Projet/projet_algo/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Projet/projet_algo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Projet/projet_algo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
 			<Target title="edit_cache">
 				<Option working_dir="C:/Projet/projet_algo/cmake-build-debug"/>
 				<Option type="4"/>
@@ -382,9 +420,11 @@
 		</Build>
 		<Unit filename="C:/Projet/projet_algo/arbreBR/arbreBR.c">
 			<Option target="arbreBR"/>
+			<Option target="question6"/>
 		</Unit>
 		<Unit filename="C:/Projet/projet_algo/arbreBR/arbreBR.h">
 			<Option target="arbreBR"/>
+			<Option target="question6"/>
 		</Unit>
 		<Unit filename="C:/Projet/projet_algo/echauffement/echauffement.c">
 			<Option target="projet_Mengxiao_Zhengdao"/>
@@ -395,6 +435,7 @@
 			<Option target="Tas_Q8Q9"/>
 			<Option target="test"/>
 			<Option target="arbreBR"/>
+			<Option target="question6"/>
 		</Unit>
 		<Unit filename="C:/Projet/projet_algo/echauffement/echauffement.h">
 			<Option target="projet_Mengxiao_Zhengdao"/>
@@ -405,6 +446,7 @@
 			<Option target="Tas_Q8Q9"/>
 			<Option target="test"/>
 			<Option target="arbreBR"/>
+			<Option target="question6"/>
 		</Unit>
 		<Unit filename="C:/Projet/projet_algo/echauffement/test/testEchauffement.c">
 			<Option target="projet_Mengxiao_Zhengdao"/>
@@ -450,6 +492,9 @@
 		<Unit filename="C:/Projet/projet_algo/main_MD5.c">
 			<Option target="md5"/>
 		</Unit>
+		<Unit filename="C:/Projet/projet_algo/main_Q6.c">
+			<Option target="question6"/>
+		</Unit>
 		<Unit filename="C:/Projet/projet_algo/main_TasMin.c">
 			<Option target="main_Tas_Min"/>
 		</Unit>
@@ -480,18 +525,10 @@
 			<Option target="Tas_Q8Q9"/>
 		</Unit>
 		<Unit filename="C:/Projet/projet_algo/tas/tasArbre.c">
-			<Option target="main_Tas_Min"/>
 			<Option target="Tas_Q8Q9"/>
 		</Unit>
 		<Unit filename="C:/Projet/projet_algo/tas/tasArbre.h">
-			<Option target="main_Tas_Min"/>
 			<Option target="Tas_Q8Q9"/>
-		</Unit>
-		<Unit filename="C:/Projet/projet_algo/tas/tas_arbre.c">
-			<Option target="main_Tas_Min"/>
-		</Unit>
-		<Unit filename="C:/Projet/projet_algo/tas/tas_arbre.h">
-			<Option target="main_Tas_Min"/>
 		</Unit>
 		<Unit filename="C:/Projet/projet_algo/tas/test.c">
 			<Option target="test"/>

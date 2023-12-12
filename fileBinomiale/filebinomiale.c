@@ -209,24 +209,60 @@ FileBinomiale SupprMin_FB(FileBinomiale FBn) {
         count++;
         current = current->frere;
     }
-
-    Tournoi **subTournois = malloc(sizeof(Tournoi*) * count);
+//    修改** -》 *
+    Tournoi *subTournois = malloc(sizeof(Tournoi*) * count);
     current = minTournoi->racine->child;
     for (int i = 0; i < count; i++) {
-        subTournois[i] = malloc(sizeof(Tournoi));
-        subTournois[i]->racine = current;
+        //修改
+//        subTournois[i] = malloc(sizeof(Tournoi));
+        subTournois[i].racine = current;
         current = current->frere;
     }
     //creer la file avec les subtournois de minTournoi
-    FileBinomiale subfile_minTournoi = Construction_FB(*subTournois, count);
+    FileBinomiale subfile_minTournoi = Construction_FB(subTournois, count);
     //free
-    for (int i = 0; i < count; i++) {
-        free(subTournois[i]);
-    }
+    //修改
+//    for (int i = 0; i < count; i++) {
+//        free(subTournois[i]);
+//    }
     free(subTournois);
 
     return UnionFile(resteFBn, subfile_minTournoi); // faire l'union
 }
+
+//FileBinomiale SupprMin_FB(FileBinomiale FBn) {
+//    if (FBn.size == 0) {
+//        return FBn;
+//    }
+//
+//    Tournoi * minTournoi = MinDeg(FBn); // 找到最小根节点的二项树
+//    FileBinomiale resteFBn = Reste(FBn); // 移除最小根节点的二项树
+//
+//    // retirer la racine de minTournoi
+//    int count = 0;
+//    ArbreBinomialeNode* current = minTournoi->racine->child;
+//    while (current != NULL) {
+//        count++;
+//        current = current->frere;
+//    }
+//
+//    Tournoi **subTournois = malloc(sizeof(Tournoi*) * count);
+//    current = minTournoi->racine->child;
+//    for (int i = 0; i < count; i++) {
+//        subTournois[i] = malloc(sizeof(Tournoi));
+//        subTournois[i]->racine = current;
+//        current = current->frere;
+//    }
+//    //creer la file avec les subtournois de minTournoi
+//    FileBinomiale subfile_minTournoi = Construction_FB(*subTournois, count);
+//    //free
+//    for (int i = 0; i < count; i++) {
+//        free(subTournois[i]);
+//    }
+//    free(subTournois);
+//
+//    return UnionFile(resteFBn, subfile_minTournoi); // faire l'union
+//}
 
 //清理内存
 // 释放一个二项树节点及其子节点和兄弟节点的内存

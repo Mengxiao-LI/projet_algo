@@ -7,5 +7,6 @@ C:/Projet/projet_algo/cmake-build-debug/CMakeFiles/main_Tas_Min.dir
 C:/Projet/projet_algo/cmake-build-debug/CMakeFiles/Tas_Q8Q9.dir
 C:/Projet/projet_algo/cmake-build-debug/CMakeFiles/test.dir
 C:/Projet/projet_algo/cmake-build-debug/CMakeFiles/arbreBR.dir
+C:/Projet/projet_algo/cmake-build-debug/CMakeFiles/question6.dir
 C:/Projet/projet_algo/cmake-build-debug/CMakeFiles/edit_cache.dir
 C:/Projet/projet_algo/cmake-build-debug/CMakeFiles/rebuild_cache.dir

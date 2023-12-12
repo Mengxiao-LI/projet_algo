@@ -232,12 +232,26 @@ arbreBR/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\arbreBR.dir\build.make CMakeFiles/arbreBR.dir/build
 .PHONY : arbreBR/fast
 
+#=============================================================================
+# Target rules for targets named question6
+
+# Build rule for target.
+question6: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 question6
+.PHONY : question6
+
+# fast build rule for target.
+question6/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\question6.dir\build.make CMakeFiles/question6.dir/build
+.PHONY : question6/fast
+
 arbreBR/arbreBR.obj: arbreBR/arbreBR.c.obj
 .PHONY : arbreBR/arbreBR.obj
 
 # target to build an object file
 arbreBR/arbreBR.c.obj:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\arbreBR.dir\build.make CMakeFiles/arbreBR.dir/arbreBR/arbreBR.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\question6.dir\build.make CMakeFiles/question6.dir/arbreBR/arbreBR.c.obj
 .PHONY : arbreBR/arbreBR.c.obj
 
 arbreBR/arbreBR.i: arbreBR/arbreBR.c.i
@@ -246,6 +260,7 @@ arbreBR/arbreBR.i: arbreBR/arbreBR.c.i
 # target to preprocess a source file
 arbreBR/arbreBR.c.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\arbreBR.dir\build.make CMakeFiles/arbreBR.dir/arbreBR/arbreBR.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\question6.dir\build.make CMakeFiles/question6.dir/arbreBR/arbreBR.c.i
 .PHONY : arbreBR/arbreBR.c.i
 
 arbreBR/arbreBR.s: arbreBR/arbreBR.c.s
@@ -254,6 +269,7 @@ arbreBR/arbreBR.s: arbreBR/arbreBR.c.s
 # target to generate assembly for a file
 arbreBR/arbreBR.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\arbreBR.dir\build.make CMakeFiles/arbreBR.dir/arbreBR/arbreBR.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\question6.dir\build.make CMakeFiles/question6.dir/arbreBR/arbreBR.c.s
 .PHONY : arbreBR/arbreBR.c.s
 
 echauffement/echauffement.obj: echauffement/echauffement.c.obj
@@ -269,6 +285,7 @@ echauffement/echauffement.c.obj:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Tas_Q8Q9.dir\build.make CMakeFiles/Tas_Q8Q9.dir/echauffement/echauffement.c.obj
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\test.dir\build.make CMakeFiles/test.dir/echauffement/echauffement.c.obj
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\arbreBR.dir\build.make CMakeFiles/arbreBR.dir/echauffement/echauffement.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\question6.dir\build.make CMakeFiles/question6.dir/echauffement/echauffement.c.obj
 .PHONY : echauffement/echauffement.c.obj
 
 echauffement/echauffement.i: echauffement/echauffement.c.i
@@ -284,6 +301,7 @@ echauffement/echauffement.c.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Tas_Q8Q9.dir\build.make CMakeFiles/Tas_Q8Q9.dir/echauffement/echauffement.c.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\test.dir\build.make CMakeFiles/test.dir/echauffement/echauffement.c.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\arbreBR.dir\build.make CMakeFiles/arbreBR.dir/echauffement/echauffement.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\question6.dir\build.make CMakeFiles/question6.dir/echauffement/echauffement.c.i
 .PHONY : echauffement/echauffement.c.i
 
 echauffement/echauffement.s: echauffement/echauffement.c.s
@@ -299,6 +317,7 @@ echauffement/echauffement.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Tas_Q8Q9.dir\build.make CMakeFiles/Tas_Q8Q9.dir/echauffement/echauffement.c.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\test.dir\build.make CMakeFiles/test.dir/echauffement/echauffement.c.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\arbreBR.dir\build.make CMakeFiles/arbreBR.dir/echauffement/echauffement.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\question6.dir\build.make CMakeFiles/question6.dir/echauffement/echauffement.c.s
 .PHONY : echauffement/echauffement.c.s
 
 echauffement/test/testEchauffement.obj: echauffement/test/testEchauffement.c.obj
@@ -544,6 +563,30 @@ main_MD5.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\md5.dir\build.make CMakeFiles/md5.dir/main_MD5.c.s
 .PHONY : main_MD5.c.s
 
+main_Q6.obj: main_Q6.c.obj
+.PHONY : main_Q6.obj
+
+# target to build an object file
+main_Q6.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\question6.dir\build.make CMakeFiles/question6.dir/main_Q6.c.obj
+.PHONY : main_Q6.c.obj
+
+main_Q6.i: main_Q6.c.i
+.PHONY : main_Q6.i
+
+# target to preprocess a source file
+main_Q6.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\question6.dir\build.make CMakeFiles/question6.dir/main_Q6.c.i
+.PHONY : main_Q6.c.i
+
+main_Q6.s: main_Q6.c.s
+.PHONY : main_Q6.s
+
+# target to generate assembly for a file
+main_Q6.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\question6.dir\build.make CMakeFiles/question6.dir/main_Q6.c.s
+.PHONY : main_Q6.c.s
+
 main_TasMin.obj: main_TasMin.c.obj
 .PHONY : main_TasMin.obj
 
@@ -681,7 +724,6 @@ tas/tasArbre.obj: tas/tasArbre.c.obj
 
 # target to build an object file
 tas/tasArbre.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\main_Tas_Min.dir\build.make CMakeFiles/main_Tas_Min.dir/tas/tasArbre.c.obj
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Tas_Q8Q9.dir\build.make CMakeFiles/Tas_Q8Q9.dir/tas/tasArbre.c.obj
 .PHONY : tas/tasArbre.c.obj
 
@@ -690,7 +732,6 @@ tas/tasArbre.i: tas/tasArbre.c.i
 
 # target to preprocess a source file
 tas/tasArbre.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\main_Tas_Min.dir\build.make CMakeFiles/main_Tas_Min.dir/tas/tasArbre.c.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Tas_Q8Q9.dir\build.make CMakeFiles/Tas_Q8Q9.dir/tas/tasArbre.c.i
 .PHONY : tas/tasArbre.c.i
 
@@ -699,33 +740,8 @@ tas/tasArbre.s: tas/tasArbre.c.s
 
 # target to generate assembly for a file
 tas/tasArbre.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\main_Tas_Min.dir\build.make CMakeFiles/main_Tas_Min.dir/tas/tasArbre.c.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Tas_Q8Q9.dir\build.make CMakeFiles/Tas_Q8Q9.dir/tas/tasArbre.c.s
 .PHONY : tas/tasArbre.c.s
-
-tas/tas_arbre.obj: tas/tas_arbre.c.obj
-.PHONY : tas/tas_arbre.obj
-
-# target to build an object file
-tas/tas_arbre.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\main_Tas_Min.dir\build.make CMakeFiles/main_Tas_Min.dir/tas/tas_arbre.c.obj
-.PHONY : tas/tas_arbre.c.obj
-
-tas/tas_arbre.i: tas/tas_arbre.c.i
-.PHONY : tas/tas_arbre.i
-
-# target to preprocess a source file
-tas/tas_arbre.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\main_Tas_Min.dir\build.make CMakeFiles/main_Tas_Min.dir/tas/tas_arbre.c.i
-.PHONY : tas/tas_arbre.c.i
-
-tas/tas_arbre.s: tas/tas_arbre.c.s
-.PHONY : tas/tas_arbre.s
-
-# target to generate assembly for a file
-tas/tas_arbre.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\main_Tas_Min.dir\build.make CMakeFiles/main_Tas_Min.dir/tas/tas_arbre.c.s
-.PHONY : tas/tas_arbre.c.s
 
 tas/test.obj: tas/test.c.obj
 .PHONY : tas/test.obj
@@ -767,6 +783,7 @@ help:
 	@echo ... main_Tas_Min
 	@echo ... md5
 	@echo ... projet_Mengxiao_Zhengdao
+	@echo ... question6
 	@echo ... test
 	@echo ... arbreBR/arbreBR.obj
 	@echo ... arbreBR/arbreBR.i
@@ -804,6 +821,9 @@ help:
 	@echo ... main_MD5.obj
 	@echo ... main_MD5.i
 	@echo ... main_MD5.s
+	@echo ... main_Q6.obj
+	@echo ... main_Q6.i
+	@echo ... main_Q6.s
 	@echo ... main_TasMin.obj
 	@echo ... main_TasMin.i
 	@echo ... main_TasMin.s
@@ -822,9 +842,6 @@ help:
 	@echo ... tas/tasArbre.obj
 	@echo ... tas/tasArbre.i
 	@echo ... tas/tasArbre.s
-	@echo ... tas/tas_arbre.obj
-	@echo ... tas/tas_arbre.i
-	@echo ... tas/tas_arbre.s
 	@echo ... tas/test.obj
 	@echo ... tas/test.i
 	@echo ... tas/test.s

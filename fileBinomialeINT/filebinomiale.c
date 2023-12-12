@@ -90,7 +90,6 @@ Tournoi* MinDeg(FileBinomiale fb) {
     if (fb.size == 0) {
         return NULL;
     }
-
     Tournoi* minTournoi = NULL;
     int minDeg = INT_MAX;
     for (int i = 0; i < fb.size; i++) {
@@ -215,20 +214,22 @@ FileBinomiale SupprMin_FB(FileBinomiale FBn) {
         count++;
         current = current->frere;
     }
-
-    Tournoi **subTournois = malloc(sizeof(Tournoi*) * count);
+//    修改** -》 *
+    Tournoi *subTournois = malloc(sizeof(Tournoi*) * count);
     current = minTournoi->racine->child;
     for (int i = 0; i < count; i++) {
-        subTournois[i] = malloc(sizeof(Tournoi));
-        subTournois[i]->racine = current;
+        //修改
+//        subTournois[i] = malloc(sizeof(Tournoi));
+        subTournois[i].racine = current;
         current = current->frere;
     }
     //creer la file avec les subtournois de minTournoi
-    FileBinomiale subfile_minTournoi = Construction_FB(*subTournois, count);
+    FileBinomiale subfile_minTournoi = Construction_FB(subTournois, count);
     //free
-    for (int i = 0; i < count; i++) {
-        free(subTournois[i]);
-    }
+    //修改
+//    for (int i = 0; i < count; i++) {
+//        free(subTournois[i]);
+//    }
     free(subTournois);
 
     return UnionFile(resteFBn, subfile_minTournoi); // faire l'union

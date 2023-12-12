@@ -124,42 +124,12 @@ CMakeFiles/main_Tas_Min.dir/tas/list.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/main_Tas_Min.dir/tas/list.c.s"
 	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Projet\projet_algo\tas\list.c -o CMakeFiles\main_Tas_Min.dir\tas\list.c.s
 
-CMakeFiles/main_Tas_Min.dir/tas/tasArbre.c.obj: CMakeFiles/main_Tas_Min.dir/flags.make
-CMakeFiles/main_Tas_Min.dir/tas/tasArbre.c.obj: C:/Projet/projet_algo/tas/tasArbre.c
-CMakeFiles/main_Tas_Min.dir/tas/tasArbre.c.obj: CMakeFiles/main_Tas_Min.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Projet\projet_algo\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/main_Tas_Min.dir/tas/tasArbre.c.obj"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main_Tas_Min.dir/tas/tasArbre.c.obj -MF CMakeFiles\main_Tas_Min.dir\tas\tasArbre.c.obj.d -o CMakeFiles\main_Tas_Min.dir\tas\tasArbre.c.obj -c C:\Projet\projet_algo\tas\tasArbre.c
-
-CMakeFiles/main_Tas_Min.dir/tas/tasArbre.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/main_Tas_Min.dir/tas/tasArbre.c.i"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Projet\projet_algo\tas\tasArbre.c > CMakeFiles\main_Tas_Min.dir\tas\tasArbre.c.i
-
-CMakeFiles/main_Tas_Min.dir/tas/tasArbre.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/main_Tas_Min.dir/tas/tasArbre.c.s"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Projet\projet_algo\tas\tasArbre.c -o CMakeFiles\main_Tas_Min.dir\tas\tasArbre.c.s
-
-CMakeFiles/main_Tas_Min.dir/tas/tas_arbre.c.obj: CMakeFiles/main_Tas_Min.dir/flags.make
-CMakeFiles/main_Tas_Min.dir/tas/tas_arbre.c.obj: C:/Projet/projet_algo/tas/tas_arbre.c
-CMakeFiles/main_Tas_Min.dir/tas/tas_arbre.c.obj: CMakeFiles/main_Tas_Min.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Projet\projet_algo\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/main_Tas_Min.dir/tas/tas_arbre.c.obj"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main_Tas_Min.dir/tas/tas_arbre.c.obj -MF CMakeFiles\main_Tas_Min.dir\tas\tas_arbre.c.obj.d -o CMakeFiles\main_Tas_Min.dir\tas\tas_arbre.c.obj -c C:\Projet\projet_algo\tas\tas_arbre.c
-
-CMakeFiles/main_Tas_Min.dir/tas/tas_arbre.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/main_Tas_Min.dir/tas/tas_arbre.c.i"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Projet\projet_algo\tas\tas_arbre.c > CMakeFiles\main_Tas_Min.dir\tas\tas_arbre.c.i
-
-CMakeFiles/main_Tas_Min.dir/tas/tas_arbre.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/main_Tas_Min.dir/tas/tas_arbre.c.s"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Projet\projet_algo\tas\tas_arbre.c -o CMakeFiles\main_Tas_Min.dir\tas\tas_arbre.c.s
-
 # Object files for target main_Tas_Min
 main_Tas_Min_OBJECTS = \
 "CMakeFiles/main_Tas_Min.dir/main_TasMin.c.obj" \
 "CMakeFiles/main_Tas_Min.dir/echauffement/echauffement.c.obj" \
 "CMakeFiles/main_Tas_Min.dir/tas/tas.c.obj" \
-"CMakeFiles/main_Tas_Min.dir/tas/list.c.obj" \
-"CMakeFiles/main_Tas_Min.dir/tas/tasArbre.c.obj" \
-"CMakeFiles/main_Tas_Min.dir/tas/tas_arbre.c.obj"
+"CMakeFiles/main_Tas_Min.dir/tas/list.c.obj"
 
 # External object files for target main_Tas_Min
 main_Tas_Min_EXTERNAL_OBJECTS =
@@ -168,13 +138,11 @@ main_Tas_Min.exe: CMakeFiles/main_Tas_Min.dir/main_TasMin.c.obj
 main_Tas_Min.exe: CMakeFiles/main_Tas_Min.dir/echauffement/echauffement.c.obj
 main_Tas_Min.exe: CMakeFiles/main_Tas_Min.dir/tas/tas.c.obj
 main_Tas_Min.exe: CMakeFiles/main_Tas_Min.dir/tas/list.c.obj
-main_Tas_Min.exe: CMakeFiles/main_Tas_Min.dir/tas/tasArbre.c.obj
-main_Tas_Min.exe: CMakeFiles/main_Tas_Min.dir/tas/tas_arbre.c.obj
 main_Tas_Min.exe: CMakeFiles/main_Tas_Min.dir/build.make
 main_Tas_Min.exe: CMakeFiles/main_Tas_Min.dir/linkLibs.rsp
 main_Tas_Min.exe: CMakeFiles/main_Tas_Min.dir/objects1.rsp
 main_Tas_Min.exe: CMakeFiles/main_Tas_Min.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Projet\projet_algo\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking C executable main_Tas_Min.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Projet\projet_algo\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking C executable main_Tas_Min.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\main_Tas_Min.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

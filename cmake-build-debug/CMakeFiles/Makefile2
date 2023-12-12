@@ -71,6 +71,7 @@ all: CMakeFiles/main_Tas_Min.dir/all
 all: CMakeFiles/Tas_Q8Q9.dir/all
 all: CMakeFiles/test.dir/all
 all: CMakeFiles/arbreBR.dir/all
+all: CMakeFiles/question6.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -87,6 +88,7 @@ clean: CMakeFiles/main_Tas_Min.dir/clean
 clean: CMakeFiles/Tas_Q8Q9.dir/clean
 clean: CMakeFiles/test.dir/clean
 clean: CMakeFiles/arbreBR.dir/clean
+clean: CMakeFiles/question6.dir/clean
 .PHONY : clean
 
 #=============================================================================
@@ -96,7 +98,7 @@ clean: CMakeFiles/arbreBR.dir/clean
 CMakeFiles/projet_Mengxiao_Zhengdao.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\projet_Mengxiao_Zhengdao.dir\build.make CMakeFiles/projet_Mengxiao_Zhengdao.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\projet_Mengxiao_Zhengdao.dir\build.make CMakeFiles/projet_Mengxiao_Zhengdao.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Projet\projet_algo\cmake-build-debug\CMakeFiles --progress-num=33,34,35,36,37,38 "Built target projet_Mengxiao_Zhengdao"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Projet\projet_algo\cmake-build-debug\CMakeFiles --progress-num=31,32,33,34,35,36 "Built target projet_Mengxiao_Zhengdao"
 .PHONY : CMakeFiles/projet_Mengxiao_Zhengdao.dir/all
 
 # Build rule for subdir invocation for target.
@@ -200,7 +202,7 @@ CMakeFiles/filebinomialeINTSimple.dir/clean:
 CMakeFiles/md5.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\md5.dir\build.make CMakeFiles/md5.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\md5.dir\build.make CMakeFiles/md5.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Projet\projet_algo\cmake-build-debug\CMakeFiles --progress-num=30,31,32 "Built target md5"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Projet\projet_algo\cmake-build-debug\CMakeFiles --progress-num=28,29,30 "Built target md5"
 .PHONY : CMakeFiles/md5.dir/all
 
 # Build rule for subdir invocation for target.
@@ -226,12 +228,12 @@ CMakeFiles/md5.dir/clean:
 CMakeFiles/main_Tas_Min.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\main_Tas_Min.dir\build.make CMakeFiles/main_Tas_Min.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\main_Tas_Min.dir\build.make CMakeFiles/main_Tas_Min.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Projet\projet_algo\cmake-build-debug\CMakeFiles --progress-num=23,24,25,26,27,28,29 "Built target main_Tas_Min"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Projet\projet_algo\cmake-build-debug\CMakeFiles --progress-num=23,24,25,26,27 "Built target main_Tas_Min"
 .PHONY : CMakeFiles/main_Tas_Min.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/main_Tas_Min.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Projet\projet_algo\cmake-build-debug\CMakeFiles 7
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Projet\projet_algo\cmake-build-debug\CMakeFiles 5
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/main_Tas_Min.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start C:\Projet\projet_algo\cmake-build-debug\CMakeFiles 0
 .PHONY : CMakeFiles/main_Tas_Min.dir/rule
@@ -278,7 +280,7 @@ CMakeFiles/Tas_Q8Q9.dir/clean:
 CMakeFiles/test.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\test.dir\build.make CMakeFiles/test.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\test.dir\build.make CMakeFiles/test.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Projet\projet_algo\cmake-build-debug\CMakeFiles --progress-num=39,40,41,42 "Built target test"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Projet\projet_algo\cmake-build-debug\CMakeFiles --progress-num=41,42,43,44 "Built target test"
 .PHONY : CMakeFiles/test.dir/all
 
 # Build rule for subdir invocation for target.
@@ -322,6 +324,32 @@ arbreBR: CMakeFiles/arbreBR.dir/rule
 CMakeFiles/arbreBR.dir/clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\arbreBR.dir\build.make CMakeFiles/arbreBR.dir/clean
 .PHONY : CMakeFiles/arbreBR.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/question6.dir
+
+# All Build rule for target.
+CMakeFiles/question6.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\question6.dir\build.make CMakeFiles/question6.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\question6.dir\build.make CMakeFiles/question6.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Projet\projet_algo\cmake-build-debug\CMakeFiles --progress-num=37,38,39,40 "Built target question6"
+.PHONY : CMakeFiles/question6.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/question6.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Projet\projet_algo\cmake-build-debug\CMakeFiles 4
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/question6.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Projet\projet_algo\cmake-build-debug\CMakeFiles 0
+.PHONY : CMakeFiles/question6.dir/rule
+
+# Convenience name for target.
+question6: CMakeFiles/question6.dir/rule
+.PHONY : question6
+
+# clean rule for target.
+CMakeFiles/question6.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\question6.dir\build.make CMakeFiles/question6.dir/clean
+.PHONY : CMakeFiles/question6.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

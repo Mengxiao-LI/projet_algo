@@ -32,11 +32,15 @@ typedef struct FileBinomiale{
 bool EstVide_T(Tournoi t);
 int Degre(Tournoi t);
 Tournoi Union2Tid(Tournoi t1,Tournoi t2);
-FileBinomiale File(Tournoi t);
+
 
 //primitive file binomiale
+FileBinomiale File(Tournoi t);
 bool EstVide_FB(FileBinomiale fb);
+
+//Renvoie le tournoi de degre minimal dans la file
 Tournoi* MinDeg(FileBinomiale fb);
+
 FileBinomiale Reste(FileBinomiale fb);
 FileBinomiale AjoutMin(Tournoi t,FileBinomiale fb);
 FileBinomiale Ajout_FB(Tournoi t,FileBinomiale fb);

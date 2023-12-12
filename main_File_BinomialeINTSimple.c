@@ -18,6 +18,7 @@ Tournoi createSingleItemTournoi(int data) {
 }
 
 int main() {
+    //debut test tournois:
     Tournoi t1 = createSingleItemTournoi(5);
     Tournoi t2 = createSingleItemTournoi(10);
 
@@ -25,6 +26,7 @@ int main() {
     Tournoi t4 = createSingleItemTournoi(15);
     Tournoi t5 = createSingleItemTournoi(20);
     Tournoi t6 = Union2Tid(t4,t5);
+    //t7:2个child 4个节点，
     Tournoi t7 = Union2Tid(t3,t6);
     int degre = Degre(t3);
     int val_racine = t3.racine->data;
@@ -43,6 +45,25 @@ int main() {
     printf("val_racine: %d\n",val_racine2);
     printf("vale_child: %d\n",val_child2);
     printf("val_frere: %d\n",val_frere2);
+    printf("fin test tournois\n");
+//    fin test tournois
+    Tournoi ta1 = createSingleItemTournoi(3);
+    Tournoi ta2 = createSingleItemTournoi(10);
+    Tournoi ta = Union2Tid(ta1,ta2);
+    printf("degre ta: %d\n", Degre(ta));
+    printf("val_racine ta: %d\n",ta.racine->data);
+    FileBinomiale fb0 = File(ta);
+    Tournoi* test = MinDeg(fb0);
+    //MinDeg valide
+    printf("fb size: %d\n", fb0.size);
+    int racineval = test->racine->data;
+    printf("val_racine test: %d\n",racineval);
+//    printf("degre test: %d\n", Degre(*test));
+//    printf("val_racine test: %d\n",test->racine->data);
+
+
+
+
     freeTournoi(&t1);
     freeTournoi(&t2);
     freeTournoi(&t3);
