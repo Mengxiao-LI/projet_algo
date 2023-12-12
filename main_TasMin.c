@@ -33,7 +33,7 @@ int main() {
     sscanf(hexStr8, "%x %x %x %x", &key8.part1, &key8.part2, &key8.part3, &key8.part4);
     sscanf(hexStr9, "%x %x %x %x", &key9.part1, &key9.part2, &key9.part3, &key9.part4);
 //Q2
- /*   printf("Question2\n");
+    printf("Question2\n");
     printf("++++++++++++++++++Tas tableau+++++++++++++++++++++++\n");
     HP hp;
 
@@ -120,7 +120,7 @@ int main() {
     HeapDestroy(&hp2);
     HeapDestroy(&hp3);
     HeapDestroy(&hp4);
-    HeapDestroy(&hp5);*/
+    HeapDestroy(&hp5);
 
       printf("++++++++++++++++++Tas Arbre+++++++++++++++++++++++\n");
      printf("-----Q2.1 Ajout:-----\n");
