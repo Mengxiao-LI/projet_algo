@@ -1,5 +1,7 @@
 #include <string.h>
 #include <stdio.h>
+#include <sys/dirent.h>
+#include <dirent.h>
 #include "md5.h"
 
 //on obtient k[64] par:
@@ -175,4 +177,67 @@ void md5(const uint8_t *message, size_t messageLen,uint8_t *res){
     // 释放分配的内存
     free(paddedMessage);
 }
+//Q6
+void convertTextToHachage(const char *inputPath, const char *outputPath) {
+    FILE *inputFile = fopen(inputPath, "r");
+    if (inputFile == NULL) {
+        perror("Error opening input file");
+        exit(EXIT_FAILURE);
+    }
 
+    FILE *outputFile = fopen(outputPath, "w");
+    if (outputFile == NULL) {
+        perror("Error opening output file");
+        fclose(inputFile); // 先关闭已打开的输入文件
+        exit(EXIT_FAILURE);
+    }
+
+    char word[256]; // 假设单词不超过255字符
+    uint8_t result[16]; // MD5哈希值大小
+
+    while (fscanf(inputFile, "%255s", word) != EOF) { // 读取每个单词
+        md5((uint8_t *)word, strlen(word), result);
+
+        // 将哈希值写入到输出文件
+        for (int i = 0; i < 16; ++i) {
+            fprintf(outputFile, "%02x", result[i]); // 将哈希值以十六进制形式写入
+        }
+        fprintf(outputFile, "\n"); // 每个哈希值后换行
+    }
+
+    fclose(inputFile);
+    fclose(outputFile);
+}
+void convertAllFilesInFolder(const char *inputFolder, const char *outputFolder) {
+    DIR *dir;
+    struct dirent *entry;
+    char inputPath[1024];
+    char outputPath[1024];
+    FILE *file;
+
+    dir = opendir(inputFolder);
+    if (dir == NULL) {
+        perror("Error opening directory");
+        exit(EXIT_FAILURE);
+    }
+
+    while ((entry = readdir(dir)) != NULL) {
+        if (strcmp(entry->d_name, ".") == 0 || strcmp(entry->d_name, "..") == 0) {
+            continue; // 忽略当前目录和上级目录的条目
+        }
+
+        // 构建完整的文件路径
+        sprintf(inputPath, "%s/%s", inputFolder, entry->d_name);
+
+        // 检查是否为普通文件
+        if (entry->d_type == DT_REG) {
+            // 构建输出文件的路径
+            sprintf(outputPath, "%s/%s", outputFolder, entry->d_name);
+
+            // 转换文件
+            convertTextToHachage(inputPath, outputPath);
+        }
+    }
+
+    closedir(dir);
+}

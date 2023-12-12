@@ -17,7 +17,7 @@ int main() {
         printf("%02x", res[i]);
     }
     printf("\n");
-
+    convertAllFilesInFolder("../Shakespeare", "../decodeMd5");
     return 0;
 
 }
