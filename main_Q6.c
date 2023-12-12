@@ -48,11 +48,14 @@ int main() {
     }
     if(!hasCollision){
         printf("-----Q6.2no Collision\n");
+    }else{
+        printf("-----Q6.2yes Collision \n");
     }
 
     free(listMots);
 
     //
     freeABR(tree);
+    free(array);
     return 0;
 }
