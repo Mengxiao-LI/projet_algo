@@ -29,5 +29,5 @@ void md5_DecouperMessage(uint8_t *paddedMessage, size_t paddedMessageLen, MD5Con
 void md5_Final(MD5Context *ctx);
 void md5(const uint8_t *message, size_t messageLen,uint8_t *res);
 void convertTextToHachage(const char *inputPath, const char *outputPath);
-void convertAllFilesInFolder(const char *inputFolder, const char *outputFolder);
+void convertFilesInFolder(const char *inputFolder, const char *outputFolder);
 #endif //PROJET_MENGXIAO_ZHENGDAO_MD5_H
