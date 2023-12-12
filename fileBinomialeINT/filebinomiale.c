@@ -31,7 +31,7 @@ Tournoi Union2Tid(Tournoi t1, Tournoi t2) {
     Tournoi newTournoi;
 
     // comparer les valeurs des tournois,la plus petite valeur est la racine
-    if (inf(t1.racine->data,t2.racine->data)) {
+    if (t1.racine->data < t2.racine->data) {
         // inserer la racine de t2 a la droite de t1
         t2.racine->parent = t1.racine;
         ArbreBinomialeNode *current = t1.racine->child;

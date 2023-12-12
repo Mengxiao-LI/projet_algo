@@ -5,14 +5,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
-#include "../tas/list.h"
-#include "../tas/tas.h"
-#include "../echauffement/echauffement.h"
+
 
 
 //struct arbre binomiale node
 typedef struct ArbreBinomialeNode {
-    Key128 data; // data of node
+    int data; // data of node
     struct ArbreBinomialeNode *child; // 指向最左子节点
     struct ArbreBinomialeNode *frere; // 指向兄弟节点
     struct ArbreBinomialeNode *parent; // 指向父节点

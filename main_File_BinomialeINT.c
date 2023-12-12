@@ -1,14 +1,11 @@
 #include <stdio.h>
 #include <string.h>
-//#include <intrin.h>
 #include "echauffement/echauffement.h"
-#include "tas/list.h"
-#include "tas/tas.h"
-#include "fileBinomiale/filebinomiale.h"
+#include "fileBinomialeINT/filebinomiale.h"
 
 
 // 创建一个含有单个元素的二项树
-Tournoi createSingleItemTournoi(Key128 data) {
+Tournoi createSingleItemTournoi(int data) {
     Tournoi t;
     ArbreBinomialeNode *node = malloc(sizeof(ArbreBinomialeNode));
     node->data = data;
@@ -21,28 +18,10 @@ Tournoi createSingleItemTournoi(Key128 data) {
 }
 
 int main() {
-    Key128 myKey = {
-            0x01234567, // part1
-            0x89ABCDEF, // part2
-            0xFEDCBA98, // part3
-            0x76543210  // part4
-    };
-    Key128 myKey2 = {
-            0xdf6943ba, // part1
-            0x6d51464f, // part2
-            0x6b021579, // part3
-            0x33bdd9ad  // part4
-    };
-    Key128 myKey3 = {
-            0xd5ac4f2e, // part1
-            0xcf1a2f14, // part2
-            0xd7e43f68, // part3
-            0x70e731e4  // part4
-    };
     // 创建几个二项树
-    Tournoi t1 = createSingleItemTournoi(myKey);
-    Tournoi t2 = createSingleItemTournoi(myKey2);
-    Tournoi t3 = createSingleItemTournoi(myKey3);
+    Tournoi t1 = createSingleItemTournoi(5);
+    Tournoi t2 = createSingleItemTournoi(10);
+    Tournoi t3 = createSingleItemTournoi(15);
 
 
     Tournoi listTournoi[3] = {t1,t2,t3};
@@ -51,11 +30,8 @@ int main() {
     printf("size FB %d\n",fb.size);
     if (fb.size > 0 && fb.file[0] != NULL && fb.file[0]->racine != NULL) {
         // 打印 file[0] 的 racine 的值
-        printf("file[0] racine: part1: %x, part2: %x, part3: %x, part4: %x\n",
-               fb.file[0]->racine->data.part1,
-               fb.file[0]->racine->data.part2,
-               fb.file[0]->racine->data.part3,
-               fb.file[0]->racine->data.part4);
+        printf(" racine: %d\n",
+               fb.file[0]->racine->data);
     } else {
         printf("file[0] is empty or does not exist.\n");
     }

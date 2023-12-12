@@ -21,7 +21,8 @@
 						3,
 						4,
 						5,
-						6
+						6,
+						7
 					]
 				}
 			],
@@ -42,7 +43,8 @@
 						3,
 						4,
 						5,
-						6
+						6,
+						7
 					]
 				}
 			],
@@ -51,35 +53,42 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "Tas_Q8Q9::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-Tas_Q8Q9-Debug-f13e7abf1e1da0c5b149.json",
+					"jsonFile" : "target-Tas_Q8Q9-Debug-5379e193a96987b97d67.json",
 					"name" : "Tas_Q8Q9",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "arbreBR::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-arbreBR-Debug-fa901d12fd30da450fde.json",
+					"jsonFile" : "target-arbreBR-Debug-c24276e8b7156c6dbc56.json",
 					"name" : "arbreBR",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "filebinomiale::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-filebinomiale-Debug-0bc23b25422710b834f6.json",
+					"jsonFile" : "target-filebinomiale-Debug-c35be0ebd9d56821795d.json",
 					"name" : "filebinomiale",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
+					"id" : "filebinomialeINT::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-filebinomialeINT-Debug-d9269f06f99cfd3abdc1.json",
+					"name" : "filebinomialeINT",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
 					"id" : "main_Tas_Min::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-main_Tas_Min-Debug-d4854bcf1f9106eefa36.json",
+					"jsonFile" : "target-main_Tas_Min-Debug-2437fd49493911ecce54.json",
 					"name" : "main_Tas_Min",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "md5::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-md5-Debug-d33c002a2dd43a21d632.json",
+					"jsonFile" : "target-md5-Debug-54c7325f16d4633da8d9.json",
 					"name" : "md5",
 					"projectIndex" : 0
 				},
@@ -93,7 +102,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "test::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-test-Debug-8230f09c38b96f928aa7.json",
+					"jsonFile" : "target-test-Debug-3da8cece3ba6287b0c52.json",
 					"name" : "test",
 					"projectIndex" : 0
 				}

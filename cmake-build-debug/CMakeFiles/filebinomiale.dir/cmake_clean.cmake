@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/filebinomiale.dir/echauffement/echauffement.c.obj"
+  "CMakeFiles/filebinomiale.dir/echauffement/echauffement.c.obj.d"
   "CMakeFiles/filebinomiale.dir/fileBinomiale/filebinomiale.c.obj"
   "CMakeFiles/filebinomiale.dir/fileBinomiale/filebinomiale.c.obj.d"
   "CMakeFiles/filebinomiale.dir/main_File_Binomiale.c.obj"

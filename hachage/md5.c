@@ -169,7 +169,7 @@ void md5(const uint8_t *message, size_t messageLen,uint8_t *res){
     // 将最终的哈希值拼接成128位的结果
     md5_Final(&ctx);
 
-    // 复制结果到提供的digest数组
+    // 复制结果到提供的res数组
     memcpy(res, ctx.res, 16);
 
     // 释放分配的内存

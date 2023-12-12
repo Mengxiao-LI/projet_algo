@@ -17,6 +17,16 @@ add_executable(filebinomiale
         main_File_Binomiale.c
         fileBinomiale/filebinomiale.c
         fileBinomiale/filebinomiale.h
+        echauffement/echauffement.h
+        echauffement/echauffement.c
+)
+
+add_executable(filebinomialeINT
+        main_File_BinomialeINT.c
+        fileBinomialeINT/filebinomiale.c
+        fileBinomialeINT/filebinomiale.h
+        echauffement/echauffement.h
+        echauffement/echauffement.c
 )
 
 add_executable(md5

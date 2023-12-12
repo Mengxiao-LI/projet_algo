@@ -93,6 +93,44 @@
 					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Projet/projet_algo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
+			<Target title="filebinomialeINT">
+				<Option output="C:/Projet/projet_algo/cmake-build-debug/filebinomialeINT.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Projet/projet_algo/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../include"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Projet/projet_algo/cmake-build-debug/Makefile&quot;  VERBOSE=1 filebinomialeINT"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Projet/projet_algo/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Projet/projet_algo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Projet/projet_algo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="filebinomialeINT/fast">
+				<Option output="C:/Projet/projet_algo/cmake-build-debug/filebinomialeINT.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Projet/projet_algo/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../include"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed"/>
+					<Add directory="C:/Program Files/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Projet/projet_algo/cmake-build-debug/Makefile&quot;  VERBOSE=1 filebinomialeINT/fast"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Projet/projet_algo/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Projet/projet_algo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Projet/projet_algo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
 			<Target title="md5">
 				<Option output="C:/Projet/projet_algo/cmake-build-debug/md5.exe" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="C:/Projet/projet_algo/cmake-build-debug"/>
@@ -312,6 +350,8 @@
 		</Unit>
 		<Unit filename="C:/Projet/projet_algo/echauffement/echauffement.c">
 			<Option target="projet_Mengxiao_Zhengdao"/>
+			<Option target="filebinomiale"/>
+			<Option target="filebinomialeINT"/>
 			<Option target="main_Tas_Min"/>
 			<Option target="Tas_Q8Q9"/>
 			<Option target="test"/>
@@ -319,6 +359,8 @@
 		</Unit>
 		<Unit filename="C:/Projet/projet_algo/echauffement/echauffement.h">
 			<Option target="projet_Mengxiao_Zhengdao"/>
+			<Option target="filebinomiale"/>
+			<Option target="filebinomialeINT"/>
 			<Option target="main_Tas_Min"/>
 			<Option target="Tas_Q8Q9"/>
 			<Option target="test"/>
@@ -336,6 +378,12 @@
 		<Unit filename="C:/Projet/projet_algo/fileBinomiale/filebinomiale.h">
 			<Option target="filebinomiale"/>
 		</Unit>
+		<Unit filename="C:/Projet/projet_algo/fileBinomialeINT/filebinomiale.c">
+			<Option target="filebinomialeINT"/>
+		</Unit>
+		<Unit filename="C:/Projet/projet_algo/fileBinomialeINT/filebinomiale.h">
+			<Option target="filebinomialeINT"/>
+		</Unit>
 		<Unit filename="C:/Projet/projet_algo/hachage/md5.c">
 			<Option target="md5"/>
 		</Unit>
@@ -350,6 +398,9 @@
 		</Unit>
 		<Unit filename="C:/Projet/projet_algo/main_File_Binomiale.c">
 			<Option target="filebinomiale"/>
+		</Unit>
+		<Unit filename="C:/Projet/projet_algo/main_File_BinomialeINT.c">
+			<Option target="filebinomialeINT"/>
 		</Unit>
 		<Unit filename="C:/Projet/projet_algo/main_MD5.c">
 			<Option target="md5"/>

@@ -142,6 +142,19 @@ filebinomiale/fast:
 .PHONY : filebinomiale/fast
 
 #=============================================================================
+# Target rules for targets named filebinomialeINT
+
+# Build rule for target.
+filebinomialeINT: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 filebinomialeINT
+.PHONY : filebinomialeINT
+
+# fast build rule for target.
+filebinomialeINT/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\filebinomialeINT.dir\build.make CMakeFiles/filebinomialeINT.dir/build
+.PHONY : filebinomialeINT/fast
+
+#=============================================================================
 # Target rules for targets named md5
 
 # Build rule for target.
@@ -236,6 +249,8 @@ echauffement/echauffement.obj: echauffement/echauffement.c.obj
 # target to build an object file
 echauffement/echauffement.c.obj:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\projet_Mengxiao_Zhengdao.dir\build.make CMakeFiles/projet_Mengxiao_Zhengdao.dir/echauffement/echauffement.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\filebinomiale.dir\build.make CMakeFiles/filebinomiale.dir/echauffement/echauffement.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\filebinomialeINT.dir\build.make CMakeFiles/filebinomialeINT.dir/echauffement/echauffement.c.obj
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\main_Tas_Min.dir\build.make CMakeFiles/main_Tas_Min.dir/echauffement/echauffement.c.obj
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Tas_Q8Q9.dir\build.make CMakeFiles/Tas_Q8Q9.dir/echauffement/echauffement.c.obj
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\test.dir\build.make CMakeFiles/test.dir/echauffement/echauffement.c.obj
@@ -248,6 +263,8 @@ echauffement/echauffement.i: echauffement/echauffement.c.i
 # target to preprocess a source file
 echauffement/echauffement.c.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\projet_Mengxiao_Zhengdao.dir\build.make CMakeFiles/projet_Mengxiao_Zhengdao.dir/echauffement/echauffement.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\filebinomiale.dir\build.make CMakeFiles/filebinomiale.dir/echauffement/echauffement.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\filebinomialeINT.dir\build.make CMakeFiles/filebinomialeINT.dir/echauffement/echauffement.c.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\main_Tas_Min.dir\build.make CMakeFiles/main_Tas_Min.dir/echauffement/echauffement.c.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Tas_Q8Q9.dir\build.make CMakeFiles/Tas_Q8Q9.dir/echauffement/echauffement.c.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\test.dir\build.make CMakeFiles/test.dir/echauffement/echauffement.c.i
@@ -260,6 +277,8 @@ echauffement/echauffement.s: echauffement/echauffement.c.s
 # target to generate assembly for a file
 echauffement/echauffement.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\projet_Mengxiao_Zhengdao.dir\build.make CMakeFiles/projet_Mengxiao_Zhengdao.dir/echauffement/echauffement.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\filebinomiale.dir\build.make CMakeFiles/filebinomiale.dir/echauffement/echauffement.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\filebinomialeINT.dir\build.make CMakeFiles/filebinomialeINT.dir/echauffement/echauffement.c.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\main_Tas_Min.dir\build.make CMakeFiles/main_Tas_Min.dir/echauffement/echauffement.c.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Tas_Q8Q9.dir\build.make CMakeFiles/Tas_Q8Q9.dir/echauffement/echauffement.c.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\test.dir\build.make CMakeFiles/test.dir/echauffement/echauffement.c.s
@@ -313,6 +332,30 @@ fileBinomiale/filebinomiale.s: fileBinomiale/filebinomiale.c.s
 fileBinomiale/filebinomiale.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\filebinomiale.dir\build.make CMakeFiles/filebinomiale.dir/fileBinomiale/filebinomiale.c.s
 .PHONY : fileBinomiale/filebinomiale.c.s
+
+fileBinomialeINT/filebinomiale.obj: fileBinomialeINT/filebinomiale.c.obj
+.PHONY : fileBinomialeINT/filebinomiale.obj
+
+# target to build an object file
+fileBinomialeINT/filebinomiale.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\filebinomialeINT.dir\build.make CMakeFiles/filebinomialeINT.dir/fileBinomialeINT/filebinomiale.c.obj
+.PHONY : fileBinomialeINT/filebinomiale.c.obj
+
+fileBinomialeINT/filebinomiale.i: fileBinomialeINT/filebinomiale.c.i
+.PHONY : fileBinomialeINT/filebinomiale.i
+
+# target to preprocess a source file
+fileBinomialeINT/filebinomiale.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\filebinomialeINT.dir\build.make CMakeFiles/filebinomialeINT.dir/fileBinomialeINT/filebinomiale.c.i
+.PHONY : fileBinomialeINT/filebinomiale.c.i
+
+fileBinomialeINT/filebinomiale.s: fileBinomialeINT/filebinomiale.c.s
+.PHONY : fileBinomialeINT/filebinomiale.s
+
+# target to generate assembly for a file
+fileBinomialeINT/filebinomiale.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\filebinomialeINT.dir\build.make CMakeFiles/filebinomialeINT.dir/fileBinomialeINT/filebinomiale.c.s
+.PHONY : fileBinomialeINT/filebinomiale.c.s
 
 hachage/md5.obj: hachage/md5.c.obj
 .PHONY : hachage/md5.obj
@@ -409,6 +452,30 @@ main_File_Binomiale.s: main_File_Binomiale.c.s
 main_File_Binomiale.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\filebinomiale.dir\build.make CMakeFiles/filebinomiale.dir/main_File_Binomiale.c.s
 .PHONY : main_File_Binomiale.c.s
+
+main_File_BinomialeINT.obj: main_File_BinomialeINT.c.obj
+.PHONY : main_File_BinomialeINT.obj
+
+# target to build an object file
+main_File_BinomialeINT.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\filebinomialeINT.dir\build.make CMakeFiles/filebinomialeINT.dir/main_File_BinomialeINT.c.obj
+.PHONY : main_File_BinomialeINT.c.obj
+
+main_File_BinomialeINT.i: main_File_BinomialeINT.c.i
+.PHONY : main_File_BinomialeINT.i
+
+# target to preprocess a source file
+main_File_BinomialeINT.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\filebinomialeINT.dir\build.make CMakeFiles/filebinomialeINT.dir/main_File_BinomialeINT.c.i
+.PHONY : main_File_BinomialeINT.c.i
+
+main_File_BinomialeINT.s: main_File_BinomialeINT.c.s
+.PHONY : main_File_BinomialeINT.s
+
+# target to generate assembly for a file
+main_File_BinomialeINT.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\filebinomialeINT.dir\build.make CMakeFiles/filebinomialeINT.dir/main_File_BinomialeINT.c.s
+.PHONY : main_File_BinomialeINT.c.s
 
 main_MD5.obj: main_MD5.c.obj
 .PHONY : main_MD5.obj
@@ -652,6 +719,7 @@ help:
 	@echo ... Tas_Q8Q9
 	@echo ... arbreBR
 	@echo ... filebinomiale
+	@echo ... filebinomialeINT
 	@echo ... main_Tas_Min
 	@echo ... md5
 	@echo ... projet_Mengxiao_Zhengdao
@@ -668,6 +736,9 @@ help:
 	@echo ... fileBinomiale/filebinomiale.obj
 	@echo ... fileBinomiale/filebinomiale.i
 	@echo ... fileBinomiale/filebinomiale.s
+	@echo ... fileBinomialeINT/filebinomiale.obj
+	@echo ... fileBinomialeINT/filebinomiale.i
+	@echo ... fileBinomialeINT/filebinomiale.s
 	@echo ... hachage/md5.obj
 	@echo ... hachage/md5.i
 	@echo ... hachage/md5.s
@@ -680,6 +751,9 @@ help:
 	@echo ... main_File_Binomiale.obj
 	@echo ... main_File_Binomiale.i
 	@echo ... main_File_Binomiale.s
+	@echo ... main_File_BinomialeINT.obj
+	@echo ... main_File_BinomialeINT.i
+	@echo ... main_File_BinomialeINT.s
 	@echo ... main_MD5.obj
 	@echo ... main_MD5.i
 	@echo ... main_MD5.s
