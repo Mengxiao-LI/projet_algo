@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include "filebinomiale.h"
 #include "../echauffement/echauffement.h"
+#include <limits.h>
 
 //primitive tournois
 int Degre(Tournoi t) {
@@ -18,7 +19,9 @@ int Degre(Tournoi t) {
     while (current != NULL) {
         degre++;
         //修改
-        if(current->frere = NULL)
+//        printf("degre++,val:%d\n",current->data);
+        //修改
+        if(current->frere == NULL)
         return degre;
         current = current->frere;
     }

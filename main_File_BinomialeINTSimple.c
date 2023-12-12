@@ -18,45 +18,37 @@ Tournoi createSingleItemTournoi(int data) {
 }
 
 int main() {
-    // 创建几个二项树
     Tournoi t1 = createSingleItemTournoi(5);
     Tournoi t2 = createSingleItemTournoi(10);
-    Tournoi t3 = createSingleItemTournoi(15);
 
-
-    Tournoi listTournoi[3] = {t1,t2,t3};
-    //传递起始地址
-    FileBinomiale fb = Construction_FB(listTournoi, 3);
-    printf("size FB %d\n",fb.size);
-    if (fb.size > 0 && fb.file[0] != NULL && fb.file[0]->racine != NULL) {
-        // 打印 file[0] 的 racine 的值
-        printf(" racine: %d\n",
-               fb.file[0]->racine->data);
-    } else {
-        printf("file[0] is empty or does not exist.\n");
-    }
-    printf("bien ajoute\n");
-
-    // 显示队列中的最小元素
-    Tournoi *minTournoi = MinDeg(fb);
-
-    if (minTournoi != NULL) {
-        printf("Le plus petit tournoi a pour racine: %d\n", minTournoi->racine->data);
-    } else {
-        printf("La file binomiale est vide.\n");
-    }
-
-    // 移除最小元素并显示结果
-    fb = SupprMin_FB(fb);
-    minTournoi = MinDeg(fb);
-    if (minTournoi != NULL) {
-        printf("Apres suppression, le nouveau plus petit tournoi a pour racine: %d\n", minTournoi->racine->data);
-    } else {
-        printf("La file binomiale est vide apres suppression.\n");
-    }
-
-    // 清理内存
-    freeFileBinomiale(fb);
-
+    Tournoi t3 = Union2Tid(t1,t2);
+    Tournoi t4 = createSingleItemTournoi(15);
+    Tournoi t5 = createSingleItemTournoi(20);
+    Tournoi t6 = Union2Tid(t4,t5);
+    Tournoi t7 = Union2Tid(t3,t6);
+    int degre = Degre(t3);
+    int val_racine = t3.racine->data;
+    int val_child = t3.racine->child->data;
+//    int val_frere = t3.racine->child->frere->data;
+    printf("degre: %d\n",degre);
+    printf("val_racine: %d\n",val_racine);
+    printf("vale_child: %d\n",val_child);
+//    printf("val_frere: %d\n",val_frere);
+    printf("2ieme partie\n");
+    int degre2 = Degre(t7);
+    int val_racine2 = t7.racine->data;
+    int val_child2 = t7.racine->child->data;
+    int val_frere2 = t7.racine->child->frere->data;
+    printf("degre: %d\n",degre2);
+    printf("val_racine: %d\n",val_racine2);
+    printf("vale_child: %d\n",val_child2);
+    printf("val_frere: %d\n",val_frere2);
+    freeTournoi(&t1);
+    freeTournoi(&t2);
+    freeTournoi(&t3);
+    freeTournoi(&t4);
+    freeTournoi(&t5);
+    freeTournoi(&t6);
+    freeTournoi(&t7);
     return 0;
 }

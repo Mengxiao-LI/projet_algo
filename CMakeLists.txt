@@ -49,8 +49,6 @@ add_executable(main_Tas_Min main_TasMin.c
         tas/tas.c
         tas/list.h
         tas/list.c
-        tas/tasArbre.c
-        tas/tasArbre.h
 
 
 )
@@ -84,7 +82,4 @@ add_executable(question6 main_Q6.c
         echauffement/echauffement.c
         arbreBR/arbreBR.h
         arbreBR/arbreBR.c
-        liste/list.h
-        liste/list.c
-
 )
