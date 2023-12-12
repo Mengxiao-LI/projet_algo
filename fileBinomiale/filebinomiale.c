@@ -170,9 +170,9 @@ FileBinomiale UFret(FileBinomiale F1, FileBinomiale F2, Tournoi T) {
         } else if (Degre(T) == Degre(*T1) && Degre(T) == Degre(*T2)) {
             return AjoutMin(T, UFret(Reste(F1), Reste(F2), Union2Tid(*T1, *T2)));
         } else if (Degre(T) == Degre(*T1)) {
-            return UFret(Reste(F1), F2, Union2Tid(*T1, T));
+            return UFret(Reste(F1), F2, Union2Tid(*T1, *T));
         } else { // Degre(T) == Degre(T2)
-            return UFret(Reste(F2), F1, Union2Tid(*T2, T));
+            return UFret(Reste(F2), F1, Union2Tid(*T2, *T));
         }
     }
 }

@@ -5,33 +5,32 @@
 
 
 // 创建一个含有单个元素的二项树
-Tournoi createSingleItemTournoi(int data) {
-    Tournoi t;
+Tournoi *createSingleItemTournoi(int data) {
+    Tournoi* t = malloc(sizeof(Tournoi));
     ArbreBinomialeNode *node = malloc(sizeof(ArbreBinomialeNode));
     node->data = data;
     node->child = NULL;
     node->frere = NULL;
     node->parent = NULL;
-
-    t.racine = node;
+    t->racine = node;
     return t;
 }
 
 int main() {
     // 创建几个二项树
-    Tournoi t1 = createSingleItemTournoi(5);
-    Tournoi t2 = createSingleItemTournoi(10);
-    Tournoi t3 = createSingleItemTournoi(15);
+    Tournoi* t1 = createSingleItemTournoi(5);
+    Tournoi* t2 = createSingleItemTournoi(10);
+    Tournoi* t3 = createSingleItemTournoi(15);
 
 
-    Tournoi listTournoi[3] = {t1,t2,t3};
+    Tournoi* listTournoi[3] = {t1,t2,t3};
     //传递起始地址
-    FileBinomiale fb = Construction_FB(listTournoi, 3);
-    printf("size FB %d\n",fb.size);
-    if (fb.size > 0 && fb.file[0] != NULL && fb.file[0]->racine != NULL) {
+    FileBinomiale* fb = Construction_FB(listTournoi, 3);
+    printf("size FB %d\n",fb->size);
+    if (fb->size > 0 && fb->file[0] != NULL && fb->file[0]->racine != NULL) {
         // 打印 file[0] 的 racine 的值
         printf(" racine: %d\n",
-               fb.file[0]->racine->data);
+               fb->file[0]->racine->data);
     } else {
         printf("file[0] is empty or does not exist.\n");
     }

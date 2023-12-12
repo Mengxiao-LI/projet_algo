@@ -43,7 +43,7 @@ FileBinomiale Reste(FileBinomiale fb);
 FileBinomiale AjoutMin(Tournoi t,FileBinomiale fb);
 FileBinomiale Ajout_FB(Tournoi t,FileBinomiale fb);
 FileBinomiale UnionFile(FileBinomiale fb1,FileBinomiale fb2);
-FileBinomiale UFret(FileBinomiale fb1,FileBinomiale fb2,Tournoi t);
+FileBinomiale UFret(FileBinomiale fb1,FileBinomiale fb2,Tournoi* t);
 FileBinomiale SupprMin_FB(FileBinomiale fb);
 FileBinomiale Construction_FB(Tournoi* list_tournois,int size);
 void freeArbreBinomialeNode(ArbreBinomialeNode *node);

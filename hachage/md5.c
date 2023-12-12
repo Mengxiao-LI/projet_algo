@@ -1,7 +1,7 @@
 #include <string.h>
 #include <stdio.h>
-#include <sys/dirent.h>
 #include <dirent.h>
+#include <sys/dirent.h>
 #include "md5.h"
 
 //on obtient k[64] par:
