@@ -12,9 +12,9 @@
 //struct arbre binomiale node
 typedef struct ArbreBinomialeNode {
     Key128 data; // data of node
-    struct ArbreBinomialeNode *child; // 指向最左子节点
-    struct ArbreBinomialeNode *frere; // 指向兄弟节点
-    struct ArbreBinomialeNode *parent; // 指向父节点
+    struct ArbreBinomialeNode *child; // Pointe vers le nœud enfant le plus à gauche
+    struct ArbreBinomialeNode *frere; // Pointe vers le nœud frère
+    struct ArbreBinomialeNode *parent; // Pointe vers le nœud Parent
 } ArbreBinomialeNode;
 
 //struct tournoi binomial
