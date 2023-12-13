@@ -278,7 +278,7 @@ int main() {
         long averageMicros = totalMicros / 4;
         printf("Average execution time for %d keys: %ld microseconds\n", sizes[j], averageMicros);
     }*/
-    printf("Union Tests tableau\n");
+/*    printf("Union Tests arbre\n");
     const char* file_pattern1 = "../decode/jeu_1_nb_cles_%d.txt";
     const char* file_pattern2 = "../decode/jeu_%d_nb_cles_%d.txt"; // 其他四个文件
     const int num_tests1 = 5; // 测试次数
@@ -330,6 +330,8 @@ int main() {
 
         long averageMicros = totalMicros / 4;
         printf("Average execution time for %d keys: %ld microseconds\n", sizes1[j], averageMicros);
-    }
+    }*/
+
+
     return 0;
 }
