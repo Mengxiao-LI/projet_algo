@@ -24,7 +24,7 @@ Tournoi *createSingleItemTournoi(Key128 data) {
     return t;
 }
 
-void testConstructionTime(const char* filename, const char* outputFilename) {
+void testConstructionTime(const char* filename, const char* outputFilename, int repetitions) {
     FILE* file = fopen(filename, "r");
     FILE* outputFile = fopen(outputFilename, "w");
 
@@ -33,28 +33,30 @@ void testConstructionTime(const char* filename, const char* outputFilename) {
         return;
     }
 
-    // 写入 CSV 文件头
-    fprintf(outputFile, "Count,Time\n");
+    fprintf(outputFile, "Count,AverageTime\n");
 
-    Tournoi** tournois = malloc(sizeof(Tournoi*) * 200000); // 假设最多 20 万个 Tournoi
+    Tournoi** tournois = malloc(sizeof(Tournoi*) * 1000); // 假设最多 20 万个 Tournoi
     int count = 0;
 
-    while (!feof(file) && count < 200000) {
+    while (!feof(file) && count < 1000) {
         Key128 key = readKey128FromFile(file);
         tournois[count] = createSingleItemTournoi(key);
         count++;
 
-        clock_t start = clock();
-        FileBinomiale* fb = Construction_FB(tournois, count);
-        clock_t end = clock();
+        double totalTimeSpent = 0;
+        for (int i = 0; i < repetitions; i++) {
+            clock_t start = clock();
+            FileBinomiale* fb = Construction_FB(tournois, count);
+            clock_t end = clock();
 
-        double timeSpent = (double)(end - start) / CLOCKS_PER_SEC;
-        fprintf(outputFile, "%d,%f\n", count, timeSpent); // CSV 格式输出
+            totalTimeSpent += (double)(end - start) / CLOCKS_PER_SEC;
+            freeFileBinomiale(fb);
+        }
 
-        freeFileBinomiale(fb);
+        double averageTimeSpent = totalTimeSpent / repetitions;
+        fprintf(outputFile, "%d,%f\n", count, averageTimeSpent);
     }
 
-    // 清理分配的 Tournoi
     for (int i = 0; i < count; i++) {
         freeTournoi(tournois[i]);
     }
@@ -66,10 +68,11 @@ void testConstructionTime(const char* filename, const char* outputFilename) {
 
 
 
+
 int main() {
 //complexite Construction
 
-    testConstructionTime("../decode/jeu_2_nb_cles_200000.txt", "../construction_times.csv");
+    testConstructionTime("../decode/jeu_2_nb_cles_1000.txt", "../construction_times2.csv",3);
     printf("fini\n");
 //complexite Union
 
