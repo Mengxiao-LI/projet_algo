@@ -27,7 +27,7 @@ int main() {
     Tournoi* t6 = Union2Tid(t4,t5);
     //t7:2个child 4个节点，
     Tournoi* t7 = Union2Tid(t3,t6);
-    int degre = Degre(*t3);
+    int degre = Degre(t3);
     int val_racine = t3->racine->data;
     int val_child = t3->racine->child->data;
 //    int val_frere = t3.racine->child->frere->data;
@@ -36,7 +36,7 @@ int main() {
     printf("vale_child: %d\n",val_child);
 //    printf("val_frere: %d\n",val_frere);
     printf("2ieme partie\n");
-    int degre2 = Degre(*t7);
+    int degre2 = Degre(t7);
     int val_racine2 = t7->racine->data;
     int val_child2 = t7->racine->child->data;
     int val_frere2 = t7->racine->child->frere->data;
@@ -49,7 +49,7 @@ int main() {
     Tournoi* ta1 = createSingleItemTournoi(3);
     Tournoi* ta2 = createSingleItemTournoi(10);
     Tournoi* ta = Union2Tid(ta1,ta2);
-    printf("degre ta: %d\n", Degre(*ta));
+    printf("degre ta: %d\n", Degre(ta));
     printf("val_racine ta: %d\n",ta->racine->data);
 //file
     FileBinomiale* fb0 = File(ta);
@@ -58,13 +58,18 @@ int main() {
     printf("fb size: %d\n", fb0->size);
     int racineval = test->racine->data;
     printf("val_racine test: %d\n",racineval);
-    printf("degre test: %d\n", Degre(*test));
+    printf("degre test: %d\n", Degre(test));
     printf("val_racine test: %d\n",test->racine->data);
-//ajoutMin
+//ajoutMin valide
     Tournoi* t8 = createSingleItemTournoi(1);
     FileBinomiale* fb1 = AjoutMin(t8,fb0);
     printf("fb size apres de ajouter: %d\n", fb1->size);
-
+    Tournoi* tournoi_fb1_first = fb1->file[0];
+    Tournoi* tournoi_fb1_second = fb1->file[1];
+    printFileBinomiale(fb1);
+    Tournoi* test2 = MinDeg(fb1);
+//MinDeg valide
+    printf("val_racine_mindeg test: %d\n",test2->racine->data);
 //construction
     printf("test: construction \n");
     Tournoi* cons1 = createSingleItemTournoi(5);
@@ -74,7 +79,7 @@ int main() {
 //传递起始地址
     FileBinomiale* fb_TEST = Construction_FB(listTournoi, 3);
     printf("fb size apres de construction: %d\n", fb_TEST->size);
-    printFileBinomiale(*fb_TEST);
+    printFileBinomiale(fb_TEST);
 
 
 
