@@ -5,6 +5,7 @@
 #include "echauffement/echauffement.h"
 #include "arbreBR/arbreBR.h"
 #include "hachage/md5.h"
+#include "fileBinomiale/filebinomiale.h"
 #include "experimentale/experimentale.h"
 #include "tas/tas.h"
 
@@ -54,6 +55,9 @@ int main() {
     }else{
         printf("-----Q6.2yes Collision \n");
     }
+
+    //Question 6.3
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     printf("-----------Q6.3-----------\n");
     printf("--test 6.3---");
     long seconds;
@@ -79,7 +83,7 @@ int main() {
     printf("time for keys: %ld microseconds\n", totalMicros);
 
             //最后写free(array);
-
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     printf("--test 6.3---");
     printf("SupprMin tas\n");
      totalMicros = 0;
@@ -98,6 +102,7 @@ int main() {
 
 
     printf("time for keys: %ld microseconds\n", totalMicros);
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     printf("--test 6.3---");
     printf("Construction tas\n");
     totalMicros = 0;
@@ -115,7 +120,7 @@ int main() {
 
 
     printf("time for keys: %ld microseconds\n", totalMicros);
-
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     printf("--test 6.3---");
     printf("Union tas\n");
     HP hp3;
@@ -142,5 +147,11 @@ int main() {
     HeapDestroy(&hp2);
     HeapDestroy(&hp3);
     HeapDestroy(&hpUnion);
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //File binomiale
+
+
+
+
     return 0;
 }
