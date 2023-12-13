@@ -21,10 +21,10 @@ add_executable(filebinomiale
         echauffement/echauffement.c
 )
 
-add_executable(filebinomialeINT
+add_executable(filebinomialeKey128
         main_File_BinomialeKey128.c
-        fileBinomialeINT/filebinomiale.c
-        fileBinomialeINT/filebinomiale.h
+        fileBinomiale/filebinomiale.c
+        fileBinomiale/filebinomiale.h
         echauffement/echauffement.h
         echauffement/echauffement.c
 )
