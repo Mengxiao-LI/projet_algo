@@ -86,5 +86,9 @@ add_executable(question6 main_Q6.c
         experimentale/experimentale.h
         hachage/md5.c
         hachage/md5.h
+        tas/tas.h
+        tas/tas.c
+        tas/tasArbre.c
+        tas/tasArbre.h
 
 )

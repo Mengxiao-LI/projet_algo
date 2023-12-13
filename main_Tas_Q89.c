@@ -19,7 +19,7 @@ int main() {
     const int num_sizes = 8;
     char file_path[1024];*/
 
-/*    printf("Question2.8\n");
+    printf("Question2.8\n");
     printf("AjoutsIteratifs tableau last\n");
     const char* file_pattern = "../decode/jeu_%d_nb_cles_%d.txt";
     const int num_tests = 5; // 1.2.3.4.5
@@ -34,6 +34,7 @@ int main() {
         for (int i = 0; i < num_tests; i++) {
             sprintf(file_path, file_pattern, i + 1, sizes[j]);
             printf("Processing file: %s\n", file_path);
+
 
 
 
@@ -70,7 +71,7 @@ int main() {
         long averageMicros = totalMicros / num_tests;
         printf("Average execution time for %d keys: %ld microseconds\n", sizes[j], averageMicros);
     }
-    printf("Question2.8\n");
+   /* printf("Question2.8\n");
     printf("Con tableau last\n");
 
 

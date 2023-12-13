@@ -1,10 +1,12 @@
 //
 // Created by lmx on 2023/12/12.
 //
+#include <sys/time.h>
 #include "echauffement/echauffement.h"
 #include "arbreBR/arbreBR.h"
 #include "hachage/md5.h"
 #include "experimentale/experimentale.h"
+#include "tas/tas.h"
 
 #define MAX_FILES 37
 #define MAX_FILENAME_LEN 256
@@ -52,7 +54,32 @@ int main() {
         printf("-----Q6.2yes Collision \n");
     }
 
-    free(listMots);
+    printf("--test 6.3");
+    printf("AjoutsIteratifs tableau last\n");
+
+        long totalMicros = 0;
+            HP hp1;
+            HeapInit (&hp1);
+            //HeapPrint(&hp);
+            struct timeval start, end;
+            gettimeofday(&start, NULL);
+            //
+            AjoutsIteratifs(&hp1,array,totalWords);
+
+
+            gettimeofday(&end, NULL);
+            //
+            long seconds = (end.tv_sec - start.tv_sec);
+            long micros = ((seconds * 1000000) + end.tv_usec) - (start.tv_usec);
+            totalMicros += micros;
+            free(array);
+            HeapDestroy(&hp1);
+            printf("time for keys: %ld microseconds\n", totalMicros);
+
+
+
+
+
 
     //
     freeABR(tree);
