@@ -84,6 +84,8 @@ add_executable(question6 main_Q6.c
         arbreBR/arbreBR.c
         experimentale/experimentale.c
         experimentale/experimentale.h
+        fileBinomiale/filebinomiale.c
+        fileBinomiale/filebinomiale.h
         hachage/md5.c
         hachage/md5.h
         tas/tas.h
