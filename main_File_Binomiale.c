@@ -87,20 +87,18 @@ int main() {
             Key128* keys1 = processFile(file_path1_union, &size1);
             Key128* keys2 = processFile(file_path2_union, &size2);
 
-            Tournoi** tournoisA = malloc(sizeof(Tournoi*) * sizes[j]);
-            Tournoi** tournoisB = malloc(sizeof(Tournoi*) * sizes[j]);
+            Tournoi** tournoisA = malloc(sizeof(Tournoi*) * sizes_union[j]);
+            Tournoi** tournoisB = malloc(sizeof(Tournoi*) * sizes_union[j]);
             int countA = 0;
-            for(;countA<sizes[j];countA++) {
+            for(;countA<sizes_union[j];countA++) {
                 tournoisA[countA] = createSingleItemTournoi(keys1[countA]);
             }
             int countB = 0;
-            for(;countB<sizes[j];countB++) {
-                tournoisA[countB] = createSingleItemTournoi(keys1[countB]);
+            for(;countB<sizes_union[j];countB++) {
+                tournoisB[countB] = createSingleItemTournoi(keys2[countB]);
             }
-
             FileBinomiale* fbA = Construction_FB(tournoisA, countA);
             FileBinomiale* fbB = Construction_FB(tournoisB, countB);
-
             struct timeval start, end;
             gettimeofday(&start, NULL);
 
@@ -119,10 +117,10 @@ int main() {
             free(keys2);
             freeFileBinomiale(fbA);
             freeFileBinomiale(fbB);
-            for(int i = 0;i<sizes[j];i++) {
+            for(int i = 0;i<sizes_union[j];i++) {
                 freeTournoi(tournoisA[i]);
             }
-            for(int i = 0;i<sizes[j];i++) {
+            for(int i = 0;i<sizes_union[j];i++) {
                 freeTournoi(tournoisB[i]);
             }
 
@@ -130,7 +128,7 @@ int main() {
         }
 
         long averageMicros = totalMicros / 4;
-        printf("Average execution time for %d keys: %ld microseconds\n", sizes[j], averageMicros);
+        printf("Average execution time for %d keys: %ld microseconds\n", sizes_union[j], averageMicros);
     }
 
 
