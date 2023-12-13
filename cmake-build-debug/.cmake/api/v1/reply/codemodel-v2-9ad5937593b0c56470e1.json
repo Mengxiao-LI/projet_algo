@@ -1,0 +1,141 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.26"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "projet_Mengxiao_Zhengdao",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "Tas_Q8Q9::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Tas_Q8Q9-Debug-1fa1880ccd60840fdc63.json",
+					"name" : "Tas_Q8Q9",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "arbreBR::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-arbreBR-Debug-1cce0638e99f997f6981.json",
+					"name" : "arbreBR",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "filebinomialeComplexite::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-filebinomialeComplexite-Debug-01fe88e95c79a1304a13.json",
+					"name" : "filebinomialeComplexite",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "filebinomialeINTSimple::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-filebinomialeINTSimple-Debug-a6fc2361bfaf6c7632d7.json",
+					"name" : "filebinomialeINTSimple",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "filebinomialeKey128::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-filebinomialeKey128-Debug-339bfdd7e03256c87717.json",
+					"name" : "filebinomialeKey128",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "main_Tas_Min::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-main_Tas_Min-Debug-207fc4fe17166a06d8e8.json",
+					"name" : "main_Tas_Min",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "md5::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-md5-Debug-74a3374996a44d39568b.json",
+					"name" : "md5",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "projet_Mengxiao_Zhengdao::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-projet_Mengxiao_Zhengdao-Debug-f424dc6c25cfcf2ff3d6.json",
+					"name" : "projet_Mengxiao_Zhengdao",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "question6::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-question6-Debug-174cc5f79a1eb428b653.json",
+					"name" : "question6",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "test::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-test-Debug-ca9276a471c80b8fbe6a.json",
+					"name" : "test",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/Users/zyu/Desktop/Projet/projet_algo/cmake-build-debug",
+		"source" : "/Users/zyu/Desktop/Projet/projet_algo"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 5
+	}
+}
