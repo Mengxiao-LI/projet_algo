@@ -2,10 +2,7 @@
 #include <string.h>
 #include <time.h>
 #include <sys/time.h>
-//#include <intrin.h>
 #include "echauffement/echauffement.h"
-#include "tas/list.h"
-#include "tas/tas.h"
 #include "fileBinomiale/filebinomiale.h"
 Key128 readKey128FromFile(FILE* file) {
     unsigned int part1, part2, part3, part4;
@@ -25,6 +22,120 @@ Tournoi *createSingleItemTournoi(Key128 data) {
     return t;
 }
 
+int main() {
+    // Moyenne temps pour Construction
+    printf("Moyenne Temps Construction\n");
+    const char* file_pattern = "../decode/jeu_%d_nb_cles_%d.txt";
+    const int num_tests = 5; // 1.2.3.4.5
+    const int sizes[] = {1000, 5000, 10000, 20000,50000, 80000, 120000, 200000};
+    const int num_sizes = 8;
+    char file_path[1024];
+
+
+    for (int j = 0; j < num_sizes; j++) {
+        long totalMicros = 0;
+
+        for (int i = 0; i < num_tests; i++) {
+            int size;
+            sprintf(file_path, file_pattern, i + 1, sizes[j]);
+            Key128* myArray = processFile(file_path, &size);
+            printf("Processing file: %s\n", file_path);
+            Tournoi** tournois = malloc(sizeof(Tournoi*) * sizes[j]);
+            int count = 0;
+            for(;count<sizes[j];count++) {
+                tournois[count] = createSingleItemTournoi(myArray[count]);
+            }
+
+
+            struct timeval start, end;
+            gettimeofday(&start, NULL);
+            FileBinomiale* fb = Construction_FB(tournois, count);
+            gettimeofday(&end, NULL);
+            //
+            long seconds = (end.tv_sec - start.tv_sec);
+            long micros = ((seconds * 1000000) + end.tv_usec) - (start.tv_usec);
+            totalMicros += micros;
+            free(myArray);
+            freeFileBinomiale(fb);
+            for(int i = 0;i<sizes[j];i++) {
+                freeTournoi(tournois[i]);
+            }
+
+        }
+
+        long averageMicros = totalMicros / num_tests;
+        printf("Average execution time for %d keys: %ld microseconds\n", sizes[j], averageMicros);
+    }
+
+    // Moyenne temps pour Union
+    printf("Moyenne Temps Union\n");
+    const char* file_pattern1_union = "../decode/jeu_1_nb_cles_%d.txt";
+    const char* file_pattern2_union = "../decode/jeu_%d_nb_cles_%d.txt"; // 其他四个文件
+    const int num_tests_union = 5; // 测试次数
+    const int sizes_union[] = {1000, 5000, 10000, 20000, 50000, 80000, 120000, 200000};
+    const int num_sizes_union = 8;
+
+    for (int j = 0; j < num_sizes_union; j++) {
+        long totalMicros = 0;
+
+        for (int i = 1; i < num_tests_union; i++) {
+            char file_path1_union[1024], file_path2_union[1024];
+            sprintf(file_path1_union, file_pattern1_union, sizes_union[j]);
+            sprintf(file_path2_union, file_pattern2_union, i + 1, sizes_union[j]); // 避免重复使用 jeu_1 文件
+
+            int size1, size2;
+            Key128* keys1 = processFile(file_path1_union, &size1);
+            Key128* keys2 = processFile(file_path2_union, &size2);
+
+            Tournoi** tournoisA = malloc(sizeof(Tournoi*) * sizes[j]);
+            Tournoi** tournoisB = malloc(sizeof(Tournoi*) * sizes[j]);
+            int countA = 0;
+            for(;countA<sizes[j];countA++) {
+                tournoisA[countA] = createSingleItemTournoi(keys1[countA]);
+            }
+            int countB = 0;
+            for(;countB<sizes[j];countB++) {
+                tournoisA[countB] = createSingleItemTournoi(keys1[countB]);
+            }
+
+            FileBinomiale* fbA = Construction_FB(tournoisA, countA);
+            FileBinomiale* fbB = Construction_FB(tournoisB, countB);
+
+            struct timeval start, end;
+            gettimeofday(&start, NULL);
+
+            // Union 操作
+            FileBinomiale* fb_Union = UnionFile(fbA, fbB);
+
+            gettimeofday(&end, NULL);
+
+            long seconds = (end.tv_sec - start.tv_sec);
+            long micros = ((seconds * 1000000) + end.tv_usec) - (start.tv_usec);
+            totalMicros += micros;
+
+            printf("Processing file: %s...%ld microseconds\n", file_path2_union, micros);
+
+            free(keys1);
+            free(keys2);
+            freeFileBinomiale(fbA);
+            freeFileBinomiale(fbB);
+            for(int i = 0;i<sizes[j];i++) {
+                freeTournoi(tournoisA[i]);
+            }
+            for(int i = 0;i<sizes[j];i++) {
+                freeTournoi(tournoisB[i]);
+            }
+
+
+        }
+
+        long averageMicros = totalMicros / 4;
+        printf("Average execution time for %d keys: %ld microseconds\n", sizes[j], averageMicros);
+    }
+
+
+/////////////////////////////
+//complexite Construction
 //void testConstructionTime(const char* filename, const char* outputFilename, int repetitions) {
 //    FILE* file = fopen(filename, "r");
 //    FILE* outputFile = fopen(outputFilename, "w");
@@ -66,61 +177,7 @@ Tournoi *createSingleItemTournoi(Key128 data) {
 //    fclose(file);
 //    fclose(outputFile);
 //}
-
-
-
-
-
-int main() {
-    printf("Question2.8\n");
-    printf("AjoutsIteratifs tableau last\n");
-    const char* file_pattern = "../decode/jeu_%d_nb_cles_%d.txt";
-    const int num_tests = 5; // 1.2.3.4.5
-    const int sizes[] = {1000, 5000, 10000, 20000,50000, 80000, 120000, 200000};
-    const int num_sizes = 8;
-    char file_path[1024];
-
-
-    for (int j = 0; j < num_sizes; j++) {
-        long totalMicros = 0;
-
-        for (int i = 0; i < num_tests; i++) {
-            int size;
-            sprintf(file_path, file_pattern, i + 1, sizes[j]);
-            Key128* myArray = processFile(file_path, &size);
-            printf("Processing file: %s\n", file_path);
-            Tournoi** tournois = malloc(sizeof(Tournoi*) * sizes[j]);
-            int count = 0;
-            for(;count<sizes[j];count++) {
-                tournois[count] = createSingleItemTournoi(myArray[count]);
-            }
-
-
-            struct timeval start, end;
-             gettimeofday(&start, NULL);
-            //
-//            AjoutsIteratifs(&hp1,myArray,size);
-            FileBinomiale* fb = Construction_FB(tournois, count);
-
-            gettimeofday(&end, NULL);
-            //
-            long seconds = (end.tv_sec - start.tv_sec);
-            long micros = ((seconds * 1000000) + end.tv_usec) - (start.tv_usec);
-            totalMicros += micros;
-            free(myArray);
-            freeFileBinomiale(fb);
-
-
-        }
-
-        long averageMicros = totalMicros / num_tests;
-        printf("Average execution time for %d keys: %ld microseconds\n", sizes[j], averageMicros);
-    }
-
-/////////////////////////////
-//complexite Construction
-
-//    testConstructionTime("../decode/jeu_4_nb_cles_5000.txt", "../construction_times2.csv",3);
+//testConstructionTime("../decode/jeu_4_nb_cles_5000.txt", "../construction_times2.csv",3);
     printf("fini\n");
 //complexite Union
 
