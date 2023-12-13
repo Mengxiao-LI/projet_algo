@@ -35,6 +35,7 @@ int main() {
     }
 
 //Q2
+    printf("-----------Q6.2-----------\n");
 //将上面的liste mode -md5-key128
     Key128* array=convertToKey128Array(listMots, totalWords);
     bool hasCollision=false;
@@ -53,36 +54,93 @@ int main() {
     }else{
         printf("-----Q6.2yes Collision \n");
     }
+    printf("-----------Q6.3-----------\n");
+    printf("--test 6.3---");
+    long seconds;
+    long micros;
+    printf("AjoutsIteratifs tas\n");
+    struct timeval start, end;
+    long totalMicros = 0;
+    HP hp1;
+    HeapInit (&hp1);
+    //HeapPrint(&hp);
 
-    printf("--test 6.3");
-    printf("AjoutsIteratifs tableau last\n");
-
-        long totalMicros = 0;
-            HP hp1;
-            HeapInit (&hp1);
-            //HeapPrint(&hp);
-            struct timeval start, end;
-            gettimeofday(&start, NULL);
-            //
-            AjoutsIteratifs(&hp1,array,totalWords);
-
-
-            gettimeofday(&end, NULL);
-            //
-            long seconds = (end.tv_sec - start.tv_sec);
-            long micros = ((seconds * 1000000) + end.tv_usec) - (start.tv_usec);
-            totalMicros += micros;
-            free(array);
-            HeapDestroy(&hp1);
-            printf("time for keys: %ld microseconds\n", totalMicros);
-
-
-
-
-
-
+    gettimeofday(&start, NULL);
     //
+    AjoutsIteratifs(&hp1,array,totalWords);
+
+
+    gettimeofday(&end, NULL);
+    seconds = (end.tv_sec - start.tv_sec);
+    micros = ((seconds * 1000000) + end.tv_usec) - (start.tv_usec);
+    totalMicros += micros;
+
+
+    printf("time for keys: %ld microseconds\n", totalMicros);
+
+            //最后写free(array);
+
+    printf("--test 6.3---");
+    printf("SupprMin tas\n");
+     totalMicros = 0;
+
+
+    gettimeofday(&start, NULL);
+    //
+    for(int i=0;i<10;i++){
+        SupprMin(&hp1);
+    }
+
+    gettimeofday(&end, NULL);
+    seconds = (end.tv_sec - start.tv_sec);
+    micros = ((seconds * 1000000) + end.tv_usec) - (start.tv_usec);
+    totalMicros += micros;
+
+
+    printf("time for keys: %ld microseconds\n", totalMicros);
+    printf("--test 6.3---");
+    printf("Construction tas\n");
+    totalMicros = 0;
+    HP hp2;
+    HeapInit (&hp2);
+
+    gettimeofday(&start, NULL);
+    //
+    Construction(&hp2, array, totalWords);
+
+    gettimeofday(&end, NULL);
+    seconds = (end.tv_sec - start.tv_sec);
+    micros = ((seconds * 1000000) + end.tv_usec) - (start.tv_usec);
+    totalMicros += micros;
+
+
+    printf("time for keys: %ld microseconds\n", totalMicros);
+
+    printf("--test 6.3---");
+    printf("Union tas\n");
+    HP hp3;
+    HeapInit (&hp3);
+
+    int size1;
+    Key128* keys1 = processFile("../decode/jeu_1_nb_cles_1000.txt", &size1);
+    Construction(&hp3, keys1, size1);
+    gettimeofday(&start, NULL);
+    //
+    HP *hpUnion = Union(&hp3, &hp2);
+
+    gettimeofday(&end, NULL);
+    seconds = (end.tv_sec - start.tv_sec);
+    micros = ((seconds * 1000000) + end.tv_usec) - (start.tv_usec);
+    totalMicros += micros;
+    printf("time for keys: %ld microseconds\n", totalMicros);
+    //
+
     freeABR(tree);
     free(array);
+    free(keys1);
+    HeapDestroy(&hp1);
+    HeapDestroy(&hp2);
+    HeapDestroy(&hp3);
+    HeapDestroy(&hpUnion);
     return 0;
 }

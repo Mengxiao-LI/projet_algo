@@ -35,10 +35,6 @@ int main() {
             sprintf(file_path, file_pattern, i + 1, sizes[j]);
             printf("Processing file: %s\n", file_path);
 
-
-
-
-
             int size;
             Key128* myArray = processFile(file_path, &size);
 
