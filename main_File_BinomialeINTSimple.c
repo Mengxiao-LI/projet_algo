@@ -1,6 +1,4 @@
 #include <stdio.h>
-#include <string.h>
-#include "echauffement/echauffement.h"
 #include "fileBinomialeINT/filebinomiale.h"
 
 
