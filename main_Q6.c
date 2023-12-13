@@ -66,9 +66,9 @@ int main() {
 
     }
     if(!hasCollision){
-        printf("-----Q6.2no Collision\n");
+        printf("-----Q6.2no Collision, il y a %d\n",totalWords);
     }else{
-        printf("-----Q6.2yes Collision \n");
+        printf("-----Q6.2yes Collision, il y a %d\n",totalWords);
     }
 
     //Question 6.3
