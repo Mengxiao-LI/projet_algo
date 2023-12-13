@@ -11,17 +11,6 @@ Key128 readKey128FromFile(FILE* file) {
     return key;
 }
 
-Tournoi *createSingleItemTournoi(Key128 data) {
-    Tournoi* t = malloc(sizeof(Tournoi));
-    ArbreBinomialeNode *node = malloc(sizeof(ArbreBinomialeNode));
-    node->data = data;
-    node->child = NULL;
-    node->frere = NULL;
-    node->parent = NULL;
-    t->racine = node;
-    return t;
-}
-
 int main() {
     // Moyenne temps pour Construction
     printf("Moyenne Temps Construction\n");

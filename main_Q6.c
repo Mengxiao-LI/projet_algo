@@ -265,20 +265,20 @@ int main() {
 
     freeABR(tree);
     free(keys2);
-    freeFileBinomiale(fb);
-    freeFileBinomiale(fbcons);
-    freeFileBinomiale(fbcons2);
-    freeFileBinomiale(FBTEST1);
-    freeFileBinomiale(FBTEST2);
-    for(int i = 0;i<totalWords;i++) {
-        freeTournoi(tournois[i]);
-    }
-    for(int i = 0;i<totalWords;i++) {
-        freeTournoi(tournoiscons[i]);
-    }
-    for(int i = 0;i<size2;i++) {
-        freeTournoi(tournoiscons2[i]);
-    }
+//    freeFileBinomiale(fb);
+//    freeFileBinomiale(fbcons);
+//    freeFileBinomiale(fbcons2);
+//    freeFileBinomiale(FBTEST1);
+//    freeFileBinomiale(FBTEST2);
+//    for(int i = 0;i<totalWords;i++) {
+//        freeTournoi(tournois[i]);
+//    }
+//    for(int i = 0;i<totalWords;i++) {
+//        freeTournoi(tournoiscons[i]);
+//    }
+//    for(int i = 0;i<size2;i++) {
+//        freeTournoi(tournoiscons2[i]);
+//    }
 
 
     free(array);
