@@ -15,9 +15,10 @@
 typedef Key128 HPType;
 typedef struct HPArb {
     HPType data;
-    struct HPArb* fG;  // 左子树
-    struct HPArb* fD;  // 右子树
+    struct HPArb* fG;  // fils gauche
+    struct HPArb* fD;  // fils droit
 } HPArb;
+
 void initTasAB(HPArb**tas);
 HPArb* nouveauNoeud(HPType data);
 /*int insertLast(HPArb** tas, HPType data);

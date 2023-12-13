@@ -372,14 +372,14 @@ HPArb* UnionA(HPArb *tas1, HPArb *tas2){
     HPType *mergedArray = (HPType*)malloc((arrayLength1 + arrayLength2) * sizeof(HPType));
     memcpy(mergedArray, array1, arrayLength1 * sizeof(HPType));
     memcpy(mergedArray + arrayLength1, array2, arrayLength2 * sizeof(HPType));
-
+    free(array1);
+    free(array2);
     HPArb* tas;
     initTasAB(&tas);
     construction1(&tas, mergedArray, arrayLength1 + arrayLength2);
 
     // 清理
-    free(array1);
-    free(array2);
+
     free(mergedArray);
 
     return tas;

@@ -161,7 +161,7 @@ void Construction(HP **minHp, Key128* keys, int n) {
 
 /*删
  * 复杂度计算
-https://blog.csdn.net/weixin_44611096/article/details/123608836*/
+*/
 
 HP *Union(HP *minHp1, HP *minHp2) {
 
