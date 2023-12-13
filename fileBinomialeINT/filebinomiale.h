@@ -33,9 +33,7 @@ bool EstVide_T(Tournoi* t);
 int Degre(Tournoi* t);
 Tournoi* Union2Tid(Tournoi* t1,Tournoi* t2);
 
-//primitive supplementaire
-ArbreBinomialeNode* copyArbreBinomialeNode(ArbreBinomialeNode* node);
-Tournoi* copyTournoi(Tournoi* tournoi);
+
 //primitive file binomiale
 FileBinomiale* File(Tournoi* t);
 bool EstVide_FB(FileBinomiale* fb);
@@ -53,7 +51,12 @@ FileBinomiale* Construction_FB(Tournoi** list_tournois,int size);
 void freeArbreBinomialeNode(ArbreBinomialeNode *node);
 void freeTournoi(Tournoi *t);
 void freeFileBinomiale(FileBinomiale* fb);
+
+//primitive supplementaire-copy
+ArbreBinomialeNode* copyArbreBinomialeNode(ArbreBinomialeNode* node);
+Tournoi* copyTournoi(Tournoi* tournoi);
+
+//primitive supplementaire-print
 void printFileBinomiale(FileBinomiale* fb);
 void printArbreBinomialeNode(ArbreBinomialeNode *node);
-
 #endif

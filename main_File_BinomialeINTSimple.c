@@ -66,7 +66,7 @@ int main() {
     printf("fb size apres de ajouter: %d\n", fb1->size);
     Tournoi* tournoi_fb1_first = fb1->file[0];
     Tournoi* tournoi_fb1_second = fb1->file[1];
-    printFileBinomiale(fb1);
+//    printFileBinomiale(fb1);
     Tournoi* test2 = MinDeg(fb1);
 //MinDeg valide
     printf("val_racine_mindeg test: %d\n",test2->racine->data);
@@ -79,7 +79,11 @@ int main() {
 //传递起始地址
     FileBinomiale* fb_TEST = Construction_FB(listTournoi, 3);
     printf("fb size apres de construction: %d\n", fb_TEST->size);
-    printFileBinomiale(fb_TEST);
+    Tournoi* tournoi_fbTEST_first = fb_TEST->file[0];
+    Tournoi* tournoi_fbTEST_second = fb_TEST->file[1];
+    printf("val_racine test: %d\n",tournoi_fbTEST_first->racine->data);
+    printf("val_racine test: %d\n",tournoi_fbTEST_second->racine->data);
+//    printFileBinomiale(fb_TEST);
 
 
 

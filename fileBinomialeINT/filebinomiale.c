@@ -33,8 +33,8 @@ bool EstVide_T(Tournoi* t) {
 }
 Tournoi* Union2Tid(Tournoi* t1entree, Tournoi* t2entree) {
     //创建节点副本 避免修改传入的t1 t2后会跟着影响基于t1 t2生成的file binomiale
-    Tournoi* t1 = copyTournoi(t1entree->racine);
-    Tournoi* t2 = copyTournoi(t2entree->racine);
+    Tournoi* t1 = copyTournoi(t1entree);
+    Tournoi* t2 = copyTournoi(t2entree);
 
 
     if (t1->racine == NULL) return t2;
@@ -78,7 +78,18 @@ FileBinomiale* File(Tournoi* T) {
     FileBinomiale* newFb = malloc(sizeof(FileBinomiale));
     newFb->size = 1; // cette file n'a que un seul tournois
     newFb->file = malloc(sizeof(Tournoi*) * newFb->size);
-    newFb->file[0] = T;
+
+    // 复制 T 并将副本赋给 newFb->file[0]
+    Tournoi* copiedT = malloc(sizeof(Tournoi));
+    if (copiedT == NULL) {
+        fprintf(stderr, "Error: Unable to allocate memory for Tournoi.\n");
+        free(newFb->file);
+        free(newFb);
+        return NULL;
+    }
+    copiedT->racine = copyArbreBinomialeNode(T->racine);
+
+    newFb->file[0] = copiedT;
 
     return newFb;
 }
@@ -145,7 +156,10 @@ FileBinomiale* AjoutMin(Tournoi* T, FileBinomiale* F) {
     // then copy tous les autres trournois
     for (int i = 0; i < F->size; i++) {
         newFb->file[i + 1] = F->file[i];
+        printf("TEST AjoutMin: %d\n",newFb->file[i + 1]->racine->data);
     }
+    printf("TEST AjoutMin: %d\n",newFb->file[0]->racine->data);
+    printf("TEST AjoutMin: %d\n",newFb->file[1]->racine->data);
     return newFb;
 }
 //consruction
@@ -301,26 +315,23 @@ void printFileBinomiale(FileBinomiale* fb) {
         printf("\n");
     }
 }
+
 ArbreBinomialeNode* copyArbreBinomialeNode(ArbreBinomialeNode* node) {
     if (node == NULL) {
         return NULL;
     }
-
     ArbreBinomialeNode* newNode = malloc(sizeof(ArbreBinomialeNode));
     if (newNode == NULL) {
         // 处理内存分配失败的情况
         fprintf(stderr, "Error: Unable to allocate memory for ArbreBinomialeNode.\n");
         return NULL;
     }
-
     newNode->data = node->data;
     newNode->child = copyArbreBinomialeNode(node->child);
     newNode->frere = copyArbreBinomialeNode(node->frere);
     newNode->parent = NULL; // 父节点将在后续步骤中设置
-
     return newNode;
 }
-
 
 
 Tournoi* copyTournoi(Tournoi* tournoi) {
