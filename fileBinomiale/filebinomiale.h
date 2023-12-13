@@ -60,4 +60,6 @@ Tournoi* copyTournoi(Tournoi* tournoi);
 //primitive supplementaire-print
 void printFileBinomiale(FileBinomiale* fb);
 void printArbreBinomialeNode(ArbreBinomialeNode *node);
+
+Tournoi *createSingleItemTournoi(Key128 data);
 #endif

@@ -364,6 +364,15 @@ Tournoi* copyTournoi(Tournoi* tournoi) {
     return newTournoi;
 }
 
-
+Tournoi *createSingleItemTournoi(Key128 data) {
+    Tournoi* t = malloc(sizeof(Tournoi));
+    ArbreBinomialeNode *node = malloc(sizeof(ArbreBinomialeNode));
+    node->data = data;
+    node->child = NULL;
+    node->frere = NULL;
+    node->parent = NULL;
+    t->racine = node;
+    return t;
+}
 
 

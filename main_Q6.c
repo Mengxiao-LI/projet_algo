@@ -141,7 +141,6 @@ int main() {
     //
 
     freeABR(tree);
-    free(array);
     free(keys1);
     HeapDestroy(&hp1);
     HeapDestroy(&hp2);
@@ -149,9 +148,124 @@ int main() {
     HeapDestroy(&hpUnion);
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //File binomiale
+    printf("-----------Q6.3-----------\n");
+    printf("--test 6.3---");
+    long seconds_fb;
+    long micros_fb;
+    printf("AjoutFB FileBinomiale\n");
+    struct timeval start_fb, end_fb;
+    long totalMicros_fb = 0;
+    FileBinomiale* fb = malloc(sizeof (FileBinomiale));
+    fb->size = 0;
+    fb->file = NULL;
+    Tournoi** tournois = malloc(sizeof(Tournoi*) * totalWords);
+    int count = 0;
+    for(;count<totalWords;count++) {
+        tournois[count] = createSingleItemTournoi(array[count]);
+    }
+
+    gettimeofday(&start, NULL);
+    //
+    for(int i=0;i<count;i++)
+    {
+       FileBinomiale* temp = Ajout_FB(tournois[count],fb);
+        freeFileBinomiale(fb); // 释放旧的 FBn
+        fb = temp;
+    }
+    gettimeofday(&end, NULL);
+    seconds = (end.tv_sec - start.tv_sec);
+    micros = ((seconds * 1000000) + end.tv_usec) - (start.tv_usec);
+    totalMicros += micros;
 
 
+    printf("time for keys: %ld microseconds\n", totalMicros);
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    printf("--test 6.3---");
+    printf("SupprMin Filebinomiale\n");
+    totalMicros = 0;
 
 
+    gettimeofday(&start, NULL);
+    //
+    for(int i=0;i<10;i++){
+        SupprMin_FB(fb);
+    }
+
+    gettimeofday(&end, NULL);
+    seconds = (end.tv_sec - start.tv_sec);
+    micros = ((seconds * 1000000) + end.tv_usec) - (start.tv_usec);
+    totalMicros += micros;
+
+
+    printf("time for keys: %ld microseconds\n", totalMicros);
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    printf("--test 6.3---");
+    printf("Construction FileBinomiale\n");
+    totalMicros = 0;
+    FileBinomiale* fbcons = malloc(sizeof (FileBinomiale));
+    fbcons->size = 0;
+    fbcons->file = NULL;
+    Tournoi** tournoiscons = malloc(sizeof(Tournoi*) * totalWords);
+    int countcons = 0;
+    for(;countcons<totalWords;countcons++) {
+        tournoiscons[countcons] = createSingleItemTournoi(array[countcons]);
+    }
+
+    gettimeofday(&start, NULL);
+    //
+    FileBinomiale* FBTEST1 = Construction_FB(tournoiscons,countcons);
+
+    gettimeofday(&end, NULL);
+    seconds = (end.tv_sec - start.tv_sec);
+    micros = ((seconds * 1000000) + end.tv_usec) - (start.tv_usec);
+    totalMicros += micros;
+
+    printf("time for keys: %ld microseconds\n", totalMicros);
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    printf("--test 6.3---");
+    printf("Union Filebinomiale\n");
+    FileBinomiale* fbcons2 = malloc(sizeof (FileBinomiale));
+    fbcons2->size = 0;
+    fbcons2->file = NULL;
+    int size2;
+    Key128* keys2 = processFile("../decode/jeu_1_nb_cles_1000.txt", &size2);
+    Tournoi** tournoiscons2 = malloc(sizeof(Tournoi*) * size2);
+
+    int countcons2 = 0;
+    for(;countcons2<size2;countcons2++) {
+        tournoiscons2[countcons2] = createSingleItemTournoi(keys2[countcons2]);
+    }
+    FileBinomiale* FBTEST2 = Construction_FB(tournoiscons,countcons);
+
+    gettimeofday(&start, NULL);
+    //
+    FileBinomiale* fb_Union = UnionFile(FBTEST1, FBTEST2);
+
+    gettimeofday(&end, NULL);
+    seconds = (end.tv_sec - start.tv_sec);
+    micros = ((seconds * 1000000) + end.tv_usec) - (start.tv_usec);
+    totalMicros += micros;
+    printf("time for keys: %ld microseconds\n", totalMicros);
+    //
+
+    freeABR(tree);
+    free(keys2);
+    freeFileBinomiale(fb);
+    freeFileBinomiale(fbcons);
+    freeFileBinomiale(fbcons2);
+    freeFileBinomiale(FBTEST1);
+    freeFileBinomiale(FBTEST2);
+    for(int i = 0;i<totalWords;i++) {
+        freeTournoi(tournois[i]);
+    }
+    for(int i = 0;i<totalWords;i++) {
+        freeTournoi(tournoiscons[i]);
+    }
+    for(int i = 0;i<size2;i++) {
+        freeTournoi(tournoiscons2[i]);
+    }
+
+
+    free(array);
     return 0;
 }
