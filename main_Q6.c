@@ -38,6 +38,7 @@ int main() {
 //Q2
     printf("-----------Q6.2-----------\n");
 //将上面的liste mode -md5-key128
+//查看是否有编译不一样的词
     Key128* array=convertToKey128Array(listMots, totalWords);
     bool hasCollision=false;
     int j=0;
@@ -50,10 +51,24 @@ int main() {
         //printf("%08x %08x %08x %08x\n", array[i].part1, array[i].part2, array[i].part3, array[i].part4);
 
     }
+//查看是否有重复md5的词
+    ABR *tree1 = NULL;
+
+    int cpt=0;
+    for (int i = 0; i < totalWords; i++) {
+        if(!estDans(tree1,array[i])){
+            tree1 = InsertNode(tree1, array[i]);
+        }else{
+            cpt++;
+            printf("Key%d: part1:%08x + part2:%08x + part3:%08x + part4:%08x\n",j, array[i].part1, array[i].part2, array[i].part3, array[i].part4);
+            hasCollision=true;
+        }
+
+    }
     if(!hasCollision){
-        printf("-----Q6.2no Collision\n");
+        printf("-----Q6.2no Collision, il y a %d\n",totalWords);
     }else{
-        printf("-----Q6.2yes Collision \n");
+        printf("-----Q6.2yes Collision, il y a %d\n",totalWords);
     }
 
     //Question 6.3
