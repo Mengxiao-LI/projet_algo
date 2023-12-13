@@ -146,22 +146,36 @@ FileBinomiale* Reste(FileBinomiale* fb) {
     return newFb;
 }
 
+//FileBinomiale* AjoutMin(Tournoi* T, FileBinomiale* F) {
+//    // creer un nouveau fb vide
+//    FileBinomiale* newFb = malloc(sizeof (FileBinomiale));
+//    newFb->size = F->size + 1;
+//    newFb->file = malloc(sizeof(Tournoi*) * newFb->size);
+//    // considerer le tournois parametre est le plus petit
+//    newFb->file[0] = T;
+//    // then copy tous les autres trournois
+//    for (int i = 0; i < F->size; i++) {
+//        newFb->file[i + 1] = F->file[i];
+//        printf("TEST AjoutMin: %d\n",newFb->file[i + 1]->racine->data);
+//    }
+//    printf("TEST AjoutMin: %d\n",newFb->file[0]->racine->data);
+//    printf("TEST AjoutMin: %d\n",newFb->file[1]->racine->data);
+//    return newFb;
+//}
 FileBinomiale* AjoutMin(Tournoi* T, FileBinomiale* F) {
-    // creer un nouveau fb vide
-    FileBinomiale* newFb = malloc(sizeof (FileBinomiale));
+    // 创建一个新的二项队列
+    FileBinomiale* newFb = malloc(sizeof(FileBinomiale));
     newFb->size = F->size + 1;
     newFb->file = malloc(sizeof(Tournoi*) * newFb->size);
-    // considerer le tournois parametre est le plus petit
-    newFb->file[0] = T;
-    // then copy tous les autres trournois
+    // 将 T 添加为第一个元素
+    newFb->file[0] = copyTournoi(T);  // 假设 copyTournoi 是一个复制 Tournoi 的函数
+    // 复制 F 中的每个 Tournoi 并添加到 newFb
     for (int i = 0; i < F->size; i++) {
-        newFb->file[i + 1] = F->file[i];
-        printf("TEST AjoutMin: %d\n",newFb->file[i + 1]->racine->data);
+        newFb->file[i + 1] = copyTournoi(F->file[i]);  // 同样使用 copyTournoi 函数
     }
-    printf("TEST AjoutMin: %d\n",newFb->file[0]->racine->data);
-    printf("TEST AjoutMin: %d\n",newFb->file[1]->racine->data);
     return newFb;
 }
+
 //consruction
 FileBinomiale* Construction_FB(Tournoi **tournois, int size) {
     FileBinomiale* FBn = malloc(sizeof(FileBinomiale)*size);
