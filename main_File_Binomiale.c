@@ -35,10 +35,10 @@ void testConstructionTime(const char* filename, const char* outputFilename, int 
 
     fprintf(outputFile, "Count,AverageTime\n");
 
-    Tournoi** tournois = malloc(sizeof(Tournoi*) * 1000); // 假设最多 20 万个 Tournoi
+    Tournoi** tournois = malloc(sizeof(Tournoi*) * 5000); // 假设最多 20 万个 Tournoi
     int count = 0;
 
-    while (!feof(file) && count < 1000) {
+    while (!feof(file) && count < 5000) {
         Key128 key = readKey128FromFile(file);
         tournois[count] = createSingleItemTournoi(key);
         count++;
@@ -72,7 +72,7 @@ void testConstructionTime(const char* filename, const char* outputFilename, int 
 int main() {
 //complexite Construction
 
-    testConstructionTime("../decode/jeu_2_nb_cles_1000.txt", "../construction_times2.csv",3);
+    testConstructionTime("../decode/jeu_4_nb_cles_5000.txt", "../construction_times2.csv",3);
     printf("fini\n");
 //complexite Union
 
