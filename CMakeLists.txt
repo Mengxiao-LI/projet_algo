@@ -22,7 +22,7 @@ add_executable(filebinomiale
 )
 
 add_executable(filebinomialeINT
-        main_File_BinomialeINT.c
+        main_File_BinomialeKey128.c
         fileBinomialeINT/filebinomiale.c
         fileBinomialeINT/filebinomiale.h
         echauffement/echauffement.h
