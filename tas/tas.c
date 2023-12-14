@@ -83,7 +83,7 @@ HP * Ajout(HP* minHp, Key128 x)
     int fils = minHp->size - 1;
     int parent = (fils - 1) / 2;
     minHp->a[fils] = x;
-    //while (fils > 0 && minHp->a[fils] < minHp->a[parent]) {
+
     while (fils > 0 ) {
         if( inf(minHp->a[fils],minHp->a[parent])){
             // 交换 fils 和 parent 的值
