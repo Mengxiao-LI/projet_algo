@@ -8,6 +8,7 @@
 #include "fileBinomiale/filebinomiale.h"
 #include "experimentale/experimentale.h"
 #include "tas/tas.h"
+#include "tas/tasArbre.h"
 
 #define MAX_FILES 37
 #define MAX_FILENAME_LEN 256
@@ -72,36 +73,118 @@ int main() {
     }
 
     //Question 6.3
+
+
+
+    long seconds,micros;
+    struct timeval start, end;
+    ////////arbre 这下面是可以删
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     printf("-----------Q6.3-----------\n");
     printf("--test 6.3---");
-    long seconds;
-    long micros;
-    printf("AjoutsIteratifs tas\n");
-    struct timeval start, end;
-    long totalMicros = 0;
-    HP hp1;
-    HeapInit (&hp1);
+
+    printf("AjoutsIteratifs tas arbre\n");
+
+    HPArb* tr10;
+    initTasAB (&tr10);
     //HeapPrint(&hp);
 
     gettimeofday(&start, NULL);
     //
-    AjoutsIteratifs(&hp1,array,totalWords);
+
+    ajoutsIteratifs(&tr10,array,totalWords);
 
 
     gettimeofday(&end, NULL);
     seconds = (end.tv_sec - start.tv_sec);
     micros = ((seconds * 1000000) + end.tv_usec) - (start.tv_usec);
-    totalMicros += micros;
 
 
-    printf("time for keys: %ld microseconds\n", totalMicros);
+
+    printf("time for keys: %ld microseconds\n", micros);
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    printf("--test 6.3---");
+    printf("SupprMin tas arbre\n");
+
+
+
+    gettimeofday(&start, NULL);
+    //
+    for(int i=0;i<10;i++){
+
+        supprMin(&tr10);
+    }
+
+    gettimeofday(&end, NULL);
+    seconds = (end.tv_sec - start.tv_sec);
+    micros = ((seconds * 1000000) + end.tv_usec) - (start.tv_usec);
+
+
+
+    printf("time for keys: %ld microseconds\n", micros);
+    freeTree(tr10);
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    printf("--test 6.3---");
+    printf("Construction arbre\n");
+
+    HPArb* tr2,*tr3;
+    initTasAB (&tr2);
+    initTasAB (&tr3);
+
+    gettimeofday(&start, NULL);
+    //
+    construction1(&tr2,array,totalWords);
+    gettimeofday(&end, NULL);
+    seconds = (end.tv_sec - start.tv_sec);
+    micros = ((seconds * 1000000) + end.tv_usec) - (start.tv_usec);
+    printf("time for keys: %ld microseconds\n", micros);
+/////////////
+    printf("--test 6.3---");
+    printf("Union arbre  \n");
+    int sizeU;
+
+    Key128* keys1 = processFile("../decode/jeu_1_nb_cles_1000.txt", &sizeU);
+    construction1(&tr3,keys1,sizeU);
+    gettimeofday(&start, NULL);
+
+    // Union 操作先1000后莎士比亚
+    HPArb* result= UnionA(tr3,tr2);
+
+
+    gettimeofday(&end, NULL);
+    seconds = (end.tv_sec - start.tv_sec);
+    micros = ((seconds * 1000000) + end.tv_usec) - (start.tv_usec);
+    printf("time for keys: %ld microseconds\n", micros);
+    freeTree(tr3);
+    freeTree(tr2);
+    //free(array);
+    printf("-----------Q6.3 tableau-----------\n");
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    printf("--test 6.3---");
+
+    printf("AjoutsIteratifs tas\n");
+
+
+    HP hp1;
+    HeapInit (&hp1);
+    //HeapPrint(&hp);
+
+    gettimeofday(&start, NULL);
+    AjoutsIteratifs(&hp1, array, totalWords);
+    gettimeofday(&end, NULL);
+
+    seconds = (end.tv_sec - start.tv_sec);
+    micros = ((seconds * 1000000) + end.tv_usec) - (start.tv_usec);
+
+    printf("Time for keys: %ld microseconds\n", micros);
 
             //最后写free(array);
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     printf("--test 6.3---");
     printf("SupprMin tas\n");
-     totalMicros = 0;
+    micros=0;
 
 
     gettimeofday(&start, NULL);
@@ -113,16 +196,16 @@ int main() {
     gettimeofday(&end, NULL);
     seconds = (end.tv_sec - start.tv_sec);
     micros = ((seconds * 1000000) + end.tv_usec) - (start.tv_usec);
-    totalMicros += micros;
 
 
-    printf("time for keys: %ld microseconds\n", totalMicros);
+
+    printf("time for keys: %ld microseconds\n", micros);
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     printf("--test 6.3---");
     printf("Construction tas\n");
-    totalMicros = 0;
-    HP hp2;
-    HeapInit (&hp2);
+
+    HP *hp2;
+
 
     gettimeofday(&start, NULL);
     //
@@ -131,39 +214,39 @@ int main() {
     gettimeofday(&end, NULL);
     seconds = (end.tv_sec - start.tv_sec);
     micros = ((seconds * 1000000) + end.tv_usec) - (start.tv_usec);
-    totalMicros += micros;
 
 
-    printf("time for keys: %ld microseconds\n", totalMicros);
+
+    printf("time for keys: %ld microseconds\n", micros);
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     printf("--test 6.3---");
+
     printf("Union tas\n");
-    HP hp3;
-    HeapInit (&hp3);
+    HP *hp3;
 
+    //HP *hp4;
     int size1;
-    Key128* keys1 = processFile("../decode/jeu_1_nb_cles_1000.txt", &size1);
-    Construction(&hp3, keys1, size1);
+    Key128* keys = processFile("../decode/jeu_1_nb_cles_1000.txt", &size1);
+    Construction(&hp3, keys, size1);
     gettimeofday(&start, NULL);
-    //
-    HP *hpUnion = Union(&hp3, &hp2);
-
+    HP *hpUnion = Union(hp3, hp2);
     gettimeofday(&end, NULL);
     seconds = (end.tv_sec - start.tv_sec);
     micros = ((seconds * 1000000) + end.tv_usec) - (start.tv_usec);
-    totalMicros += micros;
-    printf("time for keys: %ld microseconds\n", totalMicros);
+
+    printf("time for keys: %ld microseconds\n", micros);
     //
 
     freeABR(tree);
-    free(keys1);
+    free(keys);
     HeapDestroy(&hp1);
-    HeapDestroy(&hp2);
-    HeapDestroy(&hp3);
-    HeapDestroy(&hpUnion);
+    HeapDestroy(hp2);
+    HeapDestroy(hp3);
+    HeapDestroy(hpUnion);
+    printf("-----------Q6.3- FB----------\n");
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //File binomiale
-    printf("-----------Q6.3-----------\n");
+
     printf("--test 6.3---");
     long seconds_fb;
     long micros_fb;
@@ -183,21 +266,22 @@ int main() {
     //
     for(int i=0;i<count;i++)
     {
-       FileBinomiale* temp = Ajout_FB(tournois[count],fb);
+       FileBinomiale* temp = Ajout_FB(tournois[i],fb);
         freeFileBinomiale(fb); // 释放旧的 FBn
         fb = temp;
     }
     gettimeofday(&end, NULL);
     seconds = (end.tv_sec - start.tv_sec);
     micros = ((seconds * 1000000) + end.tv_usec) - (start.tv_usec);
-    totalMicros += micros;
 
 
-    printf("time for keys: %ld microseconds\n", totalMicros);
+
+    printf("time for keys: %ld microseconds\n", micros);
+
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     printf("--test 6.3---");
     printf("SupprMin Filebinomiale\n");
-    totalMicros = 0;
+
 
 
     gettimeofday(&start, NULL);
@@ -209,14 +293,14 @@ int main() {
     gettimeofday(&end, NULL);
     seconds = (end.tv_sec - start.tv_sec);
     micros = ((seconds * 1000000) + end.tv_usec) - (start.tv_usec);
-    totalMicros += micros;
 
 
-    printf("time for keys: %ld microseconds\n", totalMicros);
+
+    printf("time for keys: %ld microseconds\n", micros);
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     printf("--test 6.3---");
     printf("Construction FileBinomiale\n");
-    totalMicros = 0;
+
     FileBinomiale* fbcons = malloc(sizeof (FileBinomiale));
     fbcons->size = 0;
     fbcons->file = NULL;
@@ -233,9 +317,9 @@ int main() {
     gettimeofday(&end, NULL);
     seconds = (end.tv_sec - start.tv_sec);
     micros = ((seconds * 1000000) + end.tv_usec) - (start.tv_usec);
-    totalMicros += micros;
 
-    printf("time for keys: %ld microseconds\n", totalMicros);
+
+    printf("time for keys: %ld microseconds\n", micros);
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     printf("--test 6.3---");
     printf("Union Filebinomiale\n");
@@ -259,8 +343,8 @@ int main() {
     gettimeofday(&end, NULL);
     seconds = (end.tv_sec - start.tv_sec);
     micros = ((seconds * 1000000) + end.tv_usec) - (start.tv_usec);
-    totalMicros += micros;
-    printf("time for keys: %ld microseconds\n", totalMicros);
+
+    printf("time for keys: %ld microseconds\n", micros);
     //
 
     freeABR(tree);
