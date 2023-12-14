@@ -33,7 +33,7 @@ int main() {
     sscanf(hexStr8, "%x %x %x %x", &key8.part1, &key8.part2, &key8.part3, &key8.part4);
     sscanf(hexStr9, "%x %x %x %x", &key9.part1, &key9.part2, &key9.part3, &key9.part4);
 
-    //Q2
+ /*   //Q2
     printf("Question2\n");
     printf("++++++++++++++++++Tas tableau+++++++++++++++++++++++\n");
     HP hp;
@@ -121,9 +121,9 @@ int main() {
     HeapDestroy(&hp2);
     HeapDestroy(&hp3);
     HeapDestroy(&hp4);
-    HeapDestroy(&hp5);
+    HeapDestroy(&hp5);*/
 
-/*      printf("++++++++++++++++++Tas Arbre+++++++++++++++++++++++\n");
+      printf("++++++++++++++++++Tas Arbre+++++++++++++++++++++++\n");
      printf("-----Q2.1 Ajout:-----\n");
      HPArb* tr;
      initTasAB(&tr);
@@ -166,10 +166,10 @@ int main() {
      printf("-----Q2.2 Construction:-----\n");
 
 
-     *//*HPArb* tr2;
+     HPArb* tr2;
      initTasAB (&tr2);
      construction1(&tr2,keys,5);
-     afficheAb(tr2,0);*//*
+     afficheAb(tr2,0);
      HPArb* tr3;
      initTasAB (&tr3);
 
@@ -195,6 +195,6 @@ int main() {
      printf(" +++tasUnion+++\n");
      HPArb* tr5= UnionA(tr4,tr10);
      afficheAb(tr5,0);
-    free(myArray);*/
+    free(myArray);
     return 0;
 }

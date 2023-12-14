@@ -49,6 +49,10 @@ add_executable(main_Tas_Min main_TasMin.c
         tas/tas.c
         tas/list.h
         tas/list.c
+        tas/queue.h
+        tas/queue.c
+        tas/tasArbre.h
+        tas/tasArbre.c
 
 
 )
@@ -61,14 +65,20 @@ add_executable(Tas_Q8Q9 main_Tas_Q89.c
         tas/list.c
         tas/tasArbre.c
         tas/tasArbre.h
+        tas/queue.c
+        tas/queue.h
 )
 
 
 add_executable(test main_test.c
-        tas/test.h
-        tas/test.c
         echauffement/echauffement.h
-        echauffement/echauffement.c)
+        echauffement/echauffement.c
+        tas/tasArbre.c
+        tas/tasArbre.h
+        tas/queue.c
+        tas/queue.h
+
+        )
 
 add_executable(arbreBR
         main_ABR.c
@@ -92,5 +102,7 @@ add_executable(question6 main_Q6.c
         tas/tas.c
         tas/tasArbre.c
         tas/tasArbre.h
+        tas/queue.c
+        tas/queue.h
 
 )
