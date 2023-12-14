@@ -13,11 +13,11 @@
 
 int main() {
     //Q2
-/*    const char* file_pattern = "../decode/jeu_%d_nb_cles_%d.txt";
+    const char* file_pattern = "../decode/jeu_%d_nb_cles_%d.txt";
     const int num_tests = 5; // 1.2.3.4.5
     const int sizes[] = {1000, 5000, 10000, 20000,50000, 80000, 120000, 200000};
     const int num_sizes = 8;
-    char file_path[1024];*/
+    char file_path[1024];
 
 /*    printf("Question2.8\n");
     printf("AjoutsIteratifs tableau last\n");
@@ -67,7 +67,7 @@ int main() {
         long averageMicros = totalMicros / num_tests;
         printf("Average execution time for %d keys: %ld microseconds\n", sizes[j], averageMicros);
     }*/
-   /* printf("Question2.8\n");
+/*    printf("Question2.8\n");
     printf("Con tableau last\n");
 
 
@@ -103,47 +103,47 @@ int main() {
 
         long averageMicros = totalMicros / num_tests;
         printf("Average execution time for %d keys: %ld microseconds\n", sizes[j], averageMicros);
-    }
-
-    printf("Question2.8\n");
-    printf("ajout arbre\n");
-
-
-
-    for (int j = 0; j < num_sizes; j++) {
-        long totalMicros = 0;
-
-        for (int i = 0; i < num_tests; i++) {
-            sprintf(file_path, file_pattern, i + 1, sizes[j]);
-            printf("Processing file: %s\n", file_path);
-
-
-            int size;
-            Key128* myArray = processFile(file_path, &size);
-
-            HPArb* tr1;
-            initTasAB (&tr1);
-
-
-            struct timeval start, end;
-            gettimeofday(&start, NULL);
-            //
-
-            ajoutsIteratifs(&tr1,myArray,size);
-
-            gettimeofday(&end, NULL);
-            //
-            long seconds = (end.tv_sec - start.tv_sec);
-            long micros = ((seconds * 1000000) + end.tv_usec) - (start.tv_usec);
-            totalMicros += micros;
-
-            free(myArray);
-
-        }
-
-        long averageMicros = totalMicros / num_tests;
-        printf("Average execution time for %d keys: %ld microseconds\n", sizes[j], averageMicros);
     }*/
+
+      printf("Question2.8\n");
+      printf("ajout arbre\n");
+
+
+
+      for (int j = 0; j < num_sizes; j++) {
+          long totalMicros = 0;
+
+          for (int i = 0; i < num_tests; i++) {
+              sprintf(file_path, file_pattern, i + 1, sizes[j]);
+              printf("Processing file: %s\n", file_path);
+
+
+              int size;
+              Key128* myArray = processFile(file_path, &size);
+
+              HPArb* tr1;
+              initTasAB (&tr1);
+
+
+              struct timeval start, end;
+              gettimeofday(&start, NULL);
+              //
+
+              ajoutsIteratifs(&tr1,myArray,size);
+
+              gettimeofday(&end, NULL);
+              //
+              long seconds = (end.tv_sec - start.tv_sec);
+              long micros = ((seconds * 1000000) + end.tv_usec) - (start.tv_usec);
+              totalMicros += micros;
+
+              free(myArray);
+
+          }
+
+          long averageMicros = totalMicros / num_tests;
+          printf("Average execution time for %d keys: %ld microseconds\n", sizes[j], averageMicros);
+      }
 
 //Q2
 
@@ -275,7 +275,7 @@ int main() {
         long averageMicros = totalMicros / 4;
         printf("Average execution time for %d keys: %ld microseconds\n", sizes[j], averageMicros);
     }*/
-    printf("Union Tests arbre\n");
+  /*  printf("Union Tests arbre\n");
     const char* file_pattern1 = "../decode/jeu_1_nb_cles_%d.txt";
     const char* file_pattern2 = "../decode/jeu_%d_nb_cles_%d.txt"; // 其他四个文件
     const int num_tests1 = 5; // 测试次数
@@ -328,7 +328,7 @@ int main() {
         long averageMicros = totalMicros / 4;
         printf("Average execution time for %d keys: %ld microseconds\n", sizes1[j], averageMicros);
     }
-
+*/
 
     return 0;
 }

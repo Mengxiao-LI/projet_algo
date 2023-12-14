@@ -81,7 +81,7 @@ int main() {
 
 // 初始化HP结构体
     HP *hp3;
-    HeapInit(&hp3);
+    //HeapInit(&hp3);
 
 // 使用keys数组构建堆
     Construction(&hp3, keys, 5);
@@ -90,7 +90,7 @@ int main() {
     AfficheTasArray(hp3);
     printf("test: Construire par jeu_1_nb_cles_1000\n");
     HP* hp2;
-    HeapInit (&hp2);
+    //HeapInit (&hp2);
      Construction(&hp2,myArray,size);
     AfficheTasArray(hp2);
 
@@ -118,10 +118,10 @@ int main() {
     // 清理资源
     HeapDestroy(&hp);
     HeapDestroy(&hp1);
-    HeapDestroy(&hp2);
-    HeapDestroy(&hp3);
+    HeapDestroy(hp2);
+    HeapDestroy(hp3);
     HeapDestroy(&hp4);
-    HeapDestroy(&hp5);
+    HeapDestroy(hp5);
 
       printf("++++++++++++++++++Tas Arbre+++++++++++++++++++++++\n");
      printf("-----Q2.1 Ajout:-----\n");
