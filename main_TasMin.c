@@ -33,7 +33,7 @@ int main() {
     sscanf(hexStr8, "%x %x %x %x", &key8.part1, &key8.part2, &key8.part3, &key8.part4);
     sscanf(hexStr9, "%x %x %x %x", &key9.part1, &key9.part2, &key9.part3, &key9.part4);
 
- /*   //Q2
+    //Q2
     printf("Question2\n");
     printf("++++++++++++++++++Tas tableau+++++++++++++++++++++++\n");
     HP hp;
@@ -121,7 +121,7 @@ int main() {
     HeapDestroy(&hp2);
     HeapDestroy(&hp3);
     HeapDestroy(&hp4);
-    HeapDestroy(&hp5);*/
+    HeapDestroy(&hp5);
 
       printf("++++++++++++++++++Tas Arbre+++++++++++++++++++++++\n");
      printf("-----Q2.1 Ajout:-----\n");
@@ -141,20 +141,20 @@ int main() {
      supprMin(&tr);
      afficheAb(tr,0);
      printf("-----Q2.1 AjoutsIteratifs:-----\n");
-    Key128 keys[4];
+    /*Key128 keys[4];
     sscanf(hexStr, "%x %x %x %x", &keys[0].part1, &keys[0].part2, &keys[0].part3, &keys[0].part4);
     sscanf(hexStra, "%x %x %x %x", &keys[1].part1, &keys[1].part2, &keys[1].part3, &keys[1].part4);
     sscanf(hexStrb, "%x %x %x %x", &keys[2].part1, &keys[2].part2, &keys[2].part3, &keys[2].part4);
     sscanf(hexStr3, "%x %x %x %x", &keys[3].part1, &keys[3].part2, &keys[3].part3, &keys[3].part4);
-    sscanf(hexStr4, "%x %x %x %x", &keys[4].part1, &keys[4].part2, &keys[4].part3, &keys[4].part4);
+    sscanf(hexStr4, "%x %x %x %x", &keys[4].part1, &keys[4].part2, &keys[4].part3, &keys[4].part4);*/
     HPArb* tr10;
     initTasAB (&tr10);
     ajoutsIteratifs(&tr10,keys,5);
     afficheAb(tr10,0);
     printf("test: ajouter jeu_1_nb_cles_1000\n");
-    const char* filename = "../decode/jeu_1_nb_cles_1000.txt";
+    /*const char* filename = "../decode/jeu_1_nb_cles_1000.txt";
     int size;
-    Key128* myArray = processFile(filename, &size);
+    Key128* myArray = processFile(filename, &size);*/
 
      HPArb* tr1;
      initTasAB (&tr1);

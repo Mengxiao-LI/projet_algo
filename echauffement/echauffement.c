@@ -130,37 +130,8 @@ Key128* resizeArray(Key128* array, int newSize) {
     return array;
 
 }*/
-Key128* buildArrayFromFile1(const char* filename, int* size) {
-    FILE *fp = fopen(filename, "r");
-    char line[100];
-    Key128* array = NULL;
-    int count = 0;
 
-    if (fp == NULL) {
-        perror("Error opening file");
-        return NULL;
-    }
-
-    while (fgets(line, sizeof(line), fp)) {
-        array = resizeArray(array, count + 1);
-        if (array == NULL) {
-            perror("Error reallocating memory");
-            fclose(fp);
-            return NULL;
-        }
-
-        sscanf(line, "%08x%08x%08x%08x", &array[count].part1, &array[count].part2, &array[count].part3, &array[count].part4);
-        count++;
-    }
-
-    *size = count;
-    fclose(fp);
-    return array;
-}
-Key128* processFile1(const char* filename, int* size) {
-    return buildArrayFromFile1(filename, size);
-}
-// 从文件中构建数组
+// 从文件中构建数组%x %x %x %x
 Key128* buildArrayFromFile(const char* filename, int* size) {
     FILE *fp = fopen(filename, "r");
     char line[100];
@@ -192,4 +163,37 @@ Key128* buildArrayFromFile(const char* filename, int* size) {
 // 处理文件并返回数组
 Key128* processFile(const char* filename, int* size) {
     return buildArrayFromFile(filename, size);
+}
+
+
+// 从文件中构建数组%%08x%08x%08x%08x
+Key128* buildArrayFromFile1(const char* filename, int* size) {
+    FILE *fp = fopen(filename, "r");
+    char line[100];
+    Key128* array = NULL;
+    int count = 0;
+
+    if (fp == NULL) {
+        perror("Error opening file");
+        return NULL;
+    }
+
+    while (fgets(line, sizeof(line), fp)) {
+        array = resizeArray(array, count + 1);
+        if (array == NULL) {
+            perror("Error reallocating memory");
+            fclose(fp);
+            return NULL;
+        }
+
+        sscanf(line, "%08x%08x%08x%08x", &array[count].part1, &array[count].part2, &array[count].part3, &array[count].part4);
+        count++;
+    }
+
+    *size = count;
+    fclose(fp);
+    return array;
+}
+Key128* processFile1(const char* filename, int* size) {
+    return buildArrayFromFile1(filename, size);
 }

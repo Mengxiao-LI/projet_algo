@@ -145,7 +145,7 @@ void ajout(HPArb **tas, HPType data) {
     } else {
         int idlast;
         int parentid=0;
-       idlast= insertLast(tas, data, &parentid);
+        idlast= insertLast(tas, data, &parentid);
         remonter(tas,idlast);
     }
 }

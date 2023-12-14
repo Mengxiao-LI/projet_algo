@@ -30,7 +30,6 @@ typedef struct {
 Key128 createKey(unsigned int p1, unsigned int p2, unsigned int p3, unsigned int p4);
 //Q1.2
 bool inf(Key128 key1, Key128 key2);
-
 //Q1.3
 bool eg(Key128 key1, Key128 key2);
 
