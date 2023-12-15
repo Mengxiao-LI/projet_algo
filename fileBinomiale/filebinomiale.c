@@ -7,7 +7,7 @@
 int Degre(Tournoi* t) {
 
     if (t->racine == NULL) {
-        // 如果 t.racine 是 NULL，则返回0或适当的错误值
+        // Si t->racine Null,retourne 0
         fprintf(stderr, "erreur degre racine Null.\n");
         return 0;
     }else if (t->racine->child == NULL) {
@@ -18,9 +18,6 @@ int Degre(Tournoi* t) {
     ArbreBinomialeNode* current = t->racine->child;
     while (current != NULL) {
         degre++;
-        //修改
-//        printf("degre++,val:%d\n",current->data);
-        //修改
         if(current->frere == NULL)
             return degre;
         current = current->frere;
@@ -32,7 +29,8 @@ bool EstVide_T(Tournoi* t) {
     return t->racine == NULL;
 }
 Tournoi* Union2Tid(Tournoi* t1entree, Tournoi* t2entree) {
-    //创建节点副本 避免修改传入的t1 t2后会跟着影响基于t1 t2生成的file binomiale
+    //creer les copie de t1,t2 pour creer Un nouveau tournois
+    //sinon les changement sur t1 et t2 vont affecter le nouveau tournois
     Tournoi* t1 = copyTournoi(t1entree);
     Tournoi* t2 = copyTournoi(t2entree);
 
@@ -78,8 +76,7 @@ FileBinomiale* File(Tournoi* T) {
     FileBinomiale* newFb = malloc(sizeof(FileBinomiale));
     newFb->size = 1; // cette file n'a que un seul tournois
     newFb->file = malloc(sizeof(Tournoi*) * newFb->size);
-
-    // 复制 T 并将副本赋给 newFb->file[0]
+    // copie T et attribue : newFb->file[0]
     Tournoi* copiedT = malloc(sizeof(Tournoi));
     if (copiedT == NULL) {
         fprintf(stderr, "Error: Unable to allocate memory for Tournoi.\n");
@@ -88,9 +85,7 @@ FileBinomiale* File(Tournoi* T) {
         return NULL;
     }
     copiedT->racine = copyArbreBinomialeNode(T->racine);
-
     newFb->file[0] = copiedT;
-
     return newFb;
 }
 
@@ -100,11 +95,11 @@ FileBinomiale* File(Tournoi* T) {
 //    return F->file == NULL;
 //}
 bool EstVide_FB(FileBinomiale* F) {
-    // 检查 F 是否为 NULL
     if (F == NULL) {
         return true;
     }
-    // 检查 F->file 是否为 NULL 或 F->size 是否为 0
+    // verifie si F->file NULL ou F->size == 0
+    //si F->size == 0 ,on considere ce cas comme F->file est NUll
     return (F->file == NULL || F->size == 0);
 }
 
@@ -146,30 +141,15 @@ FileBinomiale* Reste(FileBinomiale* fb) {
     return newFb;
 }
 
-//FileBinomiale* AjoutMin(Tournoi* T, FileBinomiale* F) {
-//    // creer un nouveau fb vide
-//    FileBinomiale* newFb = malloc(sizeof (FileBinomiale));
-//    newFb->size = F->size + 1;
-//    newFb->file = malloc(sizeof(Tournoi*) * newFb->size);
-//    // considerer le tournois parametre est le plus petit
-//    newFb->file[0] = T;
-//    // then copy tous les autres trournois
-//    for (int i = 0; i < F->size; i++) {
-//        newFb->file[i + 1] = F->file[i];
-//        printf("TEST AjoutMin: %d\n",newFb->file[i + 1]->racine->data);
-//    }
-//    printf("TEST AjoutMin: %d\n",newFb->file[0]->racine->data);
-//    printf("TEST AjoutMin: %d\n",newFb->file[1]->racine->data);
-//    return newFb;
-//}
 FileBinomiale* AjoutMin(Tournoi* T, FileBinomiale* F) {
-    // 创建一个新的二项队列
+    // malloc memoire
     FileBinomiale* newFb = malloc(sizeof(FileBinomiale));
     newFb->size = F->size + 1;
     newFb->file = malloc(sizeof(Tournoi*) * newFb->size);
-    // 将 T 添加为第一个元素
-    newFb->file[0] = copyTournoi(T);  // 假设 copyTournoi 是一个复制 Tournoi 的函数
-    // 复制 F 中的每个 Tournoi 并添加到 newFb
+    //creer un copie de T
+    // T est ajoute comme le premier element
+    newFb->file[0] = copyTournoi(T);
+    // copy tous les Tournoi de F et les ajouter au newFb
     for (int i = 0; i < F->size; i++) {
         newFb->file[i + 1] = copyTournoi(F->file[i]);  // 同样使用 copyTournoi 函数
     }
@@ -180,13 +160,13 @@ FileBinomiale* AjoutMin(Tournoi* T, FileBinomiale* F) {
 FileBinomiale* Construction_FB(Tournoi **tournois, int size) {
     FileBinomiale* FBn = malloc(sizeof(FileBinomiale)*size);
     FBn->size = 0;
-    FBn->file = NULL; // 初始化指针
+    FBn->file = NULL; // initialisation
 
     for (int i = 0; i < size; i++) {
         FileBinomiale* temp = Ajout_FB(tournois[i], FBn);
         if (FBn != temp) {
-            freeFileBinomiale(FBn); // 释放旧的 FBn
-            FBn = temp; // 更新 FBn
+            freeFileBinomiale(FBn); // free old fn
+            FBn = temp; // mise a jour FBn
         }
     }
     return FBn;
@@ -209,7 +189,7 @@ FileBinomiale* UFret(FileBinomiale* F1, FileBinomiale* F2, Tournoi* T) {
         if (EstVide_FB(F2)) return F1;
         Tournoi* T1 = MinDeg(F1);
         Tournoi* T2 = MinDeg(F2);
-        // 检查 T1 和 T2 是否为 NULL
+
         if (T1 == NULL)  {fprintf(stderr, "test1 F2:erreur UFret racine Null.\n");return F2;}
         if (T2 == NULL)  {fprintf(stderr, "test1 F1:erreur UFret racine Null.\n");return F1;}
 
@@ -226,7 +206,7 @@ FileBinomiale* UFret(FileBinomiale* F1, FileBinomiale* F2, Tournoi* T) {
         Tournoi *T1 = MinDeg(F1);
         Tournoi *T2 = MinDeg(F2);
 
-        // 检查 T1 和 T2 是否为 NULL
+
         if (T1 == NULL) {fprintf(stderr, "test2 F2 erreur UFret racine Null.\n");return F2;}
         if (T2 == NULL) {fprintf(stderr, "test2 F1 erreur UFret racine Null.\n");return F1;}
 
@@ -242,24 +222,14 @@ FileBinomiale* UFret(FileBinomiale* F1, FileBinomiale* F2, Tournoi* T) {
     }
 }
 
-//FileBinomiale* Construction_FB(Tournoi **tournois, int size) {
-//    FileBinomiale* FBn = malloc(sizeof(FileBinomiale));
-//    FBn->size = 0;
-//    FBn->file = NULL; // 初始化指针
-//
-//    for (int i = 0; i < size; i++) {
-//        FBn = Ajout_FB(tournois[i], FBn); // ajout successivement Tournoi
-//    }
-//    return FBn;
-//}
 
 FileBinomiale* SupprMin_FB(FileBinomiale* FBn) {
     if (FBn->size == 0) {
         return FBn;
     }
 
-    Tournoi * minTournoi = MinDeg(FBn); // 找到最小根节点的二项树
-    FileBinomiale* resteFBn = Reste(FBn); // 移除最小根节点的二项树
+    Tournoi * minTournoi = MinDeg(FBn); // Trouver l'arbre binaire avec la racine la plus petite
+    FileBinomiale* resteFBn = Reste(FBn); // retirer cette arbre
 
     // retirer la racine de minTournoi
     int count = 0;
@@ -286,46 +256,45 @@ FileBinomiale* SupprMin_FB(FileBinomiale* FBn) {
     return UnionFile(resteFBn, subfile_minTournoi); // faire l'union
 }
 
-//清理内存
-// 释放一个二项树节点及其子节点和兄弟节点的内存
+//free memoire
 void freeArbreBinomialeNode(ArbreBinomialeNode *node) {
     if (node != NULL) {
-        freeArbreBinomialeNode(node->child); // 递归释放子节点
-        freeArbreBinomialeNode(node->frere); // 递归释放兄弟节点
-        free(node); // 释放当前节点
+        freeArbreBinomialeNode(node->child); // recursive free
+        freeArbreBinomialeNode(node->frere); // recursive free
+        free(node); // free le noeud courant
     }
 }
 
-// 释放一个二项树的内存
+//free memoire
 void freeTournoi(Tournoi *t) {
     if (t != NULL && t->racine != NULL) {
-        freeArbreBinomialeNode(t->racine); // 释放树的根节点及其所有子节点
+        freeArbreBinomialeNode(t->racine);
     }
 }
 
-// 释放整个二项队列的内存
+//free memoire
 void freeFileBinomiale(FileBinomiale* fb) {
     for (int i = 0; i < fb->size; i++) {
-        freeTournoi(fb->file[i]); // 逐个释放队列中的二项树
-        free(fb->file[i]); // 释放指向二项树的指针
+        freeTournoi(fb->file[i]);
+        free(fb->file[i]);
     }
-    free(fb->file); // 释放队列的数组
+    free(fb->file);
 }
 
 void printArbreBinomialeNode(ArbreBinomialeNode *node) {
     if (node == NULL) {
         return;
     }
-    printf("%d ", node->data); // 打印当前节点的值
-    printArbreBinomialeNode(node->child); // 递归遍历子节点
-    printArbreBinomialeNode(node->frere); // 递归遍历兄弟节点
+    printf("%d ", node->data); // print le valeur,utilise pour FB de version INT(pour faciliter la test)
+    printArbreBinomialeNode(node->child);
+    printArbreBinomialeNode(node->frere);
 }
 
 void printFileBinomiale(FileBinomiale* fb) {
     printf("File Binomiale:\n");
     for (int i = 0; i < fb->size; i++) {
         printf("Tournoi %d: ", i);
-        printArbreBinomialeNode(fb->file[i]->racine); // 遍历并打印每个二项树
+        printArbreBinomialeNode(fb->file[i]->racine);
         printf("\n");
     }
 }
@@ -336,14 +305,15 @@ ArbreBinomialeNode* copyArbreBinomialeNode(ArbreBinomialeNode* node) {
     }
     ArbreBinomialeNode* newNode = malloc(sizeof(ArbreBinomialeNode));
     if (newNode == NULL) {
-        // 处理内存分配失败的情况
+        // erreur memoire
         fprintf(stderr, "Error: Unable to allocate memory for ArbreBinomialeNode.\n");
         return NULL;
     }
     newNode->data = node->data;
     newNode->child = copyArbreBinomialeNode(node->child);
     newNode->frere = copyArbreBinomialeNode(node->frere);
-    newNode->parent = NULL; // 父节点将在后续步骤中设置
+    newNode->parent = NULL; // on set le pointeur dans copyTournoi,Sinon,
+                            // cela pourrait etre une boucle récursive infinie.
     return newNode;
 }
 
@@ -352,15 +322,12 @@ Tournoi* copyTournoi(Tournoi* tournoi) {
     if (tournoi == NULL) {
         return NULL;
     }
-
     Tournoi* newTournoi = malloc(sizeof(Tournoi));
     newTournoi->racine = copyArbreBinomialeNode(tournoi->racine);
-
-    // 如果需要，更新子节点的 parent 指针
+    // mise a jour le pointeur "parent"
     if (newTournoi->racine && newTournoi->racine->child) {
         newTournoi->racine->child->parent = newTournoi->racine;
     }
-
     return newTournoi;
 }
 
