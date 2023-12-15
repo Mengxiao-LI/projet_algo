@@ -38,8 +38,8 @@ int main() {
 
 //Q2
     printf("-----------Q6.2-----------\n");
-//将上面的liste mode -md5-key128
-//查看是否有编译不一样的词
+//liste mot -md5-key128
+//Vérifiez si différents mots ont été compilés
     Key128* array=convertToKey128Array(listMots, totalWords);
     bool hasCollision=false;
     int j=0;
@@ -52,7 +52,7 @@ int main() {
         //printf("%08x %08x %08x %08x\n", array[i].part1, array[i].part2, array[i].part3, array[i].part4);
 
     }
-//查看是否有重复md5的词
+//Collision
     ABR *tree1 = NULL;
 
     int cpt=0;
@@ -78,88 +78,7 @@ int main() {
 
     long seconds,micros;
     struct timeval start, end;
-    ////////
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    printf("-----------Q6.3-----------\n");
-    printf("--test 6.3---");
 
-    printf("AjoutsIteratifs tas arbre\n");
-
-    HPArb* tr10;
-    initTasAB (&tr10);
-    //HeapPrint(&hp);
-
-    gettimeofday(&start, NULL);
-    //
-
-    ajoutsIteratifs(&tr10,array,totalWords);
-
-
-    gettimeofday(&end, NULL);
-    seconds = (end.tv_sec - start.tv_sec);
-    micros = ((seconds * 1000000) + end.tv_usec) - (start.tv_usec);
-
-
-
-    printf("time for keys: %ld microseconds\n", micros);
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    printf("--test 6.3---");
-    printf("SupprMin tas arbre\n");
-
-
-
-    gettimeofday(&start, NULL);
-    //
-    for(int i=0;i<10;i++){
-
-        supprMin(&tr10);
-    }
-
-    gettimeofday(&end, NULL);
-    seconds = (end.tv_sec - start.tv_sec);
-    micros = ((seconds * 1000000) + end.tv_usec) - (start.tv_usec);
-
-
-
-    printf("time for keys: %ld microseconds\n", micros);
-    freeTree(tr10);
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    printf("--test 6.3---");
-    printf("Construction arbre\n");
-
-    HPArb* tr2,*tr3;
-    initTasAB (&tr2);
-    initTasAB (&tr3);
-
-    gettimeofday(&start, NULL);
-    //
-    construction1(&tr2,array,totalWords);
-    gettimeofday(&end, NULL);
-    seconds = (end.tv_sec - start.tv_sec);
-    micros = ((seconds * 1000000) + end.tv_usec) - (start.tv_usec);
-    printf("time for keys: %ld microseconds\n", micros);
-/////////////
-    printf("--test 6.3---");
-    printf("Union arbre  \n");
-    int sizeU;
-
-    Key128* keys1 = processFile("../decode/jeu_1_nb_cles_1000.txt", &sizeU);
-    construction1(&tr3,keys1,sizeU);
-    gettimeofday(&start, NULL);
-
-    // Union 操作先1000后莎士比亚
-    HPArb* result= UnionA(tr3,tr2);
-
-
-    gettimeofday(&end, NULL);
-    seconds = (end.tv_sec - start.tv_sec);
-    micros = ((seconds * 1000000) + end.tv_usec) - (start.tv_usec);
-    printf("time for keys: %ld microseconds\n", micros);
-    freeTree(tr3);
-    freeTree(tr2);
-    //free(array);
-/*
     printf("-----------Q6.3 tableau-----------\n");
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -244,8 +163,87 @@ int main() {
     HeapDestroy(hp2);
     HeapDestroy(hp3);
     HeapDestroy(hpUnion);
-*/
+    ////////
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    printf("-----------Q6.3Arbre-----------\n");
+    printf("--test 6.3---");
+/*
+    printf("AjoutsIteratifs tas arbre\n");
 
+    HPArb* tr10;
+    initTasAB (&tr10);
+    //HeapPrint(&hp);
+
+    gettimeofday(&start, NULL);
+    //
+
+    ajoutsIteratifs(&tr10,array,totalWords);
+
+
+    gettimeofday(&end, NULL);
+    seconds = (end.tv_sec - start.tv_sec);
+    micros = ((seconds * 1000000) + end.tv_usec) - (start.tv_usec);
+
+
+
+    printf("time for keys: %ld microseconds\n", micros);
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    printf("--test 6.3---");
+    printf("SupprMin tas arbre\n");
+
+
+
+    gettimeofday(&start, NULL);
+    //
+    for(int i=0;i<10;i++){
+
+        supprMin(&tr10);
+    }
+
+    gettimeofday(&end, NULL);
+    seconds = (end.tv_sec - start.tv_sec);
+    micros = ((seconds * 1000000) + end.tv_usec) - (start.tv_usec);
+
+
+
+    printf("time for keys: %ld microseconds\n", micros);
+    freeTree(tr10);
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    printf("--test 6.3---");
+    printf("Construction arbre\n");
+
+    HPArb* tr2,*tr3;
+    initTasAB (&tr2);
+    initTasAB (&tr3);
+
+    gettimeofday(&start, NULL);
+    //
+    construction1(&tr2,array,totalWords);
+    gettimeofday(&end, NULL);
+    seconds = (end.tv_sec - start.tv_sec);
+    micros = ((seconds * 1000000) + end.tv_usec) - (start.tv_usec);
+    printf("time for keys: %ld microseconds\n", micros);
+/////////////
+    printf("--test 6.3---");
+    printf("Union arbre  \n");
+    int sizeU;
+
+    Key128* keys1 = processFile("../decode/jeu_1_nb_cles_1000.txt", &sizeU);
+    construction1(&tr3,keys1,sizeU);
+    gettimeofday(&start, NULL);
+
+    // Union 操作先1000后莎士比亚
+    HPArb* result= UnionA(tr3,tr2);
+
+
+    gettimeofday(&end, NULL);
+    seconds = (end.tv_sec - start.tv_sec);
+    micros = ((seconds * 1000000) + end.tv_usec) - (start.tv_usec);
+    printf("time for keys: %ld microseconds\n", micros);
+    freeTree(tr3);
+    freeTree(tr2);*/
+    //free(array);
     free(array);
     return 0;
 }
