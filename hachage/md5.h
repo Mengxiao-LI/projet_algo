@@ -5,10 +5,10 @@
 #include <stdlib.h>
 
 typedef struct {
-    uint64_t data_deja;//Taille du message traité                已处理的消息大小（字节）
-    uint32_t buffer[4];//Valeur de hachage actuelle             当前哈希累积值ABCD
-    uint8_t data_current[64];//Tampon d'entrée utilisé pour stocker le bloc de données actuellement traité de 512 bits 输入缓冲区，用于存储当前处理的数据块512位
-    uint8_t res[16];//Résultat de hachage                                哈希结果，128位的哈希值
+    uint64_t data_deja;//Taille du message traité
+    uint32_t buffer[4];//Valeur de hachage actuelle
+    uint8_t data_current[64];//Tampon d'entrée utilisé pour stocker le bloc de données actuellement traité de 512 bits
+    uint8_t res[16];//Résultat de hachage
 } MD5Context;
 
 //operation left rotate utilise dans main loop

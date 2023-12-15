@@ -53,20 +53,20 @@ void md5_context_Init(MD5Context *ctx) {
 }
 
 //Préparation du message (padding) :
-//消息的初始长度通常以字节为单位表示，这是因为字节是计算机处理和存储数据的基本单位
 void md5_PadMessage(uint8_t *message, size_t messageLen, uint64_t messageLen_Debut) {
-    // 第一步：添加一个"1"位
+    // ajoute bit '1'
     message[messageLen++] = 0x80; // 0x80 = 10000000
-    // 第二步：填充"0"位，直到消息长度达到448 mod 512
-    //messageLen是以字节为单位的长度 byte，需要*8
+    // pad bit '0' jouqu'a 448 mod 512
+    //"messageLen" est la longueur en octets (byte) du message, elle doit être multipliée par 8 pour être exprimée en bits.
     while ((messageLen*8) % 512 != 448) {
         //Économiser des ressources et adopter des méthodes plus efficaces：while (messageLen % 64 != 56)
         message[messageLen++] = 0x00;
     }
-    // 第三步：添加原始消息长度（以位为单位）的64位小端表示codée en 64-bit little-endian au message
-    messageLen_Debut *= 8; // 从字节转换成位
-    for (size_t i = 0; i < 8; i++) {//64位=8个字节，每次移动一个字节
-        message[messageLen++] = (uint8_t)(messageLen_Debut >> (i * 8));//(unit8_t)忽略高位，只保留8位，所以我们每次向右移动8位
+    // codée en 64-bit little-endian au message
+    messageLen_Debut *= 8; // convertir byte vers bit
+    for (size_t i = 0; i < 8; i++) {//8 byte = 64 bit，decaler 1 byte chaque fois
+        message[messageLen++] = (uint8_t)(messageLen_Debut >> (i * 8));//(unit8_t) ignorer les bit de poids fort，
+                                                                      // conserver que 8 bit，du coup on decale a droit 8bits chaque tour
     }
 }
 
@@ -76,24 +76,26 @@ void md5_MainLoop(MD5Context *ctx) {
     uint32_t a, b, c, d, f, g, temp;
     size_t i;
 
-    // 将512位块分解为16个32位的字（little-endian）
-    //32位=4个字节 i * 4->第一个字节 i * 4 + 1->第二个字节....
-    for (i = 0; i < 16; i++) {//在md5_DecouperMessage中data_current中存储了64个字节
+// Divise un bloc de 512 bits en 16 mots de 32 bits (petit-boutiste).
+// 32 bits = 4 octets, i * 4 -> premier octet, i * 4 + 1 -> deuxième octet, ...
+// Dans la fonction md5_DecouperMessage, data_current stocke 64 octets.
+    for (i = 0; i < 16; i++) {
         w[i] = (uint32_t) ctx->data_current[i * 4] |
                (uint32_t) ctx->data_current[i * 4 + 1] << 8 |
                (uint32_t) ctx->data_current[i * 4 + 2] << 16 |
                (uint32_t) ctx->data_current[i * 4 + 3] << 24;
-//        ctx->data_current[i * 4 + 3] << 24：
-//        这是当前字的第四个字节（最高有效字节）。左移24位，使其成为32位字中的第四个字节。
     }
+    //        ctx->data_current[i * 4 + 3] << 24：
+// C'est le quatrième octet du mot actuel (octet le plus significatif).
+// Il est déplacé de 24 bits vers la gauche pour devenir le quatrième octet dans un mot de 32 bits.
 
-    // 初始化哈希值
+    // initialisation de la valeur hachage
     a = ctx->buffer[0];
     b = ctx->buffer[1];
     c = ctx->buffer[2];
     d = ctx->buffer[3];
 
-    // 主循环
+    // main loop
     for (i = 0; i < 64; i++) {
         if (i < 16) {
             f = (b & c) | (~b & d);
@@ -115,7 +117,7 @@ void md5_MainLoop(MD5Context *ctx) {
         a = temp;
     }
 
-// 将这一块的结果加到当前的哈希值中
+// concatenation de val hachage
     ctx->buffer[0] += a;
     ctx->buffer[1] += b;
     ctx->buffer[2] += c;
@@ -126,18 +128,18 @@ void md5_MainLoop(MD5Context *ctx) {
 //Découpage en blocs de 512 bits :
 void md5_DecouperMessage(uint8_t *paddedMessage, size_t paddedMessageLen, MD5Context *ctx) {
     for (size_t offset = 0; offset < paddedMessageLen; offset += 64) {
-        // 遍历填充后的消息，每次处理64字节（512位）的数据块
-        // ctx->input：MD5上下文中用于存储当前处理块的数组
-        // paddedMessage + offset：指向填充消息中当前处理块的起始位置
-        // 64：每次复制64字节的数据
+        // Parcours de la message rempli, traitant chaque bloc de données de 64 octets (512 bits) à chaque fois.
+// ctx->input : un tableau dans le contexte MD5 utilisé pour stocker le bloc actuellement traité.
+// paddedMessage + offset : pointe vers le début du bloc actuellement traité dans le message rempli.
+// 64 : copie 64 octets de données à chaque fois.
         memcpy(ctx->data_current, paddedMessage + offset, 64);
         md5_MainLoop(ctx);
     }
 }
 
 void md5_Final(MD5Context *ctx) {
-    // 将 h0, h1, h2, h3 按小端格式拼接到 res 中
-    for (int i = 0; i < 4; i++) {//8*4=32位 32*4=128位的哈希值
+    // Concatène h0, h1, h2, h3 dans res en utilisant le format little-endian.
+    for (int i = 0; i < 4; i++) {//8*4=32bit 32*4=128bit val hachage
         ctx->res[i * 4] = (uint8_t)(ctx->buffer[i] & 0xFF);
         ctx->res[i * 4 + 1] = (uint8_t)((ctx->buffer[i] >> 8) & 0xFF);
         ctx->res[i * 4 + 2] = (uint8_t)((ctx->buffer[i] >> 16) & 0xFF);
@@ -150,10 +152,10 @@ void md5(const uint8_t *message, size_t messageLen,uint8_t *res){
     uint8_t *paddedMessage;
     size_t paddedMessageLen;
 
-    // 初始化MD5上下文
+    // initialisation context MD5
     md5_context_Init(&ctx);
 
-    // 计算填充后的消息长度（必须是64字节的倍数）
+    // Calcule la longueur du message rempli (doit être un multiple de 64 octets).
     paddedMessageLen = ((messageLen + 8) / 64 + 1) * 64;
     paddedMessage = malloc(paddedMessageLen);
     if (paddedMessage == NULL) {
@@ -161,20 +163,20 @@ void md5(const uint8_t *message, size_t messageLen,uint8_t *res){
         exit(1);
     }
 
-    // 复制原始消息到新分配的内存并进行填充
+    // Copie le message d'origine dans une mémoire nouvellement allouée et le remplit.
     memcpy(paddedMessage, message, messageLen);
     md5_PadMessage(paddedMessage, messageLen, messageLen);
 
-    // 处理每个64字节的分块消息
+    // Traite chaque bloc de message de 64 octets (512 bits).
     md5_DecouperMessage(paddedMessage, paddedMessageLen, &ctx);
 
-    // 将最终的哈希值拼接成128位的结果
+    // Concatène les valeurs finales de hachage pour obtenir un résultat de 128 bits.
     md5_Final(&ctx);
 
-    // 复制结果到提供的res数组
+    // copie resultat
     memcpy(res, ctx.res, 16);
 
-    // 释放分配的内存
+    // free memoire
     free(paddedMessage);
 }
 //Q6
@@ -188,21 +190,21 @@ void convertTextToHachage(const char *inputPath, const char *outputPath) {
     FILE *outputFile = fopen(outputPath, "w");
     if (outputFile == NULL) {
         perror("Error opening output file");
-        fclose(inputFile); // 先关闭已打开的输入文件
+        fclose(inputFile); // Commence par fermer le fichier d'entrée qui était ouvert précédemment.
         exit(EXIT_FAILURE);
     }
 
-    char word[256]; // 假设单词不超过255字符
-    uint8_t result[16]; // MD5哈希值大小
+    char word[256]; // Suppose que les mots ne dépassent pas 255 caractères.
+    uint8_t result[16];
 
-    while (fscanf(inputFile, "%255s", word) != EOF) { // 读取每个单词
+    while (fscanf(inputFile, "%255s", word) != EOF) { // Lit chaque mot.
         md5((uint8_t *)word, strlen(word), result);
 
-        // 将哈希值写入到输出文件
+        // Écrit la valeur de hachage dans le fichier de sortie.
         for (int i = 0; i < 16; ++i) {
-            fprintf(outputFile, "%02x", result[i]); // 将哈希值以十六进制形式写入
+            fprintf(outputFile, "%02x", result[i]); // Écrit la valeur de hachage en format hexadécimal.
         }
-        fprintf(outputFile, "\n"); // 每个哈希值后换行
+        fprintf(outputFile, "\n"); // Ajoute un saut de ligne après chaque valeur de hachage.
     }
 
     fclose(inputFile);
@@ -223,18 +225,18 @@ void convertFilesInFolder(const char *inputFolder, const char *outputFolder) {
 
     while ((entry = readdir(dir)) != NULL) {
         if (strcmp(entry->d_name, ".") == 0 || strcmp(entry->d_name, "..") == 0) {
-            continue; // 忽略当前目录和上级目录的条目
+            continue; // Ignore les entrées pour le répertoire actuel (".") et le répertoire parent ("..").
         }
 
-        // 构建完整的文件路径
+        // Construit le chemin complet du fichier.
         sprintf(inputPath, "%s/%s", inputFolder, entry->d_name);
 
-        // 检查是否为普通文件
+        // Vérifie si c'est un fichier ordinaire.
         if (entry->d_type == DT_REG) {
-            // 构建输出文件的路径
+            // construire le path
             sprintf(outputPath, "%s/%s", outputFolder, entry->d_name);
 
-            // 转换文件
+            // convert fichier
             convertTextToHachage(inputPath, outputPath);
         }
     }

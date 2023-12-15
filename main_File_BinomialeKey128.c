@@ -11,7 +11,7 @@ Key128 createKey128(unsigned int part1, unsigned int part2, unsigned int part3, 
     key.part4 = part4;
     return key;
 }
-// 创建一个含有单个元素的二项树
+// Créez un arbre binaire avec un seul élément.
 Tournoi *createSingleItemTournoi(Key128 data) {
     Tournoi* t = malloc(sizeof(Tournoi));
     ArbreBinomialeNode *node = malloc(sizeof(ArbreBinomialeNode));
@@ -24,7 +24,7 @@ Tournoi *createSingleItemTournoi(Key128 data) {
 }
 
 int main() {
-    // 打印转换结果
+    // print
 //    printf("Key1: part1:%x + part2:%x + part3:%x + part4:%x\n", key1.part1, key1.part2, key1.part3, key1.part4);
     Key128 data5 = createKey128(5, 0, 0, 0);
     Key128 data10 = createKey128(10, 0, 0, 0);
@@ -41,7 +41,7 @@ int main() {
     Tournoi* t4 = createSingleItemTournoi(data15);
     Tournoi* t5 = createSingleItemTournoi(data20);
     Tournoi* t6 = Union2Tid(t4,t5);
-    //t7:2个child 4个节点，
+    //t7:2个child 4 noeuds，
     Tournoi* t7 = Union2Tid(t3,t6);
     int degre = Degre(t3);
     Key128 val_racine = t3->racine->data;
