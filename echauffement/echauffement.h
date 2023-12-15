@@ -13,7 +13,7 @@
 /*************************************************/
 /*          definition type change bit           */
 /*************************************************/
-//使用四个32位的整数（unsigned int）来模拟128位的整数。每个unsigned int占32位，四个加起来就是128位。
+//une clé de 128 bits est divisée en 4 parties dont chacune contient 32 bits.
 typedef struct {
     unsigned int part1;
     unsigned int part2;
@@ -37,7 +37,7 @@ bool eg(Key128 key1, Key128 key2);
 Key128 hexTokey128(const char* hex);
 void convertHexToKey128(const char *inputFile, const char *outputFile);
 void convertAllFilesInFolder(const char *inputFolder, const char *outputFolder);
-//从文件创建数组
+//
 Key128* buildArrayFromFile(const char* filename, int* size);
 Key128* resizeArray(Key128* array, int newSize);
 Key128* processFile(const char* filename, int* size);

@@ -41,12 +41,12 @@ HP * SupprMin(HP * minHp){
     while (fG < minHp->size) {
         int smallerChild = fG;
 
-        //if (fD < minHp->size && minHp->a[fD] < minHp->a[fG]) {
+
         if (fD < minHp->size && inf(minHp->a[fD],minHp->a[fG])) {
             smallerChild = fD;
         }
 
-        //if (minHp->a[parent] > minHp->a[smallerChild]) {
+
         if (inf(minHp->a[smallerChild],minHp->a[parent])) {
             HPDataType temp = minHp->a[parent];
             minHp->a[parent] = minHp->a[smallerChild];
@@ -66,10 +66,10 @@ HP * SupprMin(HP * minHp){
 HP * Ajout(HP* minHp, Key128 x)
 {
     assert(minHp);
-    if (minHp->size == minHp->capacity)//扩容
+    if (minHp->size == minHp->capacity)//l'augmentation de la capacité
     {
         int newcapacity = minHp->capacity == 0 ? 4 : minHp->capacity * 2;
-        //realloc扩容
+
         HPDataType* tmp = (HPDataType*)realloc(minHp->a, sizeof(HPDataType) * newcapacity);
         if (tmp == NULL)
         {
@@ -86,12 +86,12 @@ HP * Ajout(HP* minHp, Key128 x)
 
     while (fils > 0 ) {
         if( inf(minHp->a[fils],minHp->a[parent])){
-            // 交换 fils 和 parent 的值
+            // change
             Key128 temp = minHp->a[fils];
             minHp->a[fils] = minHp->a[parent];
             minHp->a[parent] = temp;
 
-            // 更新 fils 和 parent 的索引
+            // update
             fils = parent;
             parent = (fils - 1) / 2;
         } else{
@@ -111,7 +111,7 @@ HP *AjoutsIteratifs(HP *minHp, Key128* keys, int n) {
     return minHp;
 }
 
-// 堆的下沉调整操作
+// Opération de réajustement descendant du tas
 void remonte(HP* minHp, int index) {
     int smallest = index;
     int left = 2 * index + 1;
@@ -136,32 +136,31 @@ void remonte(HP* minHp, int index) {
 void Construction(HP **minHp, Key128* keys, int n) {
     *minHp = (HP*)malloc(sizeof(HP));
     if (*minHp == NULL) {
-        exit(-1); // 内存分配失败
+        exit(-1); // erreur
     }
 
     HeapInit(*minHp);
     (*minHp)->a = (HPDataType*)malloc(sizeof(HPDataType) * n);
     if ((*minHp)->a == NULL) {
-        exit(-1); // 内存分配失败
+        exit(-1); //
     }
     (*minHp)->capacity = n;
     (*minHp)->size = n;
-
+    //insere
     for (int i = 0; i < n; i++) {
         (*minHp)->a[i] = keys[i];
     }
 
-    // 开始从最后一个非叶子节点进行下沉调整
+    //remonter
     for (int i = (n - 2) / 2; i >= 0; i--) {
+        //descendant du tas
         remonte(*minHp, i);
     }
 }
 
 
 
-/*删
- * 复杂度计算
-*/
+
 
 HP *Union(HP *minHp1, HP *minHp2) {
 
@@ -191,7 +190,7 @@ HP *Union(HP *minHp1, HP *minHp2) {
         minHp->a[i + minHp1->size] = minHp2->a[i];
     }
 
-    // 从最后一个非叶子节点开始，向上进行下沉调整
+
     for (int i = (minHp->size - 2) / 2; i >= 0; i--) {
         remonte(minHp, i);
     }

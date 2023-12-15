@@ -30,21 +30,21 @@ bool eg(Key128 key1, Key128 key2) {
            key1.part3 == key2.part3 && key1.part4 == key2.part4;
 }
 //verifier
-//删，一个十六进制占4bit。32bit就是8个
+
 Key128 hexTokey128(const char* hex){
     Key128 key = {0, 0, 0, 0};
     char temp[9];
     size_t len=strlen(hex);
     if (len >= 2 && (hex[0] == '0') && (hex[1] == 'x' || hex[1] == 'X')) {
-        hex += 2; // 跳过前缀
-        len -= 2; // 调整长度
+        hex += 2; // ignorer le préfixe
+        len -= 2; // Ajuster la longueur
     }
     if (len > 32) {
         printf("more than 128bit\n");
         return key;
     }
     for(int i=0;i<4;i++){
-        //删，从第四位开始算4.3.2.1
+        //Comptage à partir de la quatrième position 4.3.2.1
         size_t start = len >= 8 * (i+1) ?len- 8 * (i + 1) : 0;
         size_t end = len > 8 * i ? len - 8 * i : 0;
         if (end > start) {
@@ -91,18 +91,18 @@ void convertAllFilesInFolder(const char *inputFolder, const char *outputFolder) 
     }
 
     while ((entry = readdir(dir)) != NULL) {
-        // 构建完整的文件路径
+        // Construire le chemin complet du fichier
         sprintf(inputPath, "%s/%s", inputFolder, entry->d_name);
 
-        // 尝试打开文件以检测是否为普通文件
+        //
         file = fopen(inputPath, "r");
         if (file) {
-            fclose(file); // 关闭文件，因为它将在 convertHexToKey128 中重新打开
+            fclose(file);
 
-            // 构建输出文件的路径
+            //Chemin du fichier de sortie
             sprintf(outputPath, "%s/%s", outputFolder, entry->d_name);
 
-            // 转换文件
+            //Convertir le fichier
             convertHexToKey128(inputPath, outputPath);
         }
     }
@@ -114,24 +114,12 @@ void convertAllFilesInFolder(const char *inputFolder, const char *outputFolder) 
 
 
 
-// 动态增加数组大小
+// Augmente dynamiquement la taille du tableau
 Key128* resizeArray(Key128* array, int newSize) {
     return (Key128*)realloc(array, newSize * sizeof(Key128));
 }
-/*Key128* buildArray(Key128 key,int *size){
-    Key128* array=NULL;
-    int count=0;
-    array = resizeArray(array, count + 1);
-    if (array == NULL) {
-        perror("Error reallocating memory");
-        return NULL;
-    }
-    &array[count]=key;
-    return array;
 
-}*/
-
-// 从文件中构建数组%x %x %x %x
+// Construire le tableau %x %x %x %x à partir du fichier
 Key128* buildArrayFromFile(const char* filename, int* size) {
     FILE *fp = fopen(filename, "r");
     char line[100];
@@ -160,13 +148,13 @@ Key128* buildArrayFromFile(const char* filename, int* size) {
     return array;
 }
 
-// 处理文件并返回数组
+// Traite le fichier et renvoie un tableau
 Key128* processFile(const char* filename, int* size) {
     return buildArrayFromFile(filename, size);
 }
 
 
-// 从文件中构建数组%%08x%08x%08x%08x
+// Construire le tableauà partir du fichier%08x%08x%08x%08x
 Key128* buildArrayFromFile1(const char* filename, int* size) {
     FILE *fp = fopen(filename, "r");
     char line[100];

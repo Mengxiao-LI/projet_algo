@@ -54,7 +54,7 @@ int insertLast(HPArb **tas, HPType data, int *parentID) {
             if (current->fG == NULL) {
                 current->fG = newNode;
                 *parentID = currentID;
-                free(queue);
+                freeQueue(queue);
                 return leftChildID; // 返回新插入节点的ID
             } else {
                 enqueue(queue, current->fG);
@@ -72,7 +72,7 @@ int insertLast(HPArb **tas, HPType data, int *parentID) {
             currentID++;
         }
 
-        free(queue);
+        freeQueue(queue);
         return -1; // 如果未找到空闲位置，返回-1表示错误
     }
 }
@@ -93,8 +93,8 @@ HPArb* findNode(HPArb* tas, int index) {
         HPArb* node = dequeue(queue);
 
         if (count == index) {
-            // 注意：在实际应用中，这里可能需要在返回之前释放队列
-            free(queue);
+
+            freeQueue(queue);
             return node;
         }
 
@@ -108,7 +108,7 @@ HPArb* findNode(HPArb* tas, int index) {
         count++;
     }
 
-    free(queue); // 释放队列资源
+    freeQueue(queue);
     return NULL; // 如果未找到指定索引的节点
 }
 
@@ -130,7 +130,7 @@ void remonter(HPArb **tas, int idlast) {
         HPArb* currentNode = findNode(*tas, i);
 
         if (parentNode == NULL || currentNode == NULL) {
-            printf("NO\n");
+
             return ; // 确保找到有效的节点
         }
 
@@ -174,29 +174,29 @@ int countNodes(HPArb* tas) {
         }
     }
 
-    free(queue);
+    freeQueue(queue);
     return count;
 }
 
 void deleteLastNode(HPArb **tas, int idlast){
     if (*tas == NULL || idlast <= 0) {
-        return; // 树为空或节点数不正确
+        return;
     }
 
     if (idlast == 1) {
-        free(*tas); // 只有一个节点，直接释放
+        free(*tas);
         *tas = NULL;
         return;
     }
 
-    int parentIndex = (idlast - 2) / 2; // 最后一个节点父节点的索引
-    HPArb* parentNode = findNode(*tas, parentIndex); // 查找父节点
+    int parentIndex = (idlast - 2) / 2;
+    HPArb* parentNode = findNode(*tas, parentIndex);
 
     if (parentNode->fD != NULL) {
-        free(parentNode->fD); // 释放右子节点
+        free(parentNode->fD);
         parentNode->fD = NULL;
     } else if (parentNode->fG != NULL) {
-        free(parentNode->fG); // 释放左子节点
+        free(parentNode->fG);
         parentNode->fG = NULL;
     }
 }
@@ -207,29 +207,29 @@ void desentre(HPArb *tas){
     while (tas->fG != NULL){
         HPArb* smallerChild = tas->fG;
         if (tas->fD != NULL && inf(tas->fD->data,tas->fG->data)  ) {
-            smallerChild = tas->fD; // 右子节点更小
+            smallerChild = tas->fD;
         }
 
         if ( inf(smallerChild->data,tas->data) ) {
-            change(tas, smallerChild); // 与较小的子节点交换
-            tas = smallerChild; // 继续下沉
+            change(tas, smallerChild);
+            tas = smallerChild;
         } else {
-            break; // 如果节点小于其子节点，下沉结束
+            break;
         }
     }
 
 }
 void supprMin(HPArb **tas) {
     if (*tas == NULL) {
-        return; // 堆为空，无法删除
+        return; // vide
     }
     int totalNodes = countNodes(*tas);
     HPArb* lastNode = findNode(*tas, totalNodes - 1);
 
-    // 将最后一个节点的数据复制到根节点
+    // Copiez les données du dernier nœud sur le nœud racine
     (*tas)->data = lastNode->data;
 
-    // 删除最后一个节点
+    // Supprimer le dernier nœud
     deleteLastNode(tas, totalNodes - 1);
 
     desentre(*tas);
@@ -239,26 +239,21 @@ void ajoutsIteratifs(HPArb **tas, Key128* keys, int n) {
         ajout(tas, keys[i]);
     }
 }
-//为了更快的每一次插入，我希望将插入到最后的时间改成o（1）,我们调用
-void ajoutsIteratifs1(HPArb **tas, Key128* keys, int n){
 
-}
 void afficheAb(const HPArb* arbre, int niveau) {
     if (arbre == NULL) {
         return;
     }
 
-    // 打印右子树，递归调用
     afficheAb(arbre->fD, niveau + 1);
 
-    // 打印当前节点
     for (int i = 0; i < niveau; i++) {
-        printf("           -         ");  // 缩进用于表示层级关系
+        printf("           -         ");
     }
 
     printf("%08x%08x%08x%08x\n ",arbre->data.part1, arbre->data.part2, arbre->data.part3, arbre->data.part4);
 
-    // 打印左子树，递归调用
+
     afficheAb(arbre->fG, niveau + 1);
 }
 
@@ -331,7 +326,7 @@ void createCAB1(HPArb** tas, HPType array[], int arrayLength, int* lastId, HPArb
     }
     *lastId = index - 1;
 
-    free(queue); // 释放队列资源
+    freeQueue(queue);;
 }
 
 void construction1(HPArb **tas, HPType array[], int arrayLength) {
@@ -345,39 +340,61 @@ void construction1(HPArb **tas, HPType array[], int arrayLength) {
     createCAB1(tas, array, arrayLength, &lastId, nodeRefs);
     remonte1( lastId + 1, nodeRefs);
 
-    free(nodeRefs); // 用完后释放内存
+    free(nodeRefs);
 }
-void treeToArray(HPArb* root, HPType* array, int arrayLength) {
-    if (root == NULL) return;
+HPType* treeToArray(HPArb* root, int* arrayLength) {
+    if (root == NULL) {
+        *arrayLength = 0;
+        return NULL;
+    }
+
+    int capacity = 5000;  // capacité initiale
+    HPType* array = (HPType*)malloc(capacity * sizeof(HPType));
+    if (!array) {
+        *arrayLength = 0;
+        return NULL;
+    }
 
     Queue* queue = createQueue();
     enqueue(queue, root);
 
-    int index = 0; // 用于追踪数组中的位置
+    int index = 0;
     while (queue->front != NULL) {
         HPArb* node = dequeue(queue);
-        array[index++] = node->data; // 将节点数据存入数组
+
+        // Expansion
+        if (index >= capacity) {
+            capacity *= 2;
+            HPType* temp = (HPType*)realloc(array, capacity * sizeof(HPType));
+            if (!temp) {
+                free(array);
+                free(queue);
+                *arrayLength = 0;
+                return NULL;
+            }
+            array = temp;
+        }
+
+        array[index++] = node->data;
 
         if (node->fG != NULL) enqueue(queue, node->fG);
         if (node->fD != NULL) enqueue(queue, node->fD);
     }
 
-    free(queue); // 释放队列资源
+    *arrayLength = index;
+
+    freeQueue(queue);
+    return array;
 }
 
 
 
-HPArb* UnionA(HPArb *tas1, HPArb *tas2){
-    int arrayLength1 = countNodes(tas1);  // 假设这个函数可以计算树中的节点数
-    int arrayLength2 = countNodes(tas2);  // 同上
-    HPType *array1 = (HPType*)malloc(arrayLength1 * sizeof(HPType));
-    HPType *array2 = (HPType*)malloc(arrayLength2 * sizeof(HPType));
+HPArb* UnionA(HPArb *tas1, HPArb *tas2) {
+    int arrayLength1, arrayLength2;
+    HPType *array1 = treeToArray(tas1, &arrayLength1);
+    HPType *array2 = treeToArray(tas2, &arrayLength2);
 
-    // 假设 treeToArray 函数可以将树转换为数组
-    treeToArray(tas1, array1,arrayLength1);
-    treeToArray(tas2, array2,arrayLength2);
-
-    // 合并两个数组
+    // Fusionner deux tableaux
     HPType *mergedArray = (HPType*)malloc((arrayLength1 + arrayLength2) * sizeof(HPType));
     memcpy(mergedArray, array1, arrayLength1 * sizeof(HPType));
     memcpy(mergedArray + arrayLength1, array2, arrayLength2 * sizeof(HPType));
@@ -387,21 +404,20 @@ HPArb* UnionA(HPArb *tas1, HPArb *tas2){
     initTasAB(&tas);
     construction1(&tas, mergedArray, arrayLength1 + arrayLength2);
 
-    // 清理
-
     free(mergedArray);
 
     return tas;
 }
+//Imprimez uniquement le plus à gauche
 void afficheGauche(HPArb* arbre) {
     if (arbre == NULL) {
-        return; // 如果节点为空，返回
+        return;
     }
 
-    // 打印当前节点的值
+
     printf("%08x%08x%08x%08x\n", arbre->data.part1, arbre->data.part2, arbre->data.part3, arbre->data.part4);
 
-    // 递归地打印左子节点
+
     afficheGauche(arbre->fG);
 }
 /*------------fin tas arbre-----------------*/

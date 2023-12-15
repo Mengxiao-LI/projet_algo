@@ -5,7 +5,7 @@
 ABR* CreateNode(Type data) {
     ABR *newNode = (ABR*)malloc(sizeof(ABR));
     if (newNode == NULL) {
-        // 处理内存分配失败的情况
+
         return NULL;
     }
     newNode->data = data;
@@ -13,7 +13,7 @@ ABR* CreateNode(Type data) {
     newNode->fD = NULL;
     return newNode;
 }
-//插入元素
+
 ABR* InsertNode(ABR* root, Type data) {
     if (root == NULL) {
         root = CreateNode(data);
@@ -52,13 +52,13 @@ bool estDans(ABR *root, Type data) {
 }
 void freeABR(ABR* root) {
     if (root == NULL) {
-        return; // 如果节点为空，没有什么要做的
+        return;
     }
 
-    // 递归地释放左子树和右子树
+
     freeABR(root->fG);
     freeABR(root->fD);
 
-    // 释放当前节点
+
     free(root);
 }

@@ -105,7 +105,7 @@ int main() {
         printf("Average execution time for %d keys: %ld microseconds\n", sizes[j], averageMicros);
     }*/
 
-      printf("Question2.8\n");
+/*      printf("Question2.8\n");
       printf("ajout arbre\n");
 
 
@@ -143,7 +143,7 @@ int main() {
 
           long averageMicros = totalMicros / num_tests;
           printf("Average execution time for %d keys: %ld microseconds\n", sizes[j], averageMicros);
-      }
+      }*/
 
 //Q2
 
@@ -189,8 +189,7 @@ int main() {
         printf("Average execution time for %d keys: %ld microseconds\n", sizes[j], averageMicros);
     }
 */
-/*
-    printf("Question2.8 last\n");
+/*    printf("Question2.8 last\n");
     printf("con arbre\n");
 
 
@@ -230,8 +229,8 @@ int main() {
 
 /*    printf("Union Tests tableau\n");
     const char* file_pattern1 = "../decode/jeu_1_nb_cles_%d.txt";
-    const char* file_pattern2 = "../decode/jeu_%d_nb_cles_%d.txt"; // 其他四个文件
-    const int num_tests = 5; // 测试次数
+    const char* file_pattern2 = "../decode/jeu_%d_nb_cles_%d.txt";
+    const int num_tests = 5;
     const int sizes[] = {1000, 5000, 10000, 20000, 50000, 80000, 120000, 200000};
     const int num_sizes = 8;
 
@@ -241,7 +240,7 @@ int main() {
         for (int i = 1; i < num_tests; i++) {
             char file_path1[1024], file_path2[1024];
             sprintf(file_path1, file_pattern1, sizes[j]);
-            sprintf(file_path2, file_pattern2, i + 1, sizes[j]); // 避免重复使用 jeu_1 文件
+            sprintf(file_path2, file_pattern2, i + 1, sizes[j]);
 
             int size1, size2;
             Key128* keys1 = processFile(file_path1, &size1);
@@ -254,7 +253,7 @@ int main() {
             struct timeval start, end;
             gettimeofday(&start, NULL);
 
-            // Union 操作
+
             HP *result = Union(m1, m2);
 
             gettimeofday(&end, NULL);
@@ -275,7 +274,7 @@ int main() {
         long averageMicros = totalMicros / 4;
         printf("Average execution time for %d keys: %ld microseconds\n", sizes[j], averageMicros);
     }*/
-  /*  printf("Union Tests arbre\n");
+    printf("Union Tests arbre\n");
     const char* file_pattern1 = "../decode/jeu_1_nb_cles_%d.txt";
     const char* file_pattern2 = "../decode/jeu_%d_nb_cles_%d.txt"; // 其他四个文件
     const int num_tests1 = 5; // 测试次数
@@ -305,7 +304,7 @@ int main() {
             struct timeval start, end;
             gettimeofday(&start, NULL);
 
-            // Union 操作
+
             HPArb* result= UnionA(tr1,tr2);
 
             gettimeofday(&end, NULL);
@@ -328,7 +327,6 @@ int main() {
         long averageMicros = totalMicros / 4;
         printf("Average execution time for %d keys: %ld microseconds\n", sizes1[j], averageMicros);
     }
-*/
 
     return 0;
 }

@@ -22,10 +22,13 @@ typedef struct HP
 void HeapInit(HP* minHp);
 void HeapDestroy(HP* minHp);
 void AfficheTasArray(HP *  minHp);
+//Q2.4
 HP * Ajout(HP * minHp,Key128 cle);
-HP *  SupprMin(HP * minHp);
+HP * SupprMin(HP * minHp);
 HP *AjoutsIteratifs(HP *minHp, Key128* keys, int n);
+//2.5
 void Construction(HP **minHp, Key128* keys, int n);
+//2.6
 HP * Union( HP * m1 , HP * m2);
 
 

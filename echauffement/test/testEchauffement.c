@@ -9,7 +9,7 @@
 
 
 
-#define MAX_LINE_LENGTH 200000 // 定义一个足够大的数以容纳一行中的所有字符
+#define MAX_LINE_LENGTH 200000
 
 char* getRandomLine(const char* filename) {
     FILE* file = fopen(filename, "r");
@@ -21,37 +21,37 @@ char* getRandomLine(const char* filename) {
     int lineCount = 0;
     char line[MAX_LINE_LENGTH];
 
-    // 计算文件中的总行数
+
     while (fgets(line, sizeof(line), file)) {
         lineCount++;
     }
 
     if (lineCount == 0) {
         fclose(file);
-        return NULL; // 文件为空
+        return NULL;
     }
 
-    // 生成一个随机行号
+
     srand(time(NULL));
     int randomLine = rand() % lineCount;
 
-    // 重新定位到文件开始
+
     fseek(file, 0, SEEK_SET);
 
-    // 读取到所选的行
+
     for (int i = 0; i <= randomLine; ++i) {
         if (!fgets(line, sizeof(line), file)) {
             fclose(file);
-            return NULL; // 读取失败
+            return NULL;
         }
     }
 
     fclose(file);
 
-    // 去除换行符
+
     line[strcspn(line, "\n")] = 0;
 
-    // 复制并返回所选行的内容，不包含换行符
+
     return strdup(line);
 }
 
@@ -69,7 +69,7 @@ char** getTwoRandomFiles() {
         return NULL;
     }
 
-    // 第一遍遍历，计算文件数量
+    // Premier passage, calcule le nombre de fichiers
     while ((entry = readdir(dir)) != NULL) {
 
             count++;
@@ -89,7 +89,7 @@ char** getTwoRandomFiles() {
         randomIndex2 = rand() % count;
     } while (randomIndex1 == randomIndex2);
 
-    // 第二遍遍历，获取随机文件名称
+    //Deuxième parcours pour obtenir des noms de fichiers aléatoires
     rewinddir(dir);
     count = 0;
     while ((entry = readdir(dir)) != NULL) {

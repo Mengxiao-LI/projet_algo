@@ -7,7 +7,7 @@ Queue* createQueue() {
     return q;
 }
 
-// 入队操作
+
 void enqueue(Queue* q, HPArb* data) {
     QueueNode* newNode = (QueueNode*)malloc(sizeof(QueueNode));
     newNode->data = data;
@@ -20,17 +20,31 @@ void enqueue(Queue* q, HPArb* data) {
     }
 }
 
-// 出队操作
+
 HPArb * dequeue(Queue* q) {
     if (q->front == NULL) {
-        return NULL; // 队列为空
+        return NULL;
     }
     HPArb* data = q->front->data;
     QueueNode* temp = q->front;
     q->front = q->front->next;
     free(temp);
     if (q->front == NULL) {
-        q->rear = NULL; // 队列已空
+        q->rear = NULL;
     }
     return data;
+}
+void freeQueue(Queue* q) {
+    if (q == NULL) {
+        return;
+    }
+
+    QueueNode* current = q->front;
+    while (current != NULL) {
+        QueueNode* temp = current;
+        current = current->next;
+        free(temp);
+    }
+
+    free(q);
 }

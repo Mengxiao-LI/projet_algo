@@ -7,7 +7,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "list.h"
+
 #include "../echauffement/echauffement.h"
 
 
@@ -21,18 +21,16 @@ typedef struct HPArb {
 
 void initTasAB(HPArb**tas);
 HPArb* nouveauNoeud(HPType data);
-
+//2.4
 void ajout(HPArb **tas,HPType data);
-void afficheAb(const HPArb* arbre, int niveau);
-int countNodes(HPArb* root);
 void supprMin(HPArb **tas);
 void ajoutsIteratifs(HPArb **tas, Key128* keys, int n);
-void afficheGauche(HPArb* arbre);
-
+//2.5
 HPArb* UnionA(HPArb *tas1, HPArb *tas2);
-
+//2.6
 void construction1(HPArb **tas, HPType array[], int arrayLength);
 
 void freeTree(HPArb* root);
-
+void afficheAb(const HPArb* arbre, int niveau);
+void afficheGauche(HPArb* arbre);
 #endif //PROJET_MENGXIAO_ZHENGDAO_TASARBRE_H

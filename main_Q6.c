@@ -78,7 +78,7 @@ int main() {
 
     long seconds,micros;
     struct timeval start, end;
-    ////////arbre 这下面是可以删
+    ////////
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     printf("-----------Q6.3-----------\n");
     printf("--test 6.3---");
@@ -159,6 +159,7 @@ int main() {
     freeTree(tr3);
     freeTree(tr2);
     //free(array);
+/*
     printf("-----------Q6.3 tableau-----------\n");
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -243,6 +244,7 @@ int main() {
     HeapDestroy(hp2);
     HeapDestroy(hp3);
     HeapDestroy(hpUnion);
+*/
 
     free(array);
     return 0;

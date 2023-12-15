@@ -23,4 +23,6 @@ typedef struct Queue {
 Queue* createQueue();
 void enqueue(Queue* q, HPArb* data);
 HPArb * dequeue(Queue* q);
+void freeQueue(Queue* q);
+
 #endif //PROJET_MENGXIAO_ZHENGDAO_QUEUE_H
