@@ -3,26 +3,26 @@
 //#include <intrin.h>
 #include "echauffement/echauffement.h"
 #include "echauffement/test/testEchauffement.h"
-#include "tas/list.h"
+
 #include "tas/tas.h"
 
 
 
 int main() {
     printf("Question1\n");
-    //从随机两个文件里取两个数
-    char** randomFiles = getTwoRandomFiles();
+    //Obtenez deux nombres à partir de deux fichiers aléatoires
+    char **randomFiles = getTwoRandomFiles();
     char fullPath1[1024];
     char fullPath2[1024];
-    const char* basePath = "../cles_alea/";
+    const char *basePath = "../cles_alea/";
     if (randomFiles != NULL) {
         printf("From:\n");
 
         printf("file1: %s\n", randomFiles[0]);
         printf("file2 2: %s\n", randomFiles[1]);
 
-        char* file1 = randomFiles[0];
-        char* file2 = randomFiles[1];
+        char *file1 = randomFiles[0];
+        char *file2 = randomFiles[1];
 
         strcpy(fullPath1, basePath);
         strcat(fullPath1, file1);
@@ -38,8 +38,8 @@ int main() {
     }
 
 
-    char* hexStr1 = getRandomLine(fullPath1);
-    char* hexStr2 = getRandomLine(fullPath2);
+    char *hexStr1 = getRandomLine(fullPath1);
+    char *hexStr2 = getRandomLine(fullPath2);
 
     if (hexStr1 != NULL && hexStr2 != NULL) {
         printf("hexadecimal1 is: %s\n", hexStr1);
@@ -56,13 +56,13 @@ int main() {
         //测试算法
         if (inf(key1, key2)) {
             printf("Key1 is less than Key2\n");
-        }else{
+        } else {
             printf("Key1 is more than Key2\n");
         }
 
         if (eg(key1, key2)) {
             printf("Key1 is equal to Key2\n");
-        }else{
+        } else {
             printf("Key1 is not equal to Key2\n");
         }
 
@@ -70,8 +70,6 @@ int main() {
         free(hexStr2);
     }
     convertHexToKey128("../cles_alea/jeu_1_nb_cles_1000.txt", "../decode/output.txt");
-    convertAllFilesInFolder("../cles_alea", "../decode");
-
-
+    //convertAllFilesInFolder("../cles_alea", "../decode");
     return 0;
 }
