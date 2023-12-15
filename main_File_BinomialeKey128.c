@@ -11,17 +11,8 @@ Key128 createKey128(unsigned int part1, unsigned int part2, unsigned int part3, 
     key.part4 = part4;
     return key;
 }
-// Créez un arbre binaire avec un seul élément.
-Tournoi *createSingleItemTournoi(Key128 data) {
-    Tournoi* t = malloc(sizeof(Tournoi));
-    ArbreBinomialeNode *node = malloc(sizeof(ArbreBinomialeNode));
-    node->data = data;
-    node->child = NULL;
-    node->frere = NULL;
-    node->parent = NULL;
-    t->racine = node;
-    return t;
-}
+
+
 
 int main() {
     // print
